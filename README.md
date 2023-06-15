@@ -1,6 +1,6 @@
 # E114_Eumyurato
 
-### Spring boot를 활용한 버스킹/소규모 공연과 지역축제 위치 기반 정보 서비스 및 티켓팅/결제 기능 구현
+### Spring boot를 활용한 버스킹/소규모 공연과 지역축제 위치 기반 정보 서비스 및 티켓팅/결제 기능 구현/민취
 
 ![image](https://github.com/bomin1996/E114_Eumyurato/assets/126555995/61a14e01-7142-4c95-9ecb-5aa58fe47c03)
 
