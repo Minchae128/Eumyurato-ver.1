@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--begin::Global Stylesheets Bundle(used by all pages)-->
-    <link th:href="@{/css/plugins_bundle.css}" rel="stylesheet" type="text/css" />
-    <link th:href="@{/css/style_bundle.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/else/plugins_bundle.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/else/style_bundle.css}" rel="stylesheet" type="text/css" />
     <link th:href="@{/css/map/map.css}" rel="stylesheet" type="text/css" />
     <!--end::Global Stylesheets Bundle-->
     <title>EUMYURATO :: MAP</title>
@@ -105,12 +105,12 @@
 </script>
 
 <!--begin::Global Javascript Bundle(used by all pages)-->
-<script th:src="@{/js/plugins_bundle.js}"></script>
-<script th:src="@{/js/scripts_bundle.js}"></script>
+<script th:src="@{/js/else/plugins_bundle.js}"></script>
+<script th:src="@{/js/else/scripts_bundle.js}"></script>
 <!--end::Global Javascript Bundle-->
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8e0cac0abc5f71a7357818037fc4b48c&libraries=services"></script>
-<script th:src="@{/js/map/concertMap.js}"></script>
+<script th:src="@{/js/map/map.js}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jwt-decode/2.2.0/jwt-decode.min.js"></script>
 </body>
 </html>
