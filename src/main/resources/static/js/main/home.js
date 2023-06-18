@@ -106,8 +106,8 @@ fetch('/top5artists', {
 
             //이미지
             const img = document.createElement('img')
-            img.style.width = '130px';
-            img.style.height = '160px';
+            img.style.width = '150px';
+            img.style.height = '150px';
             const imgUrl = artist.image;
             const replacedImgUrl = 'https://storage.googleapis.com/eumyurato/' + imgUrl;
 
@@ -160,8 +160,8 @@ fetch('/top5concert', {
 
             //이미지
             const img = document.createElement('img');
-            img.style.width = '130px';
-            img.style.height = '160px';
+            img.style.width = '150px';
+            img.style.height = '150px';
             const imgUrl = concert.image;
             const replacedImgUrl = 'https://storage.googleapis.com/eumyurato/' + imgUrl;
 
