@@ -139,7 +139,7 @@ function buskingRegister() {
         contentType: false,
         success: function() {
             alert('버스킹 등록 성공');
-            window.location.href = '/profile/artist/management/view';
+            window.location.href = '../../../templates/profile/artist/management/view';
         },
         error: function(jqXHR, textStatus, errorThrown) {
             console.log(textStatus + ': ' + errorThrown);

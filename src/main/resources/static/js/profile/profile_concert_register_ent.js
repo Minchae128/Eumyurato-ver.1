@@ -183,7 +183,7 @@ function concertRegister() {
         contentType: false,
         success: function() {
             alert('공연등록 성공');
-            window.location.href = '/profile/ent/management/view';
+            window.location.href = '../../../templates/profile/ent/management/view';
         },
         error: function(jqXHR, textStatus, errorThrown) {
             console.log(textStatus + ': ' + errorThrown);

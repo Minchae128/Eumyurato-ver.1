@@ -36,7 +36,7 @@ function setCommonMemberSearch() {
 
 function resetCommonMemberList() {
     document.querySelector('form[action="/profile/admin/total/commSearch"]').reset();
-    window.location.href = '/profile/admin/total';
+    window.location.href = '../../../templates/profile/admin/total';
 };
 
 function setArtMemberSearch() {
@@ -52,7 +52,7 @@ function setArtMemberSearch() {
 
 function resetArtMemberList() {
     document.querySelector('form[action="/profile/admin/total/artSearch"]').reset();
-    window.location.href = '/profile/admin/total';
+    window.location.href = '../../../templates/profile/admin/total';
 };
 
 
@@ -70,7 +70,7 @@ function setEntMemberSearch() {
 
 function resetEntMemberList() {
     document.querySelector('form[action="/profile/admin/total/entSearch"]').reset();
-    window.location.href = '/profile/admin/total';
+    window.location.href = '../../../templates/profile/admin/total';
 };
 
 document.getElementById("showCommons").addEventListener("click", function() {
