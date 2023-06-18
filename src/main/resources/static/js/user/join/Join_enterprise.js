@@ -235,7 +235,7 @@ joinButton.addEventListener('click', async function (e) {
             // 회원가입 성공 시 모달 팝업 띄우기
             $('#result_modal').modal('show');
             setTimeout(function () {
-                window.location.href = "/loginjoin/enterprise/login";
+                window.location.href = "../../../templates/user/enterprise/login";
             }, 3000); // 3초 후 로그인 페이지로 이동
         } else {
             // 회원가입 실패 시 모달 팝업 띄우기

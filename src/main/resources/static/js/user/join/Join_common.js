@@ -249,7 +249,20 @@
             }
         });
 
-        // 장르 라디오 버튼 유효성 검사
+        // 유입 경로 라디오 버튼 유효성 검사
+        const roadRadio = document.querySelectorAll('input[name="road"]');
+        const roadRadioCheck = document.getElementById('roadRadio_check');
+
+        form.addEventListener('submit', function (event) {
+            if (!roadRadio[0].checked && !roadRadio[1].checked && !roadRadio[2].checked && !roadRadio[3].checked) {
+                roadRadioCheck.style.display = 'block';
+                event.preventDefault();
+            } else {
+                roadRadioCheck.style.display = 'none';
+            }
+        }, false);
+
+        // 선호 장르 라디오 버튼 유효성 검사
         const genreRadio = document.querySelectorAll('input[name="genre"]');
         const genreRadioCheck = document.getElementById('genreRadio_check');
 
@@ -294,7 +307,7 @@ joinButton.addEventListener('click', async function (e) {
     const formData = new FormData(form);
 
     try {
-        const response = await fetch('/loginjoin/artist/join', {
+        const response = await fetch('/loginjoin/common/join', {
             method: 'POST',
             body: formData
         });
@@ -303,7 +316,7 @@ joinButton.addEventListener('click', async function (e) {
             // 회원가입 성공 시 모달 팝업 띄우기
             $('#result_modal').modal('show');
             setTimeout(function () {
-                window.location.href = "/loginjoin/artist/login";
+                window.location.href = "../../../templates/user/common/login";
             }, 3000); // 3초 후 로그인 페이지로 이동
         } else {
             // 회원가입 실패 시 모달 팝업 띄우기
