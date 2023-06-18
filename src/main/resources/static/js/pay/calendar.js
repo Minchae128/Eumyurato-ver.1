@@ -172,7 +172,7 @@ selectSeat.addEventListener('click', () => {
 
     const jwtToken = window.sessionStorage.getItem("jwtToken");
     if (jwtToken !== null) {
-        window.location.href = `/smallconcert/detail/${id}/calendar/${selectedDate}`;
+        window.location.href = `../../../templates/detailView/${id}/calendar/${selectedDate}`;
     }else {
         alert("로그인 후 이용해주세요.");
     }
