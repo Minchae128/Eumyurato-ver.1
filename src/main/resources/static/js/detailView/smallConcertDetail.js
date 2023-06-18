@@ -147,7 +147,7 @@ const reservation = document.querySelector('#reservation');
 reservation.addEventListener('click', () => {
     const jwtToken = window.sessionStorage.getItem("jwtToken");
     if (jwtToken !== null) {
-        window.location.href = `/smallconcert/detail/${id}/calendar`;
+        window.location.href = `../../../templates/detailView/${id}/calendar`;
     }else {
         alert("로그인 후 이용해주세요.");
     }

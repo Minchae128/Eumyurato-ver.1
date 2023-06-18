@@ -145,7 +145,7 @@ const donation = document.querySelector('#donation');
 donation.addEventListener('click', () => {
     const token = sessionStorage.getItem("jwtToken");
     if (token !== null) {
-    window.location.href = `/busking/detail/${id}/donation`;
+    window.location.href = `../../../templates/detailView/${id}/donation`;
     }else {
         alert("로그인 후 이용해주세요.");
     }
