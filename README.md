@@ -36,22 +36,7 @@
 - 아티스트 후원 및 소규모 공연 예매 서비스
 - KakaoPay를 이용한 결제 서비스
 - 마이페이지 회원 및 공연 정보 조회, 통계 정보
-
-🔗 권한관리: [https://youtu.be/2yc33skTdFw](https://youtu.be/2yc33skTdFw)
-
-🔗 유해상품: [https://youtu.be/cr3zbbF5774](https://youtu.be/cr3zbbF5774)
-
-🔗 거래평가: [https://youtu.be/0d5YHgXblKQ](https://youtu.be/0d5YHgXblKQ)
-
-🔗 채팅필터링: [https://youtu.be/UackI0HQokM](https://youtu.be/UackI0HQokM)
-
-🔗 차단: [https://youtu.be/Ow_irM2oB28](https://youtu.be/Ow_irM2oB28)
-
-🔗 알림: [https://youtu.be/QZVVTugBYwk](https://youtu.be/QZVVTugBYwk)
-
-🔗 이메일: [https://youtu.be/lrIIvCNdqro](https://youtu.be/lrIIvCNdqro)
-
-
+  
 ## :pushpin: 구조도
 
 ## ****♟****UI설계
