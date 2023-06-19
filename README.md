@@ -20,7 +20,8 @@
 
 ## ****👥**** 팀원 구성
 ![image](https://github.com/Minchae128/Eumyurato/assets/122027566/e3e5c1cd-d9c6-46f0-aa8e-2170305b2a6a)
-<img src="https://github.com/Minchae128/Eumyurato/assets/122027566/a4e6c133-cd93-462a-be64-de1ebafbfe78" width= 80%/>
+<br>
+<img src="https://github.com/Minchae128/Eumyurato/assets/122027566/a4e6c133-cd93-462a-be64-de1ebafbfe78" width= 90%/>
 
 ---
 
