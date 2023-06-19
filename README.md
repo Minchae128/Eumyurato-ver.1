@@ -1,15 +1,21 @@
 # 🎶 음유라토(Eumyurato)
 <img src="https://github.com/Minchae128/Eumyurato/assets/122027566/933d6858-e8a0-434c-b618-edf2a9cf8fa3" width="250" height="250"/>
 
-🔗 서비스 URL : https://imint.yukenet.wo.tc/ <br/>
-🔗 팀 노션페이지: https://night-hydrangea-f7d.notion.site/iMint-8268bf915a6f409e8008c60e83b4c9f7
+🔗 서비스 URL : http://www.eumyurato.site/home <br/>
+🔗 시연 영상 : <br>
 
 ## ****🗂**** 개요
 
 - 멀티캠퍼스 백엔드 개발자 취업캠프(Java) 과정의 팀 프로젝트로 진행한 음유라토입니다.
-- 음유라토 서비스는 아이들의 안전에 초점을 맞춘 지역기반 중고 거래 웹사이트입니다.
-- 음유라토에서 아이는 보호자와 연동을 마치면 상품 등록과 거래에 참여할 수 있습니다.
-- 음유라토에서 보호자는 연동된 모든 아이들의 활동현황(상품별 거래 상태, 채팅내역, 차단목록)을 웹페이지 내 알림, 메일 알림을 통해 실시간으로 확인할 수 있습니다.
+- 음유라토 서비스는 다양한 소규모 공연과 버스킹의 정보를 제공하여 예술과 문화를 즐길 수 있는 웹사이트입니다.
+- 음유라토에서 일반회원은 공연 정보와 지역축제의 일정 및 위치를 알수 있으며, 소규모공연 예매 및 티켓팅과 더불어
+  <br>
+  아티스트회원에게 후원을 할 수 있습니다.
+- 음유라토에서 아티스트회원은 공연등록 기능 및 일반사용자들에게 후원을 받을 수 있습니다.
+- 음유라토에서 기업회원은 소규모 공연을 등록할 수 있으며, 등록한 공연에 대한 일반회원 예약 내역을 관리할 수 있습니다.
+- 음유라토에서 관리자는 등록된 모든 회원들의 정보를 조회, 관리할 수 있으며,
+  <br>
+  회원들의 선호장르 및 유입경로에 대한 정보를 차트를 통해 볼 수 있습니다.
 
 ## ****👊**** 기획의도
 ![image](https://github.com/Minchae128/Eumyurato/assets/122027566/699ec72c-7372-4df0-93ae-e7634d4443a0)
@@ -17,8 +23,7 @@
 ## ****👥**** 팀원 구성
 ![image](https://github.com/Minchae128/Eumyurato/assets/122027566/e3e5c1cd-d9c6-46f0-aa8e-2170305b2a6a)
 
-![image](https://github.com/bomin1996/E114_Eumyurato/assets/126555995/b3ac4bcb-f943-49c7-9841-a9f03c8976f8)
-
+![image](https://github.com/Minchae128/Eumyurato/assets/122027566/a4e6c133-cd93-462a-be64-de1ebafbfe78)
 
 ---
 
@@ -27,7 +32,13 @@
 
 ![image](https://github.com/bomin1996/E114_Eumyurato/assets/121412330/f0373202-1a25-433b-96a5-bd435d275c2d)
 
-## :pushpin: 개발환경
+## ⚙️ 개발 환경
+
+#### [개발 기간]
+-   2023-04-05 ~ 2023-05-15
+
+#### [개발 환경]
+-   Intellij
 <img src="https://github.com/Minchae128/Eumyurato/assets/122027566/fc2e2f89-46e3-4bb9-ad3a-c7bb53699158" width="70%">
 
 ## :pushpin: 주요기능
@@ -36,8 +47,6 @@
 - 아티스트 후원 및 소규모 공연 예매 서비스
 - KakaoPay를 이용한 결제 서비스
 - 마이페이지 회원 및 공연 정보 조회, 통계 정보
-  
-## :pushpin: 구조도
 
 ## ****♟****UI설계
 
