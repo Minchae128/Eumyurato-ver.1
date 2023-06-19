@@ -23,7 +23,10 @@
 <br>
 <img src="https://github.com/Minchae128/Eumyurato/assets/122027566/a4e6c133-cd93-462a-be64-de1ebafbfe78" width = 90%/>
 
+<br>
+
 ---
+
 <br>
 
 ## 🎼 음유라토(Eumyurato)
