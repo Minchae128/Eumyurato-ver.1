@@ -20,12 +20,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.ServletOutputStream;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.sound.midi.Soundbank;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.HashMap;
@@ -61,7 +59,7 @@ public class LoginJoinController {
 
     @GetMapping("/home")
     public ModelAndView getHomePage() {
-        ModelAndView mav = new ModelAndView("html/main/home");
+        ModelAndView mav = new ModelAndView("/home/home");
         mav.addObject("top5Artists", artistService.selectTop5Artists());
         return mav;
     }
@@ -81,10 +79,10 @@ public class LoginJoinController {
     @PostMapping("/profile")
     @ResponseBody
     public Map<String, String> profile(HttpServletRequest request) {
-        String commonURI = "/profile/common/account";
-        String artistURI = "/profile/artist/account";
-        String enterURI = "/profile/ent/account";
-        String adminURI = "/profile/admin/account";
+        String commonURI = "/templates/profile/common/account";
+        String artistURI = "/templates/profile/artist/account";
+        String enterURI = "/templates/profile/ent/account";
+        String adminURI = "/templates/profile/admin/account";
         String notloginURI = "/loginjoin/common/login";
 
         String URI = jwtUtils.authByRole(request, commonURI, artistURI, enterURI, adminURI);
@@ -103,7 +101,7 @@ public class LoginJoinController {
     //일반 로그인
     @GetMapping("/loginjoin/common/login")
     public String login() {
-        return "html/loginJoin/loginForm_common";
+        return "user/login/loginForm_common";
     }
 
     @PostMapping("/loginjoin/common/login-token")
@@ -127,7 +125,7 @@ public class LoginJoinController {
     //아티스트 로그인
     @GetMapping("/loginjoin/artist/login")
     public String login_art() {
-        return "html/loginJoin/loginForm_artist";
+        return "user/login/loginForm_artist";
     }
 
     @PostMapping("/loginjoin/artist/login-token")
@@ -154,7 +152,7 @@ public class LoginJoinController {
     //기업 로그인
     @GetMapping("/loginjoin/enterprise/login")
     public String login_enter() {
-        return "html/loginJoin/loginForm_enterprise";
+        return "user/login/loginForm_enterprise";
     }
 
     @PostMapping("/loginjoin/enterprise/login-token")
@@ -180,13 +178,13 @@ public class LoginJoinController {
     //회원가입
     @GetMapping("/loginjoin/joinchooes")
     public String joinchooes() {
-        return "html/loginJoin/joinChooes";
+        return "user/join/joinChooes";
     }
 
     //일반 회원가입
     @GetMapping("/loginjoin/common/join")
     public String commonJoin() {
-        return "html/loginJoin/joinForm_common";
+        return "user/join/joinForm_common";
     }
 
     @PostMapping("/loginjoin/common/join")
@@ -214,7 +212,7 @@ public class LoginJoinController {
     //아티스트 회원가입
     @GetMapping("/loginjoin/artist/join")
     public String artistJoin() {
-        return "html/loginJoin/joinForm_artist";
+        return "user/join/joinForm_artist";
     }
 
     @PostMapping("/loginjoin/artist/join")
@@ -242,7 +240,7 @@ public class LoginJoinController {
     //기업 회원 가입
     @GetMapping("/loginjoin/enterprise/join")
     public String enterpriseJoin() {
-        return "html/loginJoin/joinForm_enterprise";
+        return "user/join/joinForm_enterprise";
     }
 
     @PostMapping("/loginjoin/enterprise/join")
@@ -293,7 +291,7 @@ public class LoginJoinController {
     // 아이디 찾기
     @GetMapping("/loginjoin/Idfind")
     public String idfind() {
-        return "html/loginJoin/Idfind";
+        return "user/login/Idfind";
     }
 
     // 아이디 찾기 기능을 처리하는 메서드 추가
@@ -308,7 +306,7 @@ public class LoginJoinController {
     //비밀번호 찾기(임시번호 발급)
     @GetMapping("/loginjoin/Pwfind")
     public String Pwfind() {
-        return "html/loginJoin/pwfind";
+        return "user/login/pwfind";
     }
 
     @PostMapping("/loginjoin/Pwfind")
