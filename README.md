@@ -16,18 +16,18 @@
   회원들의 선호장르 및 유입경로에 대한 정보를 차트를 통해 볼 수 있습니다.
 
 ## ****👊**** 기획의도
-<img src="https://github.com/Minchae128/Eumyurato/assets/122027566/699ec72c-7372-4df0-93ae-e7634d4443a0" width= 80%/>
+<img src="https://github.com/Minchae128/Eumyurato/assets/122027566/699ec72c-7372-4df0-93ae-e7634d4443a0" width= 90%/>
 
 ## ****👥**** 팀원 구성
 ![image](https://github.com/Minchae128/Eumyurato/assets/122027566/e3e5c1cd-d9c6-46f0-aa8e-2170305b2a6a)
 <br>
-<img src="https://github.com/Minchae128/Eumyurato/assets/122027566/a4e6c133-cd93-462a-be64-de1ebafbfe78" width= 90%/>
+<center><img src="https://github.com/Minchae128/Eumyurato/assets/122027566/a4e6c133-cd93-462a-be64-de1ebafbfe78" width= 90%/></center>
 
 ---
 
 ## 🎼 음유라토(Eumyurato)
 ![image](https://github.com/bomin1996/E114_Eumyurato/assets/126555995/61a14e01-7142-4c95-9ecb-5aa58fe47c03)
-![image](https://github.com/bomin1996/E114_Eumyurato/assets/121412330/f0373202-1a25-433b-96a5-bd435d275c2d)
+<center>![image](https://github.com/bomin1996/E114_Eumyurato/assets/121412330/f0373202-1a25-433b-96a5-bd435d275c2d)</center>
 
 ## ⚙️ 개발 환경
 
