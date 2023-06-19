@@ -18,18 +18,16 @@
   회원들의 선호장르 및 유입경로에 대한 정보를 차트를 통해 볼 수 있습니다.
 
 ## ****👊**** 기획의도
-![image](https://github.com/Minchae128/Eumyurato/assets/122027566/699ec72c-7372-4df0-93ae-e7634d4443a0)
+<img src="https://github.com/Minchae128/Eumyurato/assets/122027566/699ec72c-7372-4df0-93ae-e7634d4443a0" width= 80%/>
 
 ## ****👥**** 팀원 구성
 ![image](https://github.com/Minchae128/Eumyurato/assets/122027566/e3e5c1cd-d9c6-46f0-aa8e-2170305b2a6a)
-
-![image](https://github.com/Minchae128/Eumyurato/assets/122027566/a4e6c133-cd93-462a-be64-de1ebafbfe78)
+<img src="https://github.com/Minchae128/Eumyurato/assets/122027566/a4e6c133-cd93-462a-be64-de1ebafbfe78" width= 80%/>
 
 ---
 
 ## 🎼 음유라토(Eumyurato)
 ![image](https://github.com/bomin1996/E114_Eumyurato/assets/126555995/61a14e01-7142-4c95-9ecb-5aa58fe47c03)
-
 ![image](https://github.com/bomin1996/E114_Eumyurato/assets/121412330/f0373202-1a25-433b-96a5-bd435d275c2d)
 
 ## ⚙️ 개발 환경
@@ -39,7 +37,7 @@
 
 #### [개발 환경]
 -   Intellij
-<img src="https://github.com/Minchae128/Eumyurato/assets/122027566/fc2e2f89-46e3-4bb9-ad3a-c7bb53699158" width="70%">
+<img src="https://github.com/Minchae128/Eumyurato/assets/122027566/fc2e2f89-46e3-4bb9-ad3a-c7bb53699158" width= 80%/>
 
 ## :pushpin: 주요기능
 - 버스킹, 소규모 공연, 지역축제에 대한 위치 서비스 제공
@@ -49,17 +47,19 @@
 - 마이페이지 회원 및 공연 정보 조회, 통계 정보
 
 ## ****♟****UI설계
-
-<img src="https://github.com/bomin1996/E114_Eumyurato/assets/126555995/4016d755-c34d-419e-9353-15142bf2e4d1" width="70%"><br>
+![image](https://github.com/bomin1996/E114_Eumyurato/assets/126555995/4016d755-c34d-419e-9353-15142bf2e4d1)
+<br>
 
 ## ****🧩****프로세스
-<img src="https://github.com/bomin1996/E114_Eumyurato/assets/126555995/1ddedaf6-8471-4886-b627-faf11af116a5" width="70%"><br>
+![image](https://github.com/bomin1996/E114_Eumyurato/assets/126555995/1ddedaf6-8471-4886-b627-faf11af116a5)
+<br>
 
 ## ****⚡️****전체구조도
-<img src="https://github.com/bomin1996/E114_Eumyurato/assets/126555995/34404101-f9da-40b0-96e0-c0402833f460" width="70%"><br>
+![image](https://github.com/bomin1996/E114_Eumyurato/assets/126555995/34404101-f9da-40b0-96e0-c0402833f460)
+<br>
 
 ## ****🗺****ER 다이어그램
-<img src="https://github.com/bomin1996/E114_Eumyurato/assets/126555995/f3954470-3243-4633-811d-603e1b89d993" width="70%">
+![image](https://github.com/bomin1996/E114_Eumyurato/assets/126555995/f3954470-3243-4633-811d-603e1b89d993)
 
 ## 📢사용자 권한
 
