@@ -101,6 +101,7 @@ body {
     background-color: var(--bs-body-bg);
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    font-family: 'Gowun Dodum', sans-serif !important;
 }
 
 hr {
@@ -12600,4 +12601,10 @@ html {
 
 .section{
     background-color: #F2F4F7;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+
+.linear-gradient {
+    background-image: linear-gradient(to right, #fff1eb 0%, #ace0f9 100%);
 }
