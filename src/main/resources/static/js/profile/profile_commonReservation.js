@@ -62,8 +62,6 @@ function displayReservationList(reservationList, currentPage) {
         console.log(reservation);
         reservationRow.insertCell().textContent = reservation.id;
         reservationRow.insertCell().textContent = reservation.name;
-        reservationRow.insertCell().textContent = reservation.cid;
-        reservationRow.insertCell().textContent = reservation.payTime;
         reservationRow.insertCell().textContent = reservation.viewDate;
         reservationRow.insertCell().textContent = reservation.memberNum;
         reservationRow.insertCell().textContent = reservation.reservPay.toLocaleString() + '원';
@@ -147,7 +145,7 @@ logoutBtn.onclick = function () {
                 window.sessionStorage.removeItem("jwtToken");
                 console.log("로그아웃")
                 // 홈페이지로 이동
-                window.location.href = "/home";
+                window.location.href = "/map";
             } else {
                 throw new Error("로그아웃 처리에 실패하였습니다.");
             }
