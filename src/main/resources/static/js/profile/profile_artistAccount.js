@@ -19,15 +19,15 @@ function getArtistData() {
 }
 
 function displayArtistData(artist) {
-    document.getElementById("artist-id").value = artist.id;
-    document.getElementById("artist-name").value = artist.name;
-    document.getElementById("artist-nid").value = artist.nid;
-    document.getElementById("artist-sex").value = artist.sex;
-    document.getElementById("artist-birth").value = artist.birth;
-    document.getElementById("artist-email").value = artist.email;
-    document.getElementById("artist-phone").value = artist.phone;
-    document.getElementById("artist-genre").value = artist.genre;
-    document.getElementById("artist-point").value = artist.point;
+    document.getElementById("artist-id").textContent = artist.id;
+    document.getElementById("artist-name").textContent = artist.name;
+    document.getElementById("artist-nid").textContent = artist.nid;
+    document.getElementById("artist-sex").textContent = artist.sex;
+    document.getElementById("artist-birth").textContent = artist.birth;
+    document.getElementById("artist-email").textContent = artist.email;
+    document.getElementById("artist-phone").textContent = artist.phone;
+    document.getElementById("artist-genre").textContent = artist.genre;
+    document.getElementById("artist-point").textContent = artist.point;
     // 이미지 URL을 가져온다.
     var imageUrl = artist.image;
 
@@ -86,7 +86,7 @@ logoutBtn.onclick = function () {
                 window.sessionStorage.removeItem("jwtToken");
                 console.log("로그아웃")
                 // 홈페이지로 이동
-                window.location.href = "/home";
+                window.location.href = "/map";
             } else {
                 throw new Error("로그아웃 처리에 실패하였습니다.");
             }
