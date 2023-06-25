@@ -56,7 +56,7 @@ window.onload = function() {
 
         // 로그아웃
         const logoutBtn = document.createElement("a");
-        logoutBtn.setAttribute("href", window.location.href);
+        logoutBtn.setAttribute("href", "/map");
         logoutBtn.onclick = function() {
             window.sessionStorage.removeItem("jwtToken");
         };
@@ -97,6 +97,7 @@ xhr.onload = function() {
         for (let i = 1; i <= 7; i++) {
             div = document.createElement("div");
             seatWrapper.append(div);
+
             for (let j = 1; j <= 7; j++) {
                 const input = document.createElement('input');
                 input.type = "button";
@@ -108,7 +109,14 @@ xhr.onload = function() {
 
                 if (seat.includes(input.value)) {
                     input.disabled = true;
+                    input.style.backgroundColor = "#777";
                 }
+
+                input.style.border = "1px solid #ccc";
+                input.style.borderRadius = "5px";
+                input.style.padding = "10px";
+                input.style.margin = "5px";
+                input.style.cursor = "pointer";
 
                 input.addEventListener('click', function(e) {
                     console.log(e.target.value);
@@ -160,7 +168,7 @@ selectCompletedButton.addEventListener('click', function() {
             if (token !== null) {
                 if (result === 1) {
                     // 예약 성공 시 다음 페이지로 이동합니다.
-                    window.location.href = `../../../templates/pay`;
+                    window.location.href = `/smallconcert/detail/${id}/calendar/${day}/pay`;
                 } else {
                     // 실패한 경우 팝업창을 띄우고 페이지를 리로드합니다.
                     alert('이미 선택된 좌석입니다.');
@@ -220,6 +228,4 @@ function mapping(input, i, j) {
         input.value = "G" + j;
     }
 }
-
-
 
