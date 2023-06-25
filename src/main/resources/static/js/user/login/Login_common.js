@@ -71,7 +71,7 @@ function submitForm(event) {
                     console.log(jwtToken);
                     sessionStorage.setItem('jwtToken', jwtToken);
                     sessionStorage.removeItem("loginError");
-                    window.location.href = '/home';
+                    window.location.href = '/map';
                 } else {
                     console.error('Authorization header not found.');
                 }
@@ -103,12 +103,3 @@ function submitForm(event) {
     xhr.send(formData);
 }
 
-/*
-$(document).ready(function () {
-    const loginError = sessionStorage.getItem("loginError");
-    if (loginError) {
-        alert(loginError);
-        sessionStorage.removeItem("loginError");
-    }
-});
-*/
