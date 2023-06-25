@@ -3,15 +3,12 @@ package com.e114.e114_eumyuratodemo1.controller;
 import com.e114.e114_eumyuratodemo1.dto.*;
 import com.e114.e114_eumyuratodemo1.jwt.JwtUtils;
 import com.e114.e114_eumyuratodemo1.service.MapService;
-import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.io.*;
 import java.net.MalformedURLException;
 import java.util.Arrays;
@@ -19,6 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+//지도 및 메인페이지 컨트롤러
 @Controller
 public class MapController {
 
@@ -34,7 +32,7 @@ public class MapController {
     @GetMapping("/map")
     public String smallConcert(){
 
-        return "html/map/concertMap";
+        return "/map/map";
     }
 
     @GetMapping("/all")
@@ -58,24 +56,13 @@ public class MapController {
 
         mapService.upViewCountSmallConcert(id);
 
-        return "html/detail/smallConcertDetail";
+        return "/detailView/smallConcertDetail";
     }
 
     @GetMapping("/smallconcert/detail/{id}/json")
     @ResponseBody
     public SmallConcertDTO smallConcertDetailJson(@PathVariable("id") int id) throws IOException {
         SmallConcertDTO dto = mapService.selectConcert(id);
-
-//        String imagePath = dto.getImage();
-//        // 이미지 파일이 로컬에 저장된 파일인 경우
-//        if (imagePath != null && !imagePath.startsWith("https://")) {
-//        //이미지 경로 바이트 형식으로 변환
-//        InputStream inputStream = new FileInputStream(dto.getImage());
-//        byte[] imageByteArray = IOUtils.toByteArray(inputStream);
-//        inputStream.close();
-//
-//        dto.setImageByteArray(imageByteArray);
-//        }
 
         return dto;
     }
@@ -85,7 +72,7 @@ public class MapController {
 
         mapService.upViewCountLocalFestival(id);
 
-        return "html/detail/localDetail";
+        return "/detailView/localDetail";
     }
 
     @GetMapping("/local_festival/detail/{id}/json")
@@ -101,7 +88,7 @@ public class MapController {
 
         mapService.upViewCountBusking(id);
 
-        return "html/detail/buskingDetail";
+        return "/detailView/buskingDetail";
     }
 
     @GetMapping("/busking/detail/{id}/json")
@@ -115,7 +102,7 @@ public class MapController {
 
     @GetMapping("/smallconcert/detail/{id}/calendar")
     public String calendarPage(){
-        return "html/pay/pay1";
+        return "/pay/pay1";
     }
 
     @PostMapping("/smallconcert/detail/{id}/calendar/all")
@@ -143,7 +130,7 @@ public class MapController {
 
     @GetMapping("/smallconcert/detail/{id}/calendar/{day}")
     public String seatPage(){
-        return "html/pay/pay2";
+        return "/pay/pay2";
     }
 
     @GetMapping("/smallconcert/detail/{id}/calendar/{day}/json")
@@ -191,7 +178,7 @@ public class MapController {
     public String payPage(){
 
 
-        return "html/pay/pay3";
+        return "/pay/pay3";
     }
 
     @GetMapping("/smallconcert/detail/{id}/calendar/{day}/pay/json")
@@ -204,7 +191,7 @@ public class MapController {
 
     @GetMapping("/busking/detail/{id}/donation")
     public String donation(){
-        return "html/pay/buskingDonation";
+        return "/pay/buskingDonation";
     }
 
     @GetMapping("/busking/detail/{id}/donation/json")
@@ -232,7 +219,7 @@ public class MapController {
 
     @GetMapping("/kakaopay/success")
     public String success(){
-        return "html/pay/concertPaySuccess";
+        return "/pay/concertPaySuccess";
     }
 
     @PostMapping("/kakaopay/success")
@@ -285,7 +272,7 @@ public class MapController {
     @GetMapping("/kakaopay/fail")
     public String fail(){
 
-        return "html/pay/concertPayFail";
+        return "/pay/concertPayFail";
     }
 
     @PostMapping("/kakaopay/fail")
@@ -316,7 +303,7 @@ public class MapController {
 
     @GetMapping("/kakaopay/success/donation")
     public String donationSuccess(){
-        return "html/pay/paySuccess";
+        return "/pay/paySuccess";
     }
 
     @PostMapping("/kakaopay/success/donation")
@@ -351,7 +338,7 @@ public class MapController {
     @GetMapping("/kakaopay/fail/donation")
     public String donationFail(){
 
-        return "html/pay/payFail";
+        return "/pay/payFail";
     }
 
     @PostMapping("/kakaopay/fail/donation")
@@ -371,4 +358,3 @@ public class MapController {
 
 
 }
-

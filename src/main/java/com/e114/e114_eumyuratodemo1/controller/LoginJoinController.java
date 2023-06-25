@@ -4,9 +4,6 @@ import com.e114.e114_eumyuratodemo1.dto.ArtistMemberDTO;
 import com.e114.e114_eumyuratodemo1.dto.CommonMemberDTO;
 import com.e114.e114_eumyuratodemo1.dto.EnterpriseMemberDTO;
 import com.e114.e114_eumyuratodemo1.dto.SmallConcertDTO;
-import com.e114.e114_eumyuratodemo1.jdbc.ArtistMemberDAO;
-import com.e114.e114_eumyuratodemo1.jdbc.CommonMemberDAO;
-import com.e114.e114_eumyuratodemo1.jdbc.EnterpriseMemberDAO;
 import com.e114.e114_eumyuratodemo1.jwt.JwtUtils;
 import com.e114.e114_eumyuratodemo1.service.ArtistService;
 import com.e114.e114_eumyuratodemo1.service.CommonService;
@@ -30,6 +27,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+//로그인 회원가입 컨트롤러
 @Controller
 public class LoginJoinController {
 
@@ -41,15 +39,6 @@ public class LoginJoinController {
 
     @Autowired
     private EnterpriseService enterpriseService;
-
-    @Autowired
-    private CommonMemberDAO commonMemberDAO;
-
-    @Autowired
-    private ArtistMemberDAO artistMemberDAO;
-
-    @Autowired
-    private EnterpriseMemberDAO enterpriseMemberDAO;
 
     @Autowired
     private JwtUtils jwtUtils;
@@ -79,10 +68,10 @@ public class LoginJoinController {
     @PostMapping("/profile")
     @ResponseBody
     public Map<String, String> profile(HttpServletRequest request) {
-        String commonURI = "/templates/profile/common/account";
-        String artistURI = "/templates/profile/artist/account";
-        String enterURI = "/templates/profile/ent/account";
-        String adminURI = "/templates/profile/admin/account";
+        String commonURI = "/profile/common/account";
+        String artistURI = "/profile/artist/account";
+        String enterURI = "/profile/ent/account";
+        String adminURI = "/profile/admin/account";
         String notloginURI = "/loginjoin/common/login";
 
         String URI = jwtUtils.authByRole(request, commonURI, artistURI, enterURI, adminURI);
@@ -101,7 +90,7 @@ public class LoginJoinController {
     //일반 로그인
     @GetMapping("/loginjoin/common/login")
     public String login() {
-        return "user/login/loginForm_common";
+        return "/user/login/loginForm_common";
     }
 
     @PostMapping("/loginjoin/common/login-token")
@@ -125,7 +114,7 @@ public class LoginJoinController {
     //아티스트 로그인
     @GetMapping("/loginjoin/artist/login")
     public String login_art() {
-        return "user/login/loginForm_artist";
+        return "/user/login/loginForm_artist";
     }
 
     @PostMapping("/loginjoin/artist/login-token")
@@ -152,7 +141,7 @@ public class LoginJoinController {
     //기업 로그인
     @GetMapping("/loginjoin/enterprise/login")
     public String login_enter() {
-        return "user/login/loginForm_enterprise";
+        return "/user/login/loginForm_enterprise";
     }
 
     @PostMapping("/loginjoin/enterprise/login-token")
@@ -178,13 +167,13 @@ public class LoginJoinController {
     //회원가입
     @GetMapping("/loginjoin/joinchooes")
     public String joinchooes() {
-        return "user/join/joinChooes";
+        return "/user/join/joinChooes";
     }
 
     //일반 회원가입
     @GetMapping("/loginjoin/common/join")
     public String commonJoin() {
-        return "user/join/joinForm_common";
+        return "/user/join/joinForm_common";
     }
 
     @PostMapping("/loginjoin/common/join")
@@ -212,7 +201,7 @@ public class LoginJoinController {
     //아티스트 회원가입
     @GetMapping("/loginjoin/artist/join")
     public String artistJoin() {
-        return "user/join/joinForm_artist";
+        return "/user/join/joinForm_artist";
     }
 
     @PostMapping("/loginjoin/artist/join")
@@ -240,7 +229,7 @@ public class LoginJoinController {
     //기업 회원 가입
     @GetMapping("/loginjoin/enterprise/join")
     public String enterpriseJoin() {
-        return "user/join/joinForm_enterprise";
+        return "/user/join/joinForm_enterprise";
     }
 
     @PostMapping("/loginjoin/enterprise/join")
@@ -291,7 +280,7 @@ public class LoginJoinController {
     // 아이디 찾기
     @GetMapping("/loginjoin/Idfind")
     public String idfind() {
-        return "user/login/Idfind";
+        return "/user/login/Idfind";
     }
 
     // 아이디 찾기 기능을 처리하는 메서드 추가
@@ -306,19 +295,19 @@ public class LoginJoinController {
     //비밀번호 찾기(임시번호 발급)
     @GetMapping("/loginjoin/Pwfind")
     public String Pwfind() {
-        return "user/login/pwfind";
+        return "/user/login/pwfind";
     }
 
     @PostMapping("/loginjoin/Pwfind")
     public String findPassword(@RequestParam String id, @RequestParam String name, @RequestParam String email, Model model) {
         // 입력받은 정보를 이용해 회원 정보를 조회합니다.
-        CommonMemberDTO commonMember = commonMemberDAO.findById(id);
+        CommonMemberDTO commonMember = commonService.findById(id);
         if (commonMember == null || !commonMember.getName().equals(name) || !commonMember.getEmail().equals(email)) {
             // CommonMemberDTO로 조회한 결과가 없는 경우
-            ArtistMemberDTO artistMember = artistMemberDAO.findById(id);
+            ArtistMemberDTO artistMember = artistService.findById(id);
             if (artistMember == null || !artistMember.getName().equals(name) || !artistMember.getEmail().equals(email)) {
                 // ArtistMemberDTO로 조회한 결과가 없는 경우
-                EnterpriseMemberDTO enterpriseMember = enterpriseMemberDAO.findById(id);
+                EnterpriseMemberDTO enterpriseMember = enterpriseService.findById(id);
                 if (enterpriseMember == null || !enterpriseMember.getName().equals(name) || !enterpriseMember.getEmail().equals(email)) {
                     // EnterpriseMemberDTO로 조회한 결과도 없는 경우
                     model.addAttribute("errorMessage", "입력한 정보와 일치하는 회원이 존재하지 않습니다.");
@@ -327,7 +316,7 @@ public class LoginJoinController {
                     // EnterpriseMemberDTO로 조회한 결과가 있는 경우
                     // 비밀번호 업데이트 및 임시 비밀번호 발급
                     String tempPassword = memberService.generateTempPassword();
-                    enterpriseMemberDAO.updatePassword(enterpriseMember.getId(), tempPassword);
+                    enterpriseService.updatePassword(enterpriseMember.getId(), tempPassword);
                     memberService.sendTempPasswordByEmail(enterpriseMember.getEmail(), tempPassword);
                     model.addAttribute("tempPasswordSent", true);
                     return "redirect:/loginjoin/enterprise/login";
@@ -336,7 +325,7 @@ public class LoginJoinController {
                 // ArtistMemberDTO로 조회한 결과가 있는 경우
                 // 비밀번호 업데이트 및 임시 비밀번호 발급
                 String tempPassword = memberService.generateTempPassword();
-                artistMemberDAO.updatePassword(artistMember.getId(), tempPassword);
+                artistService.updatePassword(artistMember.getId(), tempPassword);
                 memberService.sendTempPasswordByEmail(artistMember.getEmail(), tempPassword);
                 model.addAttribute("tempPasswordSent", true);
                 return "redirect:/loginjoin/artist/login";
@@ -345,7 +334,7 @@ public class LoginJoinController {
             // CommonMemberDTO로 조회한 결과가 있는 경우
             // 비밀번호 업데이트 및 임시 비밀번호 발급
             String tempPassword = memberService.generateTempPassword();
-            commonMemberDAO.updatePassword(commonMember.getId(), tempPassword);
+            commonService.updatePassword(commonMember.getId(), tempPassword);
             memberService.sendTempPasswordByEmail(commonMember.getEmail(), tempPassword);
             model.addAttribute("tempPasswordSent", true);
             return "redirect:/loginjoin/common/login";
@@ -356,7 +345,7 @@ public class LoginJoinController {
     //아이디 중복 확인
     @GetMapping("/checkIdDuplicate/{id}")
     public ResponseEntity<Map<String, Boolean>> checkIdDuplicate(@PathVariable String id) {
-        boolean duplicate = commonMemberDAO.isIdDuplicated(id) || artistMemberDAO.isIdDuplicated(id) || enterpriseMemberDAO.isIdDuplicated(id);
+        boolean duplicate = commonService.isIdDuplicated(id) || artistService.isIdDuplicated(id) || enterpriseService.isIdDuplicated(id);
         Map<String, Boolean> response = Collections.singletonMap("duplicate", duplicate);
         return ResponseEntity.ok(response);
     }

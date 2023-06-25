@@ -24,7 +24,5 @@ public class CommonMemberDTO{
     private String genre;
     private int adminNum;
     private Map<String,String> favorite;
-    private boolean kakao;
-    private boolean google;
     private String image;
 }

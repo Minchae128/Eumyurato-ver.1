@@ -1,8 +1,6 @@
 package com.e114.e114_eumyuratodemo1.controller;
 
 import com.e114.e114_eumyuratodemo1.dto.*;
-import com.e114.e114_eumyuratodemo1.jdbc.CommonMemberDAO;
-import com.e114.e114_eumyuratodemo1.jdbc.EnterpriseMemberDAO;
 import com.e114.e114_eumyuratodemo1.jwt.JwtUtils;
 import com.e114.e114_eumyuratodemo1.service.EnterpriseService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,15 +15,11 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
+//기업 회원 페이지 컨트롤러
 @Controller
 public class EntController {
-
-    @Autowired
-    private EnterpriseMemberDAO enterpriseMemberDAO;
 
     @Autowired
     private EnterpriseService enterpriseService;
@@ -35,7 +29,7 @@ public class EntController {
 
     @GetMapping("/profile/ent/account")
     public String artistAccount(){
-        return "html/profile/account/profile_enterprise_account";
+        return "/profile/account/profile_enterprise_account";
     }
 
     @GetMapping("/profile/ent/data")
@@ -47,7 +41,7 @@ public class EntController {
 
         if (entUserId != null) {
             // ID를 이용해 기업회원 정보를 가져오기
-            EnterpriseMemberDTO enter = enterpriseMemberDAO.getEntInfoById(entUserId);
+            EnterpriseMemberDTO enter = enterpriseService.getEntInfoById(entUserId);
             if (enter != null) {
                 return ResponseEntity.ok(enter);
             } else {
@@ -60,10 +54,10 @@ public class EntController {
 
     @GetMapping("/profile/ent/info/view")
     public String enterpriseInfoview(Model model) {
-        List<InfoDTO> infos =  enterpriseMemberDAO.getInfo();
+        List<InfoDTO> infos =  enterpriseService.getInfo();
 
         model.addAttribute("infos", infos);
-        return "html/profile/board/profile_enterprise_board";
+        return "/profile/board/profile_enterprise_board";
     }
 
     @GetMapping("/profile/ent/total")
@@ -107,7 +101,7 @@ public class EntController {
 
     @GetMapping("/profile/ent/modify")
     public String artistAccountModify(){
-        return "html/profile/accountModify/profile_enterprise_accountModify";
+        return "/profile/accountModify/profile_enterprise_accountModify";
     }
 
     //기업회원 정보 수정 처리
@@ -128,7 +122,7 @@ public class EntController {
     @GetMapping("/profile/ent/register")
     public String adminAccountRegister() {
 
-        return "html/profile/concertRegister/profile_enterprise_concertRegister";
+        return "/profile/concertRegister/profile_enterprise_concertRegister";
     }
 
     @PostMapping("/profile/ent/register")
@@ -167,7 +161,7 @@ public class EntController {
     @GetMapping("/profile/ent/reservation/view")
     public String enterReservationList() {
 
-        return "html/profile/reservation/profile_enterprise_reservation";
+        return "/profile/reservation/profile_enterprise_reservation";
     }
 
     @GetMapping("/profile/ent/reservation")
@@ -193,13 +187,13 @@ public class EntController {
     @GetMapping("/profile/ent/management/view")
     public String entSmallConcertManagement() {
 
-        return "html/profile/concertManagement/profile_enterprise_concertmanagement";
+        return "/profile/concertManagement/profile_enterprise_concertmanagement";
     }
 
     @GetMapping("/profile/ent/management")
     public ResponseEntity<?> getSmallConcertList(HttpServletRequest request,
-                                            @RequestParam(value = "column", required = false) String column,
-                                            @RequestParam(value = "keyword", required = false) String keyword) {
+                                                 @RequestParam(value = "column", required = false) String column,
+                                                 @RequestParam(value = "keyword", required = false) String keyword) {
 
         String token = jwtUtils.getAccessToken(request);
         String enterId = jwtUtils.getId(token);

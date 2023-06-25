@@ -1,12 +1,10 @@
 package com.e114.e114_eumyuratodemo1.service;
 
 import com.e114.e114_eumyuratodemo1.dto.*;
-import com.e114.e114_eumyuratodemo1.jdbc.IDAO;
+import com.e114.e114_eumyuratodemo1.dao.MapDAO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.io.*;
 import java.net.HttpURLConnection;
@@ -19,7 +17,7 @@ import java.util.*;
 public class MapService {
 
     @Autowired
-    private IDAO dao;
+    private MapDAO dao;
 
     @Autowired
     private MapServiceAsync mapServiceAsync;

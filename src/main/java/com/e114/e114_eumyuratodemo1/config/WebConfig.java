@@ -7,6 +7,7 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+//jwt인터셉터 설정
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 
@@ -21,9 +22,9 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addInterceptor(jwtInterceptor())
                 .addPathPatterns("/**")
                 .excludePathPatterns("/home")
-                .excludePathPatterns("/templates/map/**")
+                .excludePathPatterns("/map/**")
                 .excludePathPatterns("/loginjoin/**")
-                .excludePathPatterns("/templates/profile/**")
+                .excludePathPatterns("/profile/**")
                 .excludePathPatterns("/logout")
                 .excludePathPatterns("/findUserId")
                 .excludePathPatterns("/checkIdDuplicate/{id}")

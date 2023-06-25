@@ -10,11 +10,10 @@ import org.springframework.stereotype.Component;
 @AllArgsConstructor
 @NoArgsConstructor
 @Component
-public class Member {
+public class MemberDTO {
     private String id;
     private String pwd;
     private String name;
     private String email;
 
 }
-

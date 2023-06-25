@@ -1,7 +1,6 @@
 package com.e114.e114_eumyuratodemo1.controller;
 
 import com.e114.e114_eumyuratodemo1.dto.*;
-import com.e114.e114_eumyuratodemo1.jdbc.AdminMemberDAO;
 import com.e114.e114_eumyuratodemo1.jwt.JwtUtils;
 import com.e114.e114_eumyuratodemo1.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,24 +9,17 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+//관리자 계정 페이지 컨트롤러
 @Controller
 public class AdminController {
 
-    @Autowired
-    private AdminMemberDAO memberDAO;
 
     @Autowired
     private AdminService adminService;
@@ -38,7 +30,7 @@ public class AdminController {
     @GetMapping("/profile/admin/account")
     public String adminAccount() {
 
-        return "html/profile/account/profile_admin_account";
+        return "/profile/account/profile_admin_account";
     }
 
     @GetMapping("/profile/admin/data")
@@ -49,8 +41,8 @@ public class AdminController {
         System.out.println("id : " + adminUserId);
 
         if (adminUserId != null) {
-            // ID를 이용해 관리자 정보를 가져옵니다.
-            EnterpriseMemberDTO admin = memberDAO.getAdminInfoById(adminUserId);
+            // ID를 이용해 관리자 정보를 가져오기
+            EnterpriseMemberDTO admin = adminService.getAdminInfoById(adminUserId);
             if (admin != null) {
                 return ResponseEntity.ok(admin);
             } else {
@@ -63,29 +55,29 @@ public class AdminController {
 
     @GetMapping("/profile/admin/modify")
     public String adminAccountModify() {
-        return "html/profile/accountModify/profile_admin_accountModify";
+        return "/profile/accountModify/profile_admin_accountModify";
     }
 
 
     @GetMapping("/profile/admin/total/view")
     public String adminTotalsview() {
 
-        return "html/profile/total/profile_admin_total";
+        return "/profile/total/profile_admin_total";
     }
 
     @GetMapping("/profile/admin/info/view")
     public String admimInfoview(Model model) {
-        List<InfoDTO> infos =  memberDAO.getInfo();
+        List<InfoDTO> infos =  adminService.getInfo();
 
         model.addAttribute("infos", infos);
 
-        return "html/profile/board/profile_admin_board";
+        return "/profile/board/profile_admin_board";
     }
 
     @GetMapping("/profile/admin/info/modify")
     public String admimInfomodify() {
 
-        return "html/profile/boardModify/profile_admin_boardModify";
+        return "/profile/boardModify/profile_admin_boardModify";
     }
 
     @GetMapping("/profile/admin/total")
@@ -182,7 +174,7 @@ public class AdminController {
     @GetMapping("/profile/admin/reservation/view")
     public String reservationList() {
 
-        return "html/profile/reservation/profile_admin_reservation";
+        return "/profile/reservation/profile_admin_reservation";
     }
 
     @GetMapping("/profile/admin/reservation")
@@ -226,7 +218,7 @@ public class AdminController {
     @GetMapping("/profile/admin/management/view")
     public String adminAccountManagement() {
 
-        return "html/profile/concertManagement/profile_admin_concertManagement";
+        return "/profile/concertManagement/profile_admin_concertManagement";
     }
 
     @GetMapping("/profile/admin/management")
@@ -286,14 +278,14 @@ public class AdminController {
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
 
-      //  adminService.deleteEvent(category, id);
+        //  adminService.deleteEvent(category, id);
         return ResponseEntity.ok().build();
     }
 
     @GetMapping("/profile/admin/total/chart")
     public String adminGraph() {
 
-        return "html/profile/totalChart/profile_admin_totalChart";
+        return "/profile/totalChart/profile_admin_totalChart";
     }
 
 }

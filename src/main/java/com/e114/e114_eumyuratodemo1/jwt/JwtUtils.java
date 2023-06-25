@@ -106,7 +106,7 @@ public class JwtUtils {
         }else if(getRole(token).equals("2")){
             return artistURI;
         }else if(getRole(token).equals("3")){
-                return enterURI;
+            return enterURI;
         }else if(getRole(token).equals("0")){
             return adminURI;
         }
