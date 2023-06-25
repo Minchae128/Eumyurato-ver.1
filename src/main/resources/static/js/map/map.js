@@ -121,6 +121,8 @@ xhr.onload = function () {
         var links = document.querySelectorAll('a');
         links.forEach(function(link) {
             link.addEventListener('click', function() {
+                links.forEach(link => link.classList.remove('active'));
+                this.classList.add('active');
                 var type = this.id;
                 clearConcert();
                 if (type === 'all') {
@@ -628,7 +630,6 @@ function getContent(record) {
 
     return result;
 }
-
 
 
 

@@ -11,6 +11,13 @@
     <!--end::Global Stylesheets Bundle-->
     <title>EUMYURATO :: MAP</title>
     <link rel="icon" type="image/x-icon" th:href="@{/img/E114_logo.png}"/>
+    <script type="text/javascript">             //window.performance.timing.navigation 을 이용한 사용자가 느끼는 페이지 로딩 시간 값구하기
+    function onLoad() { //함수 정의
+        var now = new Date().getTime(); //현재시간 기록
+        var page_load_time = now - performance.timing.navigationStart; //현재시간에서 로딩시간 차이
+        console.log("사용자 인식 페이지 로딩시간 : " + page_load_time);
+    }
+    </script>
 </head>
 <body>
 <div class="wrap">
@@ -38,39 +45,34 @@
         <div class="d-flex align-items-center">
         </div>
         <div class="nav_top">
-            <div class="nav_hd" style="margin-top: 15px;">
-                <a href="/home"><img th:src="@{/img/logo_name.png}" alt="logo" width="160" height="29"></a>
+            <div class="nav_hd" style="margin-top: 5px;">
+                <a href="/map"><img th:src="@{/img/E114_logoname_white.png}" alt="logo" width="160" height="29"></a>
                 <div class="loginBox">
                     <div id="navLogin">
-                    <button type="button" class="btn fw-bolder fs-5 px-5 py-2 my-3 me-5" id="loginBtn"
-                            th:onclick="|location.href='@{/loginjoin/common/login}'|">로그인</button>
+                        <button type="button" class="btn btn-primary fw-bolder fs-6 px-4 py-2 my-3 me-3" id="loginBtn"
+                                th:onclick="|location.href='@{/loginjoin/common/login}'|">로그인</button>
                     </div>
                     <div style="margin-right: 0px;" id="navLogout">
                         <a id="mypageBtn" style="width: 200px; height: 30px;"><img th:src="@{/img/person.png}" style="width: 30px; height: 30px; cursor:pointer;"/>
                             <span id="userName" style="display: inline-block; margin-left: 10px; font-weight: bold; font-size: large; cursor:pointer;"></span>님</a>
-                        <a id="logoutBtn" href="/templates/mapplates/map" style="margin-left: 2px;"></a>
+                        <a id="logoutBtn" href="/map" style="margin-left: 2px;"></a>
                     </div>
                 </div>
 
             </div>
 
-            <div class="nav_srBox">
-<!--                <input type="text" placeholder="Search...">-->
-<!--                <a href="javascript:;"><img th:src="@{/assets/gen021.svg}" alt="searchBtn"/></a>-->
-            </div>
 
-            <div class="categoryWrap" style="color: #FFFFFF; margin-bottom: 20px;" >
-                <a id="all">전체</a>
+            <div class="categoryWrap" style="color: #FFFFFF;" >
+                <a id="all" class="active">전체</a>
                 <a id="busking">버스킹</a>
                 <a id="smallconcert">소규모공연</a>
                 <a id="localfestival">지역축제</a>
-<!--                <a id="favorite">즐겨찾기</a>-->
+                <!--                <a id="favorite">즐겨찾기</a>-->
             </div>
         </div>
         <div class="nav_bt">
             <!-- 공연정보 -->
             <div class="conInfo">
-            <h1>지역축제 및 공연정보</h1>
                 <ul id="concert" style="cursor: pointer"></ul>
 
             </div>
@@ -96,13 +98,6 @@
         </div>
     </div>
 </div>
-<script th:inline="javascript">
-    const loginUserJson = /*[[${loginUserJson}]]*/ null;
-    if (loginUserJson !== null) {
-        const loginUser = JSON.parse(loginUserJson);
-        window.sessionStorage.setItem("loginUser", loginUserJson);
-    }
-</script>
 
 <!--begin::Global Javascript Bundle(used by all pages)-->
 <script th:src="@{/js/else/plugins_bundle.js}"></script>
@@ -112,6 +107,8 @@
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8e0cac0abc5f71a7357818037fc4b48c&libraries=services"></script>
 <script th:src="@{/js/map/map.js}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jwt-decode/2.2.0/jwt-decode.min.js"></script>
+<script>
+    onLoad(); //onLoad 함수 실행 , 사용자가 인식하는 페이지 로딩시간 구하기.
+</script>
 </body>
 </html>
-
