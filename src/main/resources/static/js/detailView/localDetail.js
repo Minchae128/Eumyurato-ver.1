@@ -51,7 +51,7 @@ window.onload = function() {
 
         // 로그아웃
         const logoutBtn = document.createElement("a");
-        logoutBtn.setAttribute("href", window.location.href);
+        logoutBtn.setAttribute("href", "/map");
         logoutBtn.onclick = function() {
             window.sessionStorage.removeItem("jwtToken");
         };
