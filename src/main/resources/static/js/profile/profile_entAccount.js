@@ -19,11 +19,11 @@ function getEntData() {
 }
 
 function displayEntData(enterprise) {
-    document.getElementById("enterprise-id").value = enterprise.id;
-    document.getElementById("enterprise-name").value = enterprise.name;
-    document.getElementById("enterprise-num").value = enterprise.num;
-    document.getElementById("enterprise-email").value = enterprise.email;
-    document.getElementById("enterprise-phone").value = enterprise.phone;
+    document.getElementById("enterprise-id").textContent = enterprise.id;
+    document.getElementById("enterprise-name").textContent = enterprise.name;
+    document.getElementById("enterprise-num").textContent = enterprise.num;
+    document.getElementById("enterprise-email").textContent = enterprise.email;
+    document.getElementById("enterprise-phone").textContent = enterprise.phone;
 
     // 이미지 URL을 가져온다.
     var imageUrl = enterprise.image;
@@ -83,7 +83,7 @@ logoutBtn.onclick = function () {
                 window.sessionStorage.removeItem("jwtToken");
                 console.log("로그아웃")
                 // 홈페이지로 이동
-                window.location.href = "/home";
+                window.location.href = "/map";
             } else {
                 throw new Error("로그아웃 처리에 실패하였습니다.");
             }
