@@ -80,7 +80,10 @@ td {
 }
 
 /*datepicer 버튼 롤오버 시 손가락 모양 표시*/
-.ui-datepicker-trigger{cursor: pointer;}
+.ui-datepicker-trigger{
+    height: 30px;
+    width: 35px;
+    cursor: pointer;}
 /*datepicer input 롤오버 시 손가락 모양 표시*/
 .hasDatepicker{cursor: pointer;}
 
@@ -122,4 +125,19 @@ td {
     background-color: #062d92;
     color: #ffffff;
     border: 2px solid #062d92;
+}
+.seat-wrapper {
+    position: relative;
+}
+.screen {
+
+    width: 300px;
+    height: 50px;
+    border-radius : 50% / 25%;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+    line-height: 50px;
+    margin-bottom : 10px;
 }
