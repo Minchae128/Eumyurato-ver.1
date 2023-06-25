@@ -39,4 +39,3 @@ xhr.onerror = function() {
     console.error(xhr.statusText);
 };
 xhr.send(JSON.stringify(data));
-
