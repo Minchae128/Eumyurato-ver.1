@@ -51,7 +51,7 @@ window.onload = function() {
 
         // 로그아웃
         const logoutBtn = document.createElement("a");
-        logoutBtn.setAttribute("href", window.location.href);
+        logoutBtn.setAttribute("href", "/map");
         logoutBtn.onclick = function() {
             window.sessionStorage.removeItem("jwtToken");
         };
@@ -147,7 +147,7 @@ const reservation = document.querySelector('#reservation');
 reservation.addEventListener('click', () => {
     const jwtToken = window.sessionStorage.getItem("jwtToken");
     if (jwtToken !== null) {
-        window.location.href = `../../../templates/detailView/${id}/calendar`;
+        window.location.href = `/smallconcert/detail/${id}/calendar`;
     }else {
         alert("로그인 후 이용해주세요.");
     }
