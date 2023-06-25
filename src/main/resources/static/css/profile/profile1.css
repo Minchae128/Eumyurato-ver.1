@@ -28657,7 +28657,7 @@ body.swal2-toast-shown .swal2-container.swal2-bottom-right {
 .daterangepicker .drp-buttons .cancelBtn:hover:not(.btn-active),
 .show > .daterangepicker .drp-buttons .cancelBtn {
     color: #7e8299;
-    border-color: #e4e6ef;
+    border-color: #ffffff;
     background-color: #e4e6ef !important
 }
 
