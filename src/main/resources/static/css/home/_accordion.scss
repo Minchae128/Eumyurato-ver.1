@@ -21,12 +21,12 @@
 			justify-content: center;
 
 			i {
-	    		color: $primary;
-	    	}
+				color: $primary;
+			}
 
-	    	.svg-icon {
-	    		@include svg-icon-color($primary);
-	    	}
+			.svg-icon {
+				@include svg-icon-color($primary);
+			}
 		}
 
 		// Accordion icon collapsed mode
@@ -36,12 +36,12 @@
 				transform: rotate(0);
 
 				i {
-		    		color: $text-muted;
-		    	}
+					color: $text-muted;
+				}
 
 				.svg-icon {
-		    		@include svg-icon-color($text-muted);
-		    	}
+					@include svg-icon-color($text-muted);
+				}
 			}
 		}
 	}
@@ -63,5 +63,5 @@
 			padding-left: 0;
 			padding-right: 0;
 		}
-	}	
+	}
 }
