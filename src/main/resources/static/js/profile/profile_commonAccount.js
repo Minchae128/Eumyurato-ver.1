@@ -19,15 +19,15 @@ function getCommonData() {
 }
 
 function displayCommonData(common) {
-    document.getElementById("common-id").value = common.id;
-    document.getElementById("common-name").value = common.name;
-    document.getElementById("common-nid").value = common.nid;
-    document.getElementById("common-sex").value = common.sex;
-    document.getElementById("common-birth").value = common.birth;
-    document.getElementById("common-email").value = common.email;
-    document.getElementById("common-phone").value = common.phone;
-    document.getElementById("common-road").value = common.road;
-    document.getElementById("common-genre").value = common.genre;
+    document.getElementById("common-id").textContent= common.id;
+    document.getElementById("common-name").textContent = common.name;
+    document.getElementById("common-nid").textContent = common.nid;
+    document.getElementById("common-sex").textContent = common.sex;
+    document.getElementById("common-birth").textContent = common.birth;
+    document.getElementById("common-email").textContent = common.email;
+    document.getElementById("common-phone").textContent = common.phone;
+    document.getElementById("common-road").textContent = common.road;
+    document.getElementById("common-genre").textContent = common.genre;
     // 이미지 URL을 가져온다.
     var imageUrl = common.image;
 
@@ -86,7 +86,7 @@ logoutBtn.onclick = function () {
                 window.sessionStorage.removeItem("jwtToken");
                 console.log("로그아웃")
                 // 홈페이지로 이동
-                window.location.href = "/home";
+                window.location.href = "/map";
             } else {
                 throw new Error("로그아웃 처리에 실패하였습니다.");
             }
