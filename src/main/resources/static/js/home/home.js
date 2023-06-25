@@ -44,7 +44,7 @@ window.onload = function () {
                         // 세션 스토리지에서 토큰 제거
                         window.sessionStorage.removeItem("jwtToken");
                         // 홈페이지로 이동
-                        window.location.href = "/home";
+                        window.location.href = "/map";
                     } else {
                         throw new Error("로그아웃 처리에 실패하였습니다.");
                     }
