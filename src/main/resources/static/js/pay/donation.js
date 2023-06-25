@@ -50,7 +50,7 @@ window.onload = function() {
 
         // 로그아웃
         const logoutBtn = document.createElement("a");
-        logoutBtn.setAttribute("href", window.location.href);
+        logoutBtn.setAttribute("href", "/map");
         logoutBtn.onclick = function() {
             window.sessionStorage.removeItem("jwtToken");
         };
@@ -134,14 +134,14 @@ $.ajax({
         }
 
         // 첫 번째 Ajax 호출이 완료된 후에 두 번째 Ajax 호출을 실행
-            $('#pay').click(function (){
-                if(price.value !== '' && outputValue !== null){
+        $('#pay').click(function (){
+            if(price.value !== '' && outputValue !== null){
                 localStorage.setItem('price',priceValue);
                 localStorage.setItem('id',id);
                 const token = sessionStorage.getItem("jwtToken");
                 if(token !==null){
                     $.ajax({
-                        url:'/pay/kakao/donation',
+                        url:'/kakao/donation',
                         dataType: 'json',
                         success:function (data){
                             var box = data.next_redirect_pc_url;
@@ -155,10 +155,10 @@ $.ajax({
                 }else{
                     alert("로그인 후 이용해주세요.");
                 }
-             }else{
+            }else{
                 alert("후원금액을 입력해 주세요.");
-             }
-            });
+            }
+        });
     },
     error: function(xhr, status, error) {
         console.log('AJAX Error: ' + status + error);
