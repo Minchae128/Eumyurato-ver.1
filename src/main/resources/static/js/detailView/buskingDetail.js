@@ -76,7 +76,6 @@ window.onload = function() {
     }
 };
 
-
 $.ajax({
     url: '/busking/detail/'+id+'/json',
     dataType: 'json',
