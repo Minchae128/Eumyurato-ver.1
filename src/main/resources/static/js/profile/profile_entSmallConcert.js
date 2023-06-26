@@ -60,7 +60,6 @@ function displaySmallConcertList(smallConcertList, currentPage) {
             deleteSmallConcert(smallConcert.id);
         });
 
-        smallConcertRow.insertCell().textContent = smallConcert.enterId;
         smallConcertRow.insertCell().textContent = smallConcert.name;
         smallConcertRow.insertCell().textContent = smallConcert.location;
         smallConcertRow.insertCell().textContent = smallConcert.regDate;
