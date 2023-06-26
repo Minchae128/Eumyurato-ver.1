@@ -161,4 +161,3 @@ function changeStar() {
         starImg.setAttribute("src", "/assets/star.png");
     }
 }
-
