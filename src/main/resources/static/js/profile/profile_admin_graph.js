@@ -266,4 +266,3 @@ logoutBtn.onclick = function () {
             alert(error.message);
         });
 };
-
