@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <!--begin::Head-->
 <head>
+    <meta charset="utf-8"/>
     <base href="../">
     <title>Eumyurato</title>
     <link rel="icon" type="image/x-icon" th:href="@{/img/E114_logo.png}"/>
@@ -17,108 +18,96 @@
     <link th:href="@{/css/profile/profile2.css}" rel="stylesheet" type="text/css"/>
     <link th:href="@{/css/profile/profile3.css}" rel="stylesheet" type="text/css"/>
     <link th:href="@{/css/profile/datepicker.css}" rel="stylesheet" type="text/css"/>
-    <!--end::Global Stylesheets Bundle-->
-</head>
-<!--end::Head-->
-<!--begin::Body-->
+    <link th:href="@{/css/home/home1.css}" rel="stylesheet"/>
+<body>
+<div id="wrap" style="background-color: #FFFFFF">
+    <table style="text-align:center; border:none; height: auto;">
+        <tr>
+            <td colspan="4">
+                <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="navLogin">
+                    <div class="container" style="margin-left: 10px;">
+                        <a class="navbar-brand" href="/map"><img th:src="@{/img/logo_name.png}"></a>
+                    </div>
+                    <div style="margin-right: 5%">
+                        <a id="logoutBtn">
+                            <img th:src="@{/img/logout.png}" style="height: 35px; width: 35px;">
+                        </a>
+                    </div>
+                </nav>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:10%">
 
-<body class="bg-white" id="kt_body">
-<!--begin::Main-->
-<div class="d-flex flex-column flex-root">
-    <!--begin::Login-->
-    <div class="d-flex flex-column flex-lg-row flex-column-fluid" id="kt_login">
-        <div class="d-flex flex-column flex-lg-row-auto bg-primary pt-15 pt-lg-0 center" id="leftArea0">
-            <!--begin::Aside Top-->
-            <div class="d-flex flex-row-fluid flex-center flex-column-auto flex-column text-center mb-5 align-items-center">
-                <!--begin::Aside Logo-->
-                <a class="mb-6" th:href="@{/home}">
-                    <div class="d-flex justify-content-center align-items-center" style="height: 100%; width: 100%;">
-                        <img alt="로고" id="logo1" th:src="@{/img/logo_name.png}" style="width: 400px; height: 70px;"/>
-                    </div>
-                </a>
-            </div>
-        </div>
+            </td>
 
-        <div class="flex-column flex-lg-row-auto bg-primary pt-15 pt-lg-0 center" id="leftArea1">
-            <!--begin::Aside Top-->
-            <div class="flex-row-fluid flex-center flex-column-auto flex-column text-center mb-5 align-items-center">
-                <!--begin::Aside Logo-->
-                <a class="mb-6" th:href="@{/home}">
-                    <div class="d-flex justify-content-center align-items-center" style="height: 100%; width: 100%;">
-                        <img alt="로고" id="logo2" th:src="@{/img/logo_name.png}"
-                             style="width: 400px; height: 70px; margin-top: 80px;"/>
-                    </div>
-                </a>
-                <div class="menu-wrapper menu-column menu-fit mt-10">
-                    <div class="menu-sub menu-fit menu-sub-accordion show mb-20">
-                        <h1 class="menu-content mb-1 mt-10 text-center" style="font-weight: bold; font-size: 30px;">마이페이지</h1>
-                        <div class="separator border-dark my-1 mx-auto" style="width: 60%; border-width: 3px;"></div>
-                        <div class="menu-item" style="margin: 3px">
-                            <a class="text-dark text-hover-primary ms-3 py-2" th:href="@{/templates/profile/ent/account}">
-                                <span class="menu-title" style="font-size: 20px; margin-right: 85px;">내 계정</span>
+            <td style="height:auto; width:15%;">
+                <div style="width: 240px; background-color:rgb(242, 240, 229); border: 2px solid rgb(212, 211, 201); position: absolute; top:120px; height: 1850px">
+                    <br>
+                    <dl style="text-align: left; margin-left: 35px;">
+                        <hr style="width: 170px"/>
+                        <h2>기업 홈</h2>
+                        <hr style="width: 170px"/>
+                        <dd>
+                            <a style="color: #000000; font-size: 20px;" th:href="@{/profile/ent/account}">
+                                계정 정보
                             </a>
-                        </div>
-                        <div class="menu-item" style="margin: 3px">
-                            <a class="text-dark text-hover-primary ms-3 py-2" th:href="@{/templates/profile/ent/modify}">
-                                <span class="menu-title" style="font-size: 20px; margin-right: 20px;">계정 정보 수정</span>
+                        </dd>
+                        <dd>
+                            <a style="color: #000000; font-size: 20px;" th:href="@{/profile/ent/modify}">
+                                계정 정보 수정
                             </a>
-                        </div>
-                        <div class="menu-item" style="margin: 3px">
-                            <a class="text-dark text-hover-primary ms-3 py-2" th:href="@{/templates/profile/ent/reservation/view}">
-                                <span class="menu-title" style="font-size: 20px;">사용자 예약 내역</span>
-                            </a>
-                        </div>
-                        <div class="menu-item" style="margin: 3px">
-                            <a class="text-dark text-hover-primary ms-3 py-2" th:href="@{/templates/profile/ent/management/view}">
-                                <span class="menu-title" style="font-size: 20px; margin-right: 65px;">공연 관리</span>
-                            </a>
-                        </div>
-                    </div>
+                        </dd>
 
-                    <div class="menu-wrapper menu-column menu-fit mt-1">
-                        <div class="menu-sub menu-fit menu-sub-accordion show">
-                            <h1 class="menu-content mb-1 mt-10 text-center" style="font-weight: bold; font-size: 30px;">통합 정보 조회</h1>
-                            <div class="separator border-dark my-1 mx-auto" style="width: 60%; border-width: 3px;"></div>
-                            <div class="menu-item" style="margin: 3px">
-                                <a class="text-dark text-hover-primary ms-3 py-2"
-                                   th:href="@{/templates/profile/ent/info/view}">
-                                    <span class="menu-title" style="font-size: 20px; margin-right: 70px;">공지사항</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                        <br>
+                        <hr style="width: 170px"/>
+                        <h2>공연 관리</h2>
+                        <hr style="width: 170px"/>
+                        <dd>
+                            <a style="color: #000000; font-size: 20px" th:href="@{/profile/ent/reservation/view}">
+                                예약 관리
+                            </a>
+                        </dd>
+                        <dd>
+                            <a style="color: #000000; font-size: 20px" th:href="@{/profile/ent/management/view}">
+                                공연 관리
+                            </a>
+                        </dd>
+
+                        <br>
+                        <hr style="width: 170px"/>
+                        <h2>공지사항</h2>
+                        <hr style="width: 170px"/>
+                        <dd>
+                            <a style="color: #000000; font-size: 20px" th:href="@{/profile/ent/info/view}">
+                                공지사항
+                            </a>
+                        </dd>
+
+                    </dl>
+                    <br>
                 </div>
-            </div>
-            <a id="logoutBtn" class="ms-5 me-15" style="position: relative; top: 200px; left: 300px;">
-                <img th:src="@{/img/logout.png}" style="height: 30px; width: 30px;">
-            </a>
-        </div>
+            </td>
 
-        <div class="d-flex flex-column flex-lg-row-auto bg-primary pt-15 pt-lg-0 d-none d-lg-flex" id="leftArea2">
-            <div class="d-flex flex-row-fluid flex-center flex-column-auto flex-column text-center mb-5 align-items-center">
-                <!--begin::Aside Logo-->
-                <a class="d-flex justify-content-center align-items-center" style="height: 100%; width: 100%;">
-                    <img alt="로고" th:src="@{/img/logo_name.png}" style="width: 400px; height: 70px;">
-                </a>
-                <!--end::Aside Logo-->
-            </div>
-        </div>
+            <td style="width:65%">
+                <div style="margin-top: 117px; margin-bottom: 10px; background-color:rgb(242, 240, 229); border: 2px solid rgb(212, 211, 201); width:1200px; height: 1850px; display: flex; ">
 
+                    <div class="login-content flex-lg-row-fluid d-flex flex-column overflow-hidden mx-auto mw-1000px w-100"
+                         style="display: flex; margin-top: 15px; margin-left: 40px; height: 2000px">
 
-        <!--사이드-->
-        <!--begin::Aside-->
-        <!--begin::Content-->
-        <!--메인폼-->
-        <div class="login-content flex-lg-row-fluid d-flex flex-column overflow-hidden py-10 py-lg-20 px-10 p-lg-7 mx-auto mw-1000px w-100" style="display: flex">
-            <!--begin::Wrapper-->
-            <!--begin::Signin Form-->
-            <form class="form w-450px  needs-validation text-center" id="kt_login_signin_form" novalidate>
-                <div class="pb-5 pb-lg-1">
-                    <h3 class="fw-bolder text-dark display-6 text-start">소규모 공연 등록</h3>
+                        <div style="margin-top: -18%; display: flex">
+
+            <span class="form needs-validation text-center" id="kt_login_signin_form1" style="margin-left: 30px">
+                <div style=" margin-left: -58%; margin-bottom: 5%">
+                    <p class="text-dark display-6 text-start"
+                       style="font-size: 60px; margin-bottom: 15px;">소규모 공연 등록</p>
+                    <hr style="width: 450px"/>
                 </div>
+
+            <form class="form w-450px  needs-validation text-center" id="kt_login_signin_form" style="margin-top: 15%;" novalidate>
                 <!--begin::Image input-->
                 <div class="image-input image-input-outline" data-kt-image-input="true"
-                     style="display: flex; justify-content: center; align-items: center">
+                     style="margin-bottom: 20px; display: flex; justify-content: center; align-items: center">
                     <!--begin::Image preview wrapper-->
                     <div style="width:350px; height:400px; overflow: hidden; display: flex; justify-content: center; align-items: center; position: relative;">
                         <img id="previewImage" src="#" alt="프로필사진" style="max-width: 100%; max-height: 100%; object-fit: cover;"/>
@@ -142,7 +131,7 @@
                 </div>
                 <!--end::Image input-->
 
-                <div class="fv-row mb-5">
+                <div class="fv-row mb-2">
                     <label class="form-label fs-6 fw-bolder text-dark pt-5" style="float: left; margin-right:5px;" >공연명</label>
                     <label class="form-label fs-8 fw-bolder pt-4" style="float: left; color: #ff0000">*</label>
                     <input class="form-control form-control-lg form-control-solid" type="text"
@@ -154,7 +143,7 @@
                            placeholder=""
                            name="pname" autocomplete="off" style="border-color: #0099FF;"/>
                 </div>
-                <div class="fv-row mb-5">
+                <div class="fv-row mb-3">
                     <div style="display: flex; align-items: center;">
                         <label class="form-label fs-6 fw-bolder text-dark pt-5" style="float: left; margin-right:5px;">주소</label>
                         <label class="form-label fs-8 fw-bolder pt-4" style="float: left; color: #ff0000">*</label>
@@ -170,16 +159,16 @@
                            autocomplete="off" style="border-color: #0099FF;">
                 </div>
 
-                <div class=" fv-row mb-5">
+                <div class=" fv-row mb-2">
                     <label class="form-label fs-6 fw-bolder text-dark pt-5" style="float: left; margin-right:5px;">기업 ID</label>
                     <label class="form-label fs-8 fw-bolder pt-4" style="float: left; color: #ff0000">*</label>
                     <input class="form-control form-control-lg form-control-solid" type="text"
                            name="enterId" id="enterId" autocomplete="off" style="border-color: #0099FF;" readonly/>
                 </div>
-                <div class=" fv-row mb-5">
+                <div class=" fv-row mb-2">
                     <div>
 
-                        <div class=" fv-row mb-5">
+                        <div class=" fv-row mb-2">
                             <label class="form-label fs-6 fw-bolder text-dark pt-5" style="float: left; margin-right:5px;">공연 시작 일자</label>
                             <label class="form-label fs-8 fw-bolder pt-4" style="float: left; color: #ff0000">*</label>
                             <input autocomplete="off" class="form-control form-control-lg form-control-solid datepicker"
@@ -195,7 +184,7 @@
 
                     </div>
                 </div>
-                <div class=" fv-row mb-5">
+                <div class=" fv-row mb-3">
                     <label class="form-label fs-6 fw-bolder text-dark pt-5" style="float: left; margin-right:5px;">가격</label>
                     <label class="form-label fs-8 fw-bolder pt-4" style="float: left; color: #ff0000">*</label>
                     <input class="form-control form-control-lg form-control-solid" type="text"
@@ -205,14 +194,75 @@
                     <div class="d-flex flex-wrap justify-content-center pb-lg-0 pb-5">
                         <!-- justify-content-end 클래스를 추가하여 오른쪽으로 정렬 -->
                         <button type="submit" class="btn btn-primary fw-bolder fs-4 px-8 py-4 my-3 me-4"
-                                 id="concertRegister">공연 등록
+                                id="concertRegister">공연 등록
                         </button>
                     </div>
                 </div>
             </form>
-        </div>
-    </div>
-</div>
+            </span>
+                        </div>
+                    </div>
+                </div>
+            </td>
+
+            <td style="width:10%">
+
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <footer class="footer text-center" style="width: auto;">
+                    <div class="container">
+                        <div class="row">
+                            <!-- Footer Location-->
+                            <div class="col-lg-4 mb-1 mb-lg-0">
+                                <h4 class="text-uppercase mb-4">TEAM E114</h4>
+                                <p class="lead mb-0">
+                                    내향인 4명 모인 팀
+                                </p>
+                            </div>
+                            <!-- Footer Social Icons-->
+                            <div class="col-lg-4 mb-1 mb-lg-0">
+                                <h4 class="text-uppercase mb-4">Our Github</h4>
+                                <a class="btn btn-outline-light btn-social mx-1"
+                                   th:href="@{https://github.com/thdhksrb}">
+                                    <img th:src="@{/img/swk.jpg}" alt="GitHub Profile"
+                                         style="width: 3.25rem; height: 3.25rem; border-radius: 50%;"/>
+                                </a>
+                                <a class="btn btn-outline-light btn-social mx-1"
+                                   th:href="@{https://github.com/noeypark}">
+                                    <img th:src="@{/img/noey.jpg}" alt="GitHub Profile"
+                                         style="width: 3.25rem; height: 3.25rem; border-radius: 50%;"/>
+                                </a>
+                                <a class="btn btn-outline-light btn-social mx-1"
+                                   th:href="@{https://github.com/Minchae128}">
+                                    <img th:src="@{/img/smc.jpg}" alt="GitHub Profile"
+                                         style="width: 3.25rem; height: 3.25rem; border-radius: 50%;"/>
+                                </a>
+                                <a class="btn btn-outline-light btn-social mx-1" th:href="@{https://github.com/hwewon}">
+                                    <img th:src="@{/img/hea.jpg}" alt="GitHub Profile"
+                                         style="width: 3.25rem; height: 3.25rem; border-radius: 50%;"/>
+                                </a>
+                            </div>
+                            <!-- Footer About Text-->
+                            <div class="col-lg-4">
+                                <h4 class="text-uppercase mb-3">TEAM INTRO</h4>
+                                <p class="lead mb-0">
+                                    같이 성장할 기업의 연락을 기다립니다.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <!-- Copyright Section-->
+                    <div class="copyright py-4 text-center text-white mt-0" style="font-size: 10px">
+                        <div class="container"><small>본 페이지는 상업적 목적이 아닌 개인 포트폴리오용으로 제작되었습니다.</small></div>
+                        <div class="container"><small>© 2023 TEAM E114. All Rights Reserved.</small></div>
+                    </div>
+                </footer>
+            </td>
+        </tr>
+    </table>
 </div>
 <!--우편번호 API-->
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
@@ -250,6 +300,5 @@
 
     $('#startDate, #lastDate').datepicker('setDate', 'today');
 </script>
-<!-- } -->
 </body>
 </html>
