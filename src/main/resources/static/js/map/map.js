@@ -630,6 +630,3 @@ function getContent(record) {
 
     return result;
 }
-
-
-
