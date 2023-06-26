@@ -22,7 +22,9 @@
 
     <link rel="canonical" href="https://preview.keenthemes.com/start"/>
     <link rel="shortcut icon" href="assets/media/logos/favicon.ico"/>
-
+    <!--begin::Fonts-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"/>
+    <!--end::Fonts-->
     <!--begin::Global Stylesheets Bundle(used by all pages)-->
     <link th:href="@{/css/pay/pay1.css}" rel="stylesheet" type="text/css" />
     <link th:href="@{/css/pay/pay2.css}" rel="stylesheet" type="text/css" />
@@ -103,7 +105,7 @@
                     <div class="d-flex flex-wrap" style="position: absolute; bottom: 150px; right: 450px; width: 200px; height: 80px; margin-bottom: 0;">
                         <button type="button" id="selectSeat"
                                 class="btn btn-primary fw-bolder fs-1 px-2 py-3 my-3 text-center"
-                                style=" width: 200px; height: 50px; margin-left: auto; margin-right: 30px;">좌석 선택
+                                style=" width: 200px; height: 50px; margin-left: auto; margin-right: 30px; margin-top: -20px;">좌석 선택
                         </button>
                     </div>
                 </div>
@@ -113,6 +115,13 @@
         </div>
     </div>
 </div>
+<script th:inline="javascript">
+    const loginUserJson = /*[[${loginUserJson}]]*/ null;
+    if (loginUserJson !== null) {
+        const loginUser = JSON.parse(loginUserJson);
+        window.sessionStorage.setItem("loginUser", loginUserJson);
+    }
+</script>
 <!--jQuery 기본 js파일-->
 <script th:src="@{http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js}"></script>
 <!--jQuery UI 라이브러리 js파일-->
