@@ -141,7 +141,7 @@ $.ajax({
                 const token = sessionStorage.getItem("jwtToken");
                 if(token !==null){
                     $.ajax({
-                        url:'/kakao/donation',
+                        url:'/pay/kakao/donation',
                         dataType: 'json',
                         success:function (data){
                             var box = data.next_redirect_pc_url;
