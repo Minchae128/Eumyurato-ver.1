@@ -19,11 +19,10 @@ function getAdminData() {
 }
 
 function displayAdminData(admin) {
-    document.getElementById("admin-id").value = admin.id;
-    document.getElementById("admin-name").value = admin.name;
-    document.getElementById("admin-num").value = admin.num;
-    document.getElementById("admin-email").value = admin.email;
-    document.getElementById("admin-phone").value = admin.phone;
+    document.getElementById("admin-id").textContent = admin.id;
+    document.getElementById("admin-name").textContent = admin.name;
+    document.getElementById("admin-email").textContent = admin.email;
+    document.getElementById("admin-phone").textContent = admin.phone;
     // 이미지 URL을 가져온다.
     var imageUrl = admin.image;
 
@@ -82,7 +81,7 @@ logoutBtn.onclick = function () {
                 window.sessionStorage.removeItem("jwtToken");
                 console.log("로그아웃")
                 // 홈페이지로 이동
-                window.location.href = "/home";
+                window.location.href = "/map";
             } else {
                 throw new Error("로그아웃 처리에 실패하였습니다.");
             }
