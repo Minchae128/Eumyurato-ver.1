@@ -297,6 +297,3 @@ function drawPointChart(pointData) {
         }
     });
 }
-
-
-
