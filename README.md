@@ -31,7 +31,7 @@
 
 ## 🎼 음유라토(Eumyurato)
 ![image](https://github.com/Minchae128/Eumyurato/assets/122027566/94f86a6a-b608-43e9-bc92-18d58c12a3a9)
-![image](https://github.com/bomin1996/E114_Eumyurato/assets/121412330/f0373202-1a25-433b-96a5-bd435d275c2d)
+![image](https://github.com/Minchae128/Eumyurato/assets/122027566/ff014a10-58c1-4a21-be07-be4eacfa410f)
 
 ## ⚙️ 개발 환경
 
