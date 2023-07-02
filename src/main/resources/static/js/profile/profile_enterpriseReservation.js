@@ -18,10 +18,8 @@ function getReservationList(token, searchColumn = null, searchKeyword = null, pa
     }
 
     fetch(url, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`,
+        method: 'GET', headers: {
+            'Content-Type': 'application/json', 'Authorization': `Bearer ${token}`,
         },
     })
         .then((response) => {
@@ -57,7 +55,7 @@ function displayReservationList(reservationList, currentPage) {
         reservationRow.insertCell().textContent = reservation.viewDate;
         reservationRow.insertCell().textContent = reservation.memberNum;
         reservationRow.insertCell().textContent = reservation.reservPay;
-         // 공연명 추가
+        // 공연명 추가
     });
 
     const totalItems = reservationList.length;
@@ -94,7 +92,7 @@ function createPagination(totalItems, perPage, currentPage) {
 const logoutBtn = document.getElementById("logoutBtn");
 logoutBtn.setAttribute("href", "/logout");
 logoutBtn.onclick = function () {
-    fetch('/logout', { method: 'POST', credentials: 'include' })
+    fetch('/logout', {method: 'POST', credentials: 'include'})
         .then(response => {
             if (response.ok) {
                 // 세션 스토리지에서 토큰 제거

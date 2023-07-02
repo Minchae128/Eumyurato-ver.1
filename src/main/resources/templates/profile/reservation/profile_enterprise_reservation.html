@@ -2,110 +2,109 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <!--begin::Head-->
 <head>
-	<meta charset="utf-8"/>
-	<base href="../">
-	<title>Eumyurato</title>
-	<link rel="icon" type="image/x-icon" th:href="@{/img/E114_logo.png}"/>
-	<meta charset="utf-8"/>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<!-- Popper JS -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-	<!--begin::Global Stylesheets Bundle(used by all pages)-->
-	<link th:href="@{/css/profile/profile1.css}" rel="stylesheet" type="text/css"/>
-	<link th:href="@{/css/profile/profile2.css}" rel="stylesheet" type="text/css"/>
-	<link th:href="@{/css/profile/profile3.css}" rel="stylesheet" type="text/css"/>
-	<link th:href="@{/css/profile/pagination.css}" rel="stylesheet" type="text/css"/>
-	<link th:href="@{/css/home/home1.css}" rel="stylesheet"/>
+    <meta charset="utf-8"/>
+    <base href="../">
+    <title>Eumyurato</title>
+    <link rel="icon" type="image/x-icon" th:href="@{/img/E114_logo.png}"/>
+    <meta charset="utf-8"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!--begin::Global Stylesheets Bundle(used by all pages)-->
+    <link th:href="@{/css/profile/profile1.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/profile/profile2.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/profile/profile3.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/profile/pagination.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/home/home1.css}" rel="stylesheet"/>
 <body>
 <div id="wrap" style="background-color: #FFFFFF">
-	<table style="text-align:center; border:none; height: auto;">
-		<tr>
-			<td colspan="4">
-				<nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="navLogin">
-					<div class="container" style="margin-left: 10px;">
-						<a class="navbar-brand" href="/map"><img th:src="@{/img/logo_name.png}"></a>
-					</div>
-					<div style="margin-right: 5%">
-						<a id="logoutBtn">
-							<img th:src="@{/img/logout.png}" style="height: 35px; width: 35px;">
-						</a>
-					</div>
-				</nav>
-			</td>
-		</tr>
-		<tr>
-			<td style="width:10%">
+    <table style="text-align:center; border:none; height: auto;">
+        <tr>
+            <td colspan="4">
+                <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="navLogin">
+                    <div class="container" style="margin-left: 10px;">
+                        <a class="navbar-brand" href="/map"><img th:src="@{/img/logo_name.png}"></a>
+                    </div>
+                    <div style="margin-right: 5%">
+                        <a id="logoutBtn">
+                            <img th:src="@{/img/logout.png}" style="height: 35px; width: 35px;">
+                        </a>
+                    </div>
+                </nav>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:10%">
 
-			</td>
+            </td>
 
-			<td style="height:auto; width:15%;">
-				<div style="width: 240px; background-color:rgb(242, 240, 229); border: 2px solid rgb(212, 211, 201); position: absolute; top:120px; height: 1000px">
-					<br>
-					<dl style="text-align: left; margin-left: 35px;">
-						<hr style="width: 170px"/>
-						<h2>기업 홈</h2>
-						<hr style="width: 170px"/>
-						<dd>
-							<a style="color: #000000; font-size: 20px;" th:href="@{/profile/ent/account}">
-								계정 정보
-							</a>
-						</dd>
-						<dd>
-							<a style="color: #000000; font-size: 20px;" th:href="@{/profile/ent/modify}">
-								계정 정보 수정
-							</a>
-						</dd>
+            <td style="height:auto; width:15%;">
+                <div style="width: 240px; background-color:rgb(242, 240, 229); border: 2px solid rgb(212, 211, 201); position: absolute; top:120px; height: 1000px">
+                    <br>
+                    <dl style="text-align: left; margin-left: 35px;">
+                        <hr style="width: 170px"/>
+                        <h2>기업 홈</h2>
+                        <hr style="width: 170px"/>
+                        <dd>
+                            <a style="color: #000000; font-size: 20px;" th:href="@{/profile/ent/account}">
+                                계정 정보
+                            </a>
+                        </dd>
+                        <dd>
+                            <a style="color: #000000; font-size: 20px;" th:href="@{/profile/ent/modify}">
+                                계정 정보 수정
+                            </a>
+                        </dd>
 
-						<br>
-						<hr style="width: 170px"/>
-						<h2>공연 관리</h2>
-						<hr style="width: 170px"/>
-						<dd>
-							<a style="color: #000000; font-size: 20px" th:href="@{/profile/ent/reservation/view}">
-								예약 관리
-							</a>
-						</dd>
-						<dd>
-							<a style="color: #000000; font-size: 20px" th:href="@{/profile/ent/management/view}">
-								공연 관리
-							</a>
-						</dd>
+                        <br>
+                        <hr style="width: 170px"/>
+                        <h2>공연 관리</h2>
+                        <hr style="width: 170px"/>
+                        <dd>
+                            <a style="color: #000000; font-size: 20px" th:href="@{/profile/ent/reservation/view}">
+                                예약 관리
+                            </a>
+                        </dd>
+                        <dd>
+                            <a style="color: #000000; font-size: 20px" th:href="@{/profile/ent/management/view}">
+                                공연 관리
+                            </a>
+                        </dd>
 
-						<br>
-						<hr style="width: 170px"/>
-						<h2>공지사항</h2>
-						<hr style="width: 170px"/>
-						<dd>
-							<a style="color: #000000; font-size: 20px" th:href="@{/profile/ent/info/view}">
-								공지사항
-							</a>
-						</dd>
-					</dl>
-					<br>
-				</div>
-			</td>
+                        <br>
+                        <hr style="width: 170px"/>
+                        <h2>공지사항</h2>
+                        <hr style="width: 170px"/>
+                        <dd>
+                            <a style="color: #000000; font-size: 20px" th:href="@{/profile/ent/info/view}">
+                                공지사항
+                            </a>
+                        </dd>
+                    </dl>
+                    <br>
+                </div>
+            </td>
 
-			<td style="width:65%">
-				<div style="margin-top: 117px; margin-bottom: 10px; background-color:rgb(242, 240, 229); border: 2px solid rgb(212, 211, 201); width:1200px; height: 1000px; display: flex; ">
+            <td style="width:65%">
+                <div style="margin-top: 117px; margin-bottom: 10px; background-color:rgb(242, 240, 229); border: 2px solid rgb(212, 211, 201); width:1200px; height: 1000px; display: flex; ">
 
-					<div class="mx-auto w-100"
-						 style="width: 1200px;display: flex; margin-top: -28%; margin-left: -28%;">
+                    <div class="mx-auto w-100"
+                         style="width: 1200px;display: flex; margin-top: -28%; margin-left: -28%;">
 
-						<div style="margin-top: 43%; margin-left: 2%; display: flex">
+                        <div style="margin-top: 43%; margin-left: 2%; display: flex">
 
             <span class="form needs-validation text-center" id="kt_login_signin_form1" style="margin-top:-11%;">
                 <div style="margin-left: 8% ">
                     <p class="text-dark display-6 text-start"
-					   style="font-size: 60px; margin-bottom: 15px;">예약 관리</p>
+                       style="font-size: 60px; margin-bottom: 15px;">예약 관리</p>
                     <hr style="width: 230px"/>
                 </div>
 
         <div class="login-content flex-lg-row-fluid d-flex flex-column overflow-hidden py-10 py-lg-20 px-5 p-lg-5"
-			 style="max-width: 1200px; width: 1200px;">
+             style="max-width: 1200px; width: 1200px;">
             <!--begin::Wrapper-->
-			<!--begin::Signin Form-->
+            <!--begin::Signin Form-->
             <div class="form needs-validation text-center" id="kt_login_signin_form" style="height: 700px;">
                 <div style="color:#000000; padding:15px;  height: 550px;">
                     <div class="search-container" style="margin-left: -5%">
@@ -113,7 +112,7 @@
                             <option value="name">공연명</option>
                         </select>
                         <input type="text" id="searchKeyword" placeholder="검색어 입력"
-							   style="width: 30%; height: 40px; border-radius: 5px; border: 1px solid #cccad4">
+                               style="width: 30%; height: 40px; border-radius: 5px; border: 1px solid #cccad4">
                         <button class="btn btn-primary" id="searchBtn" style="width: 10%;">Search</button>
                     </div>
                     <div>
@@ -121,7 +120,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <table class="table table-rounded table-striped border gy-5 gs-5" id="eventTable"
-										   style="width: 1100px; background-color: #FFFFFF; margin-left: -50px;">
+                                           style="width: 1100px; background-color: #FFFFFF; margin-left: -50px;">
                                         <thead id="eventThead" style="position: sticky; top: 0">
                                         <tr class="fw-bold fs-6 text-gray-800 border-bottom border-gray-200">
                                             <th>예약 번호</th>
@@ -133,8 +132,8 @@
                                         </tr>
                                         </thead>
                                         <tbody id="reservationTbody"></tbody>
-										</tbody>
-										<tfoot>
+                                        </tbody>
+                                        <tfoot>
                                         <tr>
                                             <td colspan="6">
                                                 <ul class="pagination"></ul>
@@ -151,69 +150,69 @@
         </div>
                     </span>
 
-						</div>
-					</div>
-				</div>
-			</td>
+                        </div>
+                    </div>
+                </div>
+            </td>
 
-			<td style="width:10%">
+            <td style="width:10%">
 
-			</td>
-		</tr>
-		<tr>
-			<td colspan="4">
-				<footer class="footer text-center" style="width: auto;">
-					<div class="container">
-						<div class="row">
-							<!-- Footer Location-->
-							<div class="col-lg-4 mb-1 mb-lg-0">
-								<h4 class="text-uppercase mb-4">TEAM E114</h4>
-								<p class="lead mb-0">
-									내향인 4명 모인 팀
-								</p>
-							</div>
-							<!-- Footer Social Icons-->
-							<div class="col-lg-4 mb-1 mb-lg-0">
-								<h4 class="text-uppercase mb-4">Our Github</h4>
-								<a class="btn btn-outline-light btn-social mx-1"
-								   th:href="@{https://github.com/thdhksrb}">
-									<img th:src="@{/img/swk.jpg}" alt="GitHub Profile"
-										 style="width: 3.25rem; height: 3.25rem; border-radius: 50%;"/>
-								</a>
-								<a class="btn btn-outline-light btn-social mx-1"
-								   th:href="@{https://github.com/noeypark}">
-									<img th:src="@{/img/noey.jpg}" alt="GitHub Profile"
-										 style="width: 3.25rem; height: 3.25rem; border-radius: 50%;"/>
-								</a>
-								<a class="btn btn-outline-light btn-social mx-1"
-								   th:href="@{https://github.com/Minchae128}">
-									<img th:src="@{/img/smc.jpg}" alt="GitHub Profile"
-										 style="width: 3.25rem; height: 3.25rem; border-radius: 50%;"/>
-								</a>
-								<a class="btn btn-outline-light btn-social mx-1" th:href="@{https://github.com/hwewon}">
-									<img th:src="@{/img/hea.jpg}" alt="GitHub Profile"
-										 style="width: 3.25rem; height: 3.25rem; border-radius: 50%;"/>
-								</a>
-							</div>
-							<!-- Footer About Text-->
-							<div class="col-lg-4">
-								<h4 class="text-uppercase mb-3">TEAM INTRO</h4>
-								<p class="lead mb-0">
-									같이 성장할 기업의 연락을 기다립니다.
-								</p>
-							</div>
-						</div>
-					</div>
-					<br>
-					<!-- Copyright Section-->
-					<div class="copyright py-4 text-center text-white mt-0" style="font-size: 10px">
-						<div class="container"><small>본 페이지는 상업적 목적이 아닌 개인 포트폴리오용으로 제작되었습니다.</small></div>
-						<div class="container"><small>© 2023 TEAM E114. All Rights Reserved.</small></div>
-					</div>
-				</footer>
-			</td>
-		</tr>
-	</table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <footer class="footer text-center" style="width: auto;">
+                    <div class="container">
+                        <div class="row">
+                            <!-- Footer Location-->
+                            <div class="col-lg-4 mb-1 mb-lg-0">
+                                <h4 class="text-uppercase mb-4">TEAM E114</h4>
+                                <p class="lead mb-0">
+                                    내향인 4명 모인 팀
+                                </p>
+                            </div>
+                            <!-- Footer Social Icons-->
+                            <div class="col-lg-4 mb-1 mb-lg-0">
+                                <h4 class="text-uppercase mb-4">Our Github</h4>
+                                <a class="btn btn-outline-light btn-social mx-1"
+                                   th:href="@{https://github.com/thdhksrb}">
+                                    <img th:src="@{/img/swk.jpg}" alt="GitHub Profile"
+                                         style="width: 3.25rem; height: 3.25rem; border-radius: 50%;"/>
+                                </a>
+                                <a class="btn btn-outline-light btn-social mx-1"
+                                   th:href="@{https://github.com/noeypark}">
+                                    <img th:src="@{/img/noey.jpg}" alt="GitHub Profile"
+                                         style="width: 3.25rem; height: 3.25rem; border-radius: 50%;"/>
+                                </a>
+                                <a class="btn btn-outline-light btn-social mx-1"
+                                   th:href="@{https://github.com/Minchae128}">
+                                    <img th:src="@{/img/smc.jpg}" alt="GitHub Profile"
+                                         style="width: 3.25rem; height: 3.25rem; border-radius: 50%;"/>
+                                </a>
+                                <a class="btn btn-outline-light btn-social mx-1" th:href="@{https://github.com/hwewon}">
+                                    <img th:src="@{/img/hea.jpg}" alt="GitHub Profile"
+                                         style="width: 3.25rem; height: 3.25rem; border-radius: 50%;"/>
+                                </a>
+                            </div>
+                            <!-- Footer About Text-->
+                            <div class="col-lg-4">
+                                <h4 class="text-uppercase mb-3">TEAM INTRO</h4>
+                                <p class="lead mb-0">
+                                    같이 성장할 기업의 연락을 기다립니다.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <!-- Copyright Section-->
+                    <div class="copyright py-4 text-center text-white mt-0" style="font-size: 10px">
+                        <div class="container"><small>본 페이지는 상업적 목적이 아닌 개인 포트폴리오용으로 제작되었습니다.</small></div>
+                        <div class="container"><small>© 2023 TEAM E114. All Rights Reserved.</small></div>
+                    </div>
+                </footer>
+            </td>
+        </tr>
+    </table>
 </div>
 
 <script th:src="@{/js/profile/profile_enterpriseReservation.js}" type="text/javascript"></script>
