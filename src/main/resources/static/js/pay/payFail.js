@@ -7,15 +7,14 @@ localStorage.removeItem('id');
 const token = sessionStorage.getItem("jwtToken");
 
 const data = {
-    price: price,
-    id: id
+    price: price, id: id
 };
 
 const xhr = new XMLHttpRequest();
 xhr.open('POST', '/kakaopay/fail/donation');
 xhr.setRequestHeader('Content-Type', 'application/json');
 xhr.setRequestHeader('Authorization', `Bearer ${token}`);
-xhr.onload = function() {
+xhr.onload = function () {
     if (xhr.status === 200) {
         console.log(xhr.response); // 응답 데이터
         const response = JSON.parse(xhr.response);
@@ -27,12 +26,12 @@ xhr.onload = function() {
         conNameElement.innerText = '공연명 : ' + conName;
 
         const priceElement = document.getElementById('price');
-        priceElement.innerText = '취소금액 : ' + parseInt(price).toLocaleString() +'원';
+        priceElement.innerText = '취소금액 : ' + parseInt(price).toLocaleString() + '원';
     } else {
         console.error(xhr.statusText);
     }
 };
-xhr.onerror = function() {
+xhr.onerror = function () {
     console.error(xhr.statusText);
 };
 xhr.send(JSON.stringify(data));
