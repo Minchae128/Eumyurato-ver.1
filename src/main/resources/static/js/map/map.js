@@ -1,4 +1,4 @@
-window.onload = function() {
+window.onload = function () {
     const jwtToken = window.sessionStorage.getItem("jwtToken");
     if (jwtToken !== null) {
         // 로그인 상태인 경우
@@ -14,18 +14,15 @@ window.onload = function() {
         userNameElem.innerText = decodedName;
 
         const mypageBtn = document.getElementById("mypageBtn");
-        mypageBtn.onclick = function (){
+        mypageBtn.onclick = function () {
 
 
             const token = sessionStorage.getItem("jwtToken");
             const headers = {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
+                'Content-Type': 'application/json', 'Authorization': `Bearer ${token}`
             };
             const options = {
-                method: 'POST',
-                headers,
-                body: JSON.stringify(payload)
+                method: 'POST', headers, body: JSON.stringify(payload)
             };
 
             fetch('/profile', options)
@@ -47,7 +44,7 @@ window.onload = function() {
         // 로그아웃
         const logoutBtn = document.createElement("a");
         logoutBtn.setAttribute("href", "/map");
-        logoutBtn.onclick = function() {
+        logoutBtn.onclick = function () {
             window.sessionStorage.removeItem("jwtToken");
         };
 
@@ -72,8 +69,8 @@ window.onload = function() {
 };
 
 //toggler
-$(document).ready(function(){
-    $('#kt_mega_menu_toggle').on('click', function(){
+$(document).ready(function () {
+    $('#kt_mega_menu_toggle').on('click', function () {
         $('.mapWrap, .sideMenu').toggleClass('active');
     });
 });
@@ -81,8 +78,7 @@ $(document).ready(function(){
 // 지도 객체 생성
 var container = document.getElementById('map');
 var options = {
-    center: new kakao.maps.LatLng(37.54, 126.96),
-    level: 7
+    center: new kakao.maps.LatLng(37.54, 126.96), level: 7
 };
 var map = new kakao.maps.Map(container, options);
 
@@ -119,8 +115,8 @@ xhr.onload = function () {
 
         // 버튼 클릭 이벤트 핸들러 등록
         var links = document.querySelectorAll('a');
-        links.forEach(function(link) {
-            link.addEventListener('click', function() {
+        links.forEach(function (link) {
+            link.addEventListener('click', function () {
                 links.forEach(link => link.classList.remove('active'));
                 this.classList.add('active');
                 var type = this.id;
@@ -157,20 +153,19 @@ function clearConcert() {
     markers = [];
 }
 
-function viewBusking(data){
+function viewBusking(data) {
     for (var i = 0; i < data.busking.length; i++) {
         var record = data.busking[i];
         console.log(record);
         // 클로저를 사용해서 변수를 캡처
-        (function(record) {
+        (function (record) {
             // 장소명과 주소로 좌표를 검색
-            geocoder.addressSearch(record.location, function(result, status) {
+            geocoder.addressSearch(record.location, function (result, status) {
                 // 정상적으로 검색이 완료됐으면
                 if (status === kakao.maps.services.Status.OK) {
                     var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
                     var marker = new kakao.maps.Marker({
-                        map: map,
-                        position: coords
+                        map: map, position: coords
                     });
                     markers.push(marker);
 
@@ -220,11 +215,11 @@ function viewBusking(data){
                     var imgUrl = record.image;
                     var replacedImgUrl = 'https://storage.googleapis.com/eumyurato/' + imgUrl;
 
-                    if(imgUrl !== null && imgUrl.startsWith("https://")){
+                    if (imgUrl !== null && imgUrl.startsWith("https://")) {
                         image.src = imgUrl;
-                    }else if(imgUrl !== null && !imgUrl.startsWith("https://")){
+                    } else if (imgUrl !== null && !imgUrl.startsWith("https://")) {
                         image.src = replacedImgUrl;
-                    }else{
+                    } else {
                         image.src = "/img/buskingDefaultImg.jpg";
                     }
 
@@ -235,22 +230,22 @@ function viewBusking(data){
                     li.appendChild(contentWrapper);
                     li.appendChild(imageWrapper);
 
-                    li.style.padding='18px';
+                    li.style.padding = '18px';
                     li.style.borderTop = '1px solid #ccc';
                     concert.appendChild(li);
 
-                    li.addEventListener('click',function(){
+                    li.addEventListener('click', function () {
                         goToBuskingDetail(record.id);
                     })
 
-                    li.addEventListener('mouseover',function(){
+                    li.addEventListener('mouseover', function () {
                         var position = marker.getPosition();
                         map.setCenter(position);
                         clickMakerListener(map, marker, infowindow)();
 
                     })
 
-                    li.addEventListener('mouseout',function(){
+                    li.addEventListener('mouseout', function () {
                         clickMapListener(infowindow)();
                     })
 
@@ -261,20 +256,19 @@ function viewBusking(data){
     }
 }
 
-function viewSmallConcert(data){
+function viewSmallConcert(data) {
     for (var i = 0; i < data.smallConcert.length; i++) {
         var record = data.smallConcert[i];
         console.log(record);
         // 클로저를 사용해서 변수를 캡처
-        (function(record) {
+        (function (record) {
             // 장소명과 주소로 좌표를 검색
-            geocoder.addressSearch(record.location, function(result, status) {
+            geocoder.addressSearch(record.location, function (result, status) {
                 // 정상적으로 검색이 완료됐으면
                 if (status === kakao.maps.services.Status.OK) {
                     var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
                     var marker = new kakao.maps.Marker({
-                        map: map,
-                        position: coords
+                        map: map, position: coords
                     });
                     markers.push(marker);
 
@@ -327,11 +321,11 @@ function viewSmallConcert(data){
                     var imgUrl = record.image;
                     var replacedImgUrl = 'https://storage.googleapis.com/eumyurato/' + imgUrl;
 
-                    if(imgUrl !== null && imgUrl.startsWith("https://")){
+                    if (imgUrl !== null && imgUrl.startsWith("https://")) {
                         image.src = imgUrl;
-                    }else if(imgUrl !== null && !imgUrl.startsWith("https://")){
+                    } else if (imgUrl !== null && !imgUrl.startsWith("https://")) {
                         image.src = replacedImgUrl;
-                    }else{
+                    } else {
                         image.src = "/img/concertDefaultImg.jpg";
                     }
 
@@ -342,20 +336,20 @@ function viewSmallConcert(data){
                     li.appendChild(contentWrapper);
                     li.appendChild(imageWrapper);
 
-                    li.style.padding='18px';
+                    li.style.padding = '18px';
                     li.style.borderTop = '1px solid #ccc';
                     concert.appendChild(li);
 
-                    li.addEventListener('click',function(){
+                    li.addEventListener('click', function () {
                         goToSmallConcertDetail(record.id);
                     })
 
-                    li.addEventListener('mouseover',function(){
+                    li.addEventListener('mouseover', function () {
                         var position = marker.getPosition();
                         map.setCenter(position);
                         clickMakerListener(map, marker, infowindow)();
                     })
-                    li.addEventListener('mouseout',function(){
+                    li.addEventListener('mouseout', function () {
                         clickMapListener(infowindow)();
                     })
                 }
@@ -364,20 +358,19 @@ function viewSmallConcert(data){
     }
 }
 
-function viewLocalFest(data){
+function viewLocalFest(data) {
     for (var i = 0; i < data.localFestival.length; i++) {
         var record = data.localFestival[i];
         console.log(record);
         // 클로저를 사용해서 변수를 캡처
-        (function(record) {
+        (function (record) {
             // 장소명과 주소로 좌표를 검색
-            geocoder.addressSearch(record.location, function(result, status) {
+            geocoder.addressSearch(record.location, function (result, status) {
                 // 정상적으로 검색이 완료됐으면
                 if (status === kakao.maps.services.Status.OK) {
                     var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
                     var marker = new kakao.maps.Marker({
-                        map: map,
-                        position: coords
+                        map: map, position: coords
                     });
                     markers.push(marker);
 
@@ -436,20 +429,20 @@ function viewLocalFest(data){
                     li.appendChild(contentWrapper);
                     li.appendChild(imageWrapper);
 
-                    li.style.padding='18px';
+                    li.style.padding = '18px';
                     li.style.borderTop = '1px solid #ccc';
                     concert.appendChild(li);
 
-                    li.addEventListener('click',function(){
+                    li.addEventListener('click', function () {
                         goToLocalDetail(record.id);
                     })
 
-                    li.addEventListener('mouseover',function(){
+                    li.addEventListener('mouseover', function () {
                         var position = marker.getPosition();
                         map.setCenter(position);
                         clickMakerListener(map, marker, infowindow)();
                     })
-                    li.addEventListener('mouseout',function(){
+                    li.addEventListener('mouseout', function () {
                         clickMapListener(infowindow)();
                     })
                 }
@@ -460,21 +453,19 @@ function viewLocalFest(data){
 
 // 클릭 이벤트 핸들러 함수
 function modalBusking(record) {
-    return function() {
+    return function () {
         // 모달 창에 정보를 채움
         var modalTitle = document.querySelector('.modal-title');
         modalTitle.textContent = record.name;
 
         var modalBody = document.querySelector('.modal-body');
-        modalBody.innerHTML = '<p><strong>버스킹 장소: </strong>' + record.location + '</p>' +
-            '<p><strong>공연 일자: </strong>' + record.date + '</p>' +
-            '<p><strong>공연자: </strong>' + record.nid + '</p>';
+        modalBody.innerHTML = '<p><strong>버스킹 장소: </strong>' + record.location + '</p>' + '<p><strong>공연 일자: </strong>' + record.date + '</p>' + '<p><strong>공연자: </strong>' + record.nid + '</p>';
 
         // 모달 창을 띄움
         $('#kt_modal_1').modal('show');
 
         //모달 창에서 상세보기 클릭 시 상세보기 페이지로 이동
-        $('#viewDetail').on('click', function() {
+        $('#viewDetail').on('click', function () {
             var id = record.id;
             goToBuskingDetail(id);
         });
@@ -483,22 +474,19 @@ function modalBusking(record) {
 
 // 클릭 이벤트 핸들러 함수
 function modalLocal(record) {
-    return function() {
+    return function () {
         // 모달 창에 정보를 채움
         var modalTitle = document.querySelector('.modal-title');
         modalTitle.textContent = record.name;
 
         var modalBody = document.querySelector('.modal-body');
-        modalBody.innerHTML = '<p><strong>개최 장소: </strong>' + record.location + '</p>' +
-            '<p><strong>개최 일자: </strong>' + formatDate(new Date(record.startDate)) + ' - ' +
-            formatDate(new Date(record.lastDate)) + '</p>' +
-            '<p><strong>주최측: </strong>' + record.org + '</p>';
+        modalBody.innerHTML = '<p><strong>개최 장소: </strong>' + record.location + '</p>' + '<p><strong>개최 일자: </strong>' + formatDate(new Date(record.startDate)) + ' - ' + formatDate(new Date(record.lastDate)) + '</p>' + '<p><strong>주최측: </strong>' + record.org + '</p>';
 
         // 모달 창을 띄움
         $('#kt_modal_1').modal('show');
 
         //모달 창에서 상세보기 클릭 시 상세보기 페이지로 이동
-        $('#viewDetail').on('click', function() {
+        $('#viewDetail').on('click', function () {
             var id = record.id;
             goToLocalDetail(id);
         });
@@ -507,22 +495,19 @@ function modalLocal(record) {
 
 // 클릭 이벤트 핸들러 함수
 function modalSmall(record) {
-    return function() {
+    return function () {
         // 모달 창에 정보를 채움
         var modalTitle = document.querySelector('.modal-title');
         modalTitle.textContent = record.name;
 
         var modalBody = document.querySelector('.modal-body');
-        modalBody.innerHTML = '<p><strong>개최 장소: </strong>' + record.location + '</p>' +
-            '<p><strong>공연 일자: </strong>' + formatDate(new Date(record.startDate)) + ' - ' +
-            formatDate(new Date(record.lastDate)) + '</p>' +
-            '<p><strong>공연자: </strong>' + record.pname + '</p>';
+        modalBody.innerHTML = '<p><strong>개최 장소: </strong>' + record.location + '</p>' + '<p><strong>공연 일자: </strong>' + formatDate(new Date(record.startDate)) + ' - ' + formatDate(new Date(record.lastDate)) + '</p>' + '<p><strong>공연자: </strong>' + record.pname + '</p>';
 
         // 모달 창을 띄움
         $('#kt_modal_1').modal('show');
 
         //모달 창에서 상세보기 클릭 시 상세보기 페이지로 이동
-        $('#viewDetail').on('click', function() {
+        $('#viewDetail').on('click', function () {
             var id = record.id;
             goToSmallConcertDetail(id);
         });
@@ -531,8 +516,7 @@ function modalSmall(record) {
 
 // 인포윈도우를 표시하는 클로저를 만드는 함수
 function clickMakerListener(map, marker, infowindow) {
-    return function() {
-
+    return function () {
 
 
         infowindow.open(map, marker);
@@ -557,7 +541,7 @@ function padZero(num) {
     return (num < 10 ? '0' : '') + num;
 }
 
-function goToSmallConcertDetail(id){
+function goToSmallConcertDetail(id) {
 
     var detailPageUrl = '/smallconcert/detail/' + id;
 
@@ -565,14 +549,14 @@ function goToSmallConcertDetail(id){
 }
 
 //지역축제 디테일 페이지
-function goToLocalDetail(id){
+function goToLocalDetail(id) {
     var detailPageUrl = '/local_festival/detail/' + id;
 
     window.location.href = detailPageUrl;
 }
 
 //버스킹 디테일 페이지
-function goToBuskingDetail(id){
+function goToBuskingDetail(id) {
     var detailPageUrl = '/busking/detail/' + id;
 
     window.location.href = detailPageUrl;
@@ -586,7 +570,7 @@ function getContent(record) {
     const imageUrl = record.image;
     console.log(imageUrl);
 
-    if(imageUrl !== null && imageUrl.startsWith("https://")){
+    if (imageUrl !== null && imageUrl.startsWith("https://")) {
         // 이미지 src
         result = `<div class="infowindow" style="width: 200px; height: 200px; overflow: auto;">
     <div class="infowindow-img-container" style="display: flex; justify-content: center; align-items: center;">
@@ -597,7 +581,7 @@ function getContent(record) {
     </div>
   </div>`;
 
-    }else if(imageUrl !== null && !imageUrl.startsWith("https://")){
+    } else if (imageUrl !== null && !imageUrl.startsWith("https://")) {
         const replacedImageUrl = 'https://storage.googleapis.com/eumyurato/' + imageUrl;
         // 이미지 src
         result = `<div class="infowindow" style="width: 200px; height: 200px; overflow: auto;">
@@ -609,7 +593,7 @@ function getContent(record) {
     </div>
   </div>`;
 
-    }else{
+    } else {
         result = `<div class="infowindow" style="width: 200px; height: 200px; overflow: auto;">
     <div class="infowindow-img-container" style="display: flex; justify-content: center; align-items: center;">
       <img src="/img/mapDefaultImg.png" class="infowindow-img" alt="...">
