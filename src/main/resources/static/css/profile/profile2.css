@@ -2345,8 +2345,9 @@ progress {
     .form-control {
         transition: none;
     }
-    .login-btn{
-        transition:none;
+
+    .login-btn {
+        transition: none;
     }
 }
 
@@ -49587,6 +49588,7 @@ body {
     z-index: 9999;
     background-color: #007bff;
 }
+
 #leftArea1 {
     position: fixed;
     left: 0;
@@ -49610,6 +49612,7 @@ body {
         z-index: 2;
         background-color: #007bff; /* 배경색 설정 */
     }
+
     #leftArea1 {
         display: none;
         position: static;

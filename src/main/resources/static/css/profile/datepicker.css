@@ -3,7 +3,7 @@
     background: #fff;
 }
 
-.ui-datepicker-calendar>thead>tr>th {
+.ui-datepicker-calendar > thead > tr > th {
     font-size: 14px !important;
 }
 
@@ -39,14 +39,14 @@
     padding: 20px;
     padding-bottom: 10px;
     width: 300px;
-    box-shadow: 10px 10px 40px rgba(0,0,0,0.1);
+    box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.1);
 }
 
 .ui-widget.ui-widget-content {
     border: 1px solid #eee;
 }
 
-#startDate,#lastDate:focus>.ui-datepicker {
+#startDate, #lastDate:focus > .ui-datepicker {
     display: block;
 }
 
@@ -75,14 +75,14 @@
     width: 100%;
 }
 
-.ui-datepicker-calendar>thead>tr>th {
+.ui-datepicker-calendar > thead > tr > th {
     padding: 5px;
     font-size: 20px;
     font-weight: 400;
 }
 
 
-.ui-datepicker-calendar>tbody>tr>td>a {
+.ui-datepicker-calendar > tbody > tr > td > a {
     color: #000;
     font-size: 12px !important;
     font-weight: bold !important;
@@ -91,12 +91,12 @@
 }
 
 
-.ui-datepicker-calendar>tbody>tr>.ui-state-disabled:hover {
+.ui-datepicker-calendar > tbody > tr > .ui-state-disabled:hover {
     cursor: auto;
     background-color: #fff;
 }
 
-.ui-datepicker-calendar>tbody>tr>td {
+.ui-datepicker-calendar > tbody > tr > td {
     border-radius: 100%;
     width: 44px;
     height: 30px;
@@ -107,7 +107,7 @@
     font-size: 12px;
 }
 
-.ui-datepicker-calendar>tbody>tr>td:hover {
+.ui-datepicker-calendar > tbody > tr > td:hover {
     background-color: transparent;
     opacity: 0.6;
 }
@@ -142,19 +142,19 @@
     background-size: 36px;
 }
 
-.ui-datepicker-calendar>tbody>tr>td:first-child a{
+.ui-datepicker-calendar > tbody > tr > td:first-child a {
     color: red !important;
 }
 
-.ui-datepicker-calendar>tbody>tr>td:last-child a{
+.ui-datepicker-calendar > tbody > tr > td:last-child a {
     color: #0099ff !important;
 }
 
-.ui-datepicker-calendar>thead>tr>th:first-child {
+.ui-datepicker-calendar > thead > tr > th:first-child {
     color: red !important;
 }
 
-.ui-datepicker-calendar>thead>tr>th:last-child {
+.ui-datepicker-calendar > thead > tr > th:last-child {
     color: #0099ff !important;
 }
 
@@ -167,5 +167,14 @@
 }
 
 
-.inp {padding:10px 10px; background-color:#f1f1f1; border-radius:4px; border:0px;}
-.inp:focus {outline:none; background-color:#eee;}
+.inp {
+    padding: 10px 10px;
+    background-color: #f1f1f1;
+    border-radius: 4px;
+    border: 0px;
+}
+
+.inp:focus {
+    outline: none;
+    background-color: #eee;
+}
