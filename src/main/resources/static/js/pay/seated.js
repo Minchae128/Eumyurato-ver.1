@@ -1,5 +1,5 @@
 let test = [];
-let selectedSeats = new Array();
+let selectedSeats = [];
 let selectedSeatsMap = [];
 const seatWrapper = document.querySelector(".seat-wrapper");
 let clicked = "";
@@ -8,7 +8,7 @@ var url = location.pathname;
 var id = url.match(/\d+/)[0];
 var day = url.match(/(\d{4}-\d{2}-\d{2})/)[0];
 
-window.onload = function() {
+window.onload = function () {
     const jwtToken = window.sessionStorage.getItem("jwtToken");
     if (jwtToken !== null) {
         // 로그인 상태인 경우
@@ -24,18 +24,15 @@ window.onload = function() {
         userNameElem.innerText = decodedName;
 
         const mypageBtn = document.getElementById("mypageBtn");
-        mypageBtn.onclick = function (){
+        mypageBtn.onclick = function () {
 
 
             const token = sessionStorage.getItem("jwtToken");
             const headers = {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
+                'Content-Type': 'application/json', 'Authorization': `Bearer ${token}`
             };
             const options = {
-                method: 'POST',
-                headers,
-                body: JSON.stringify(payload)
+                method: 'POST', headers, body: JSON.stringify(payload)
             };
 
             fetch('/profile', options)
@@ -57,7 +54,7 @@ window.onload = function() {
         // 로그아웃
         const logoutBtn = document.createElement("a");
         logoutBtn.setAttribute("href", "/map");
-        logoutBtn.onclick = function() {
+        logoutBtn.onclick = function () {
             window.sessionStorage.removeItem("jwtToken");
         };
 
@@ -83,7 +80,7 @@ window.onload = function() {
 
 
 const xhr = new XMLHttpRequest();
-xhr.onload = function() {
+xhr.onload = function () {
     if (xhr.status === 200) {
         const response = JSON.parse(xhr.responseText);
         // 서버에서 받아온 데이터(response)를 처리하는 코드
@@ -118,7 +115,7 @@ xhr.onload = function() {
                 input.style.margin = "5px";
                 input.style.cursor = "pointer";
 
-                input.addEventListener('click', function(e) {
+                input.addEventListener('click', function (e) {
                     console.log(e.target.value);
                     //중복방지 함수
                     selectedSeats = selectedSeats.filter((element, index) => selectedSeats.indexOf(element) != index);
@@ -147,17 +144,17 @@ xhr.onload = function() {
         console.error('Error: ' + xhr.status);
     }
 };
-xhr.open('GET', '/smallconcert/detail/'+id+'/calendar/'+day+'/json');
+xhr.open('GET', '/smallconcert/detail/' + id + '/calendar/' + day + '/json');
 xhr.send();
 
 const selectCompletedButton = document.querySelector('#selectCompleted');
 selectCompletedButton.disabled = true;
-selectCompletedButton.addEventListener('click', function() {
+selectCompletedButton.addEventListener('click', function () {
     const xhr = new XMLHttpRequest();
-    xhr.open('POST', '/smallconcert/detail/' +id+ '/calendar/' +day+ '/pay' );
+    xhr.open('POST', '/smallconcert/detail/' + id + '/calendar/' + day + '/pay');
     xhr.setRequestHeader('Content-Type', 'application/json');
 
-    xhr.onload = function() {
+    xhr.onload = function () {
         if (xhr.status === 200) {
             console.log(xhr.responseText);
 
@@ -174,7 +171,7 @@ selectCompletedButton.addEventListener('click', function() {
                     alert('이미 선택된 좌석입니다.');
                     location.reload();
                 }
-            }else {
+            } else {
                 alert("로그인 후 이용해주세요.");
             }
 
@@ -192,7 +189,7 @@ selectCompletedButton.addEventListener('click', function() {
 });
 
 const resetButton = document.querySelector('#reset');
-resetButton.addEventListener('click', function() {
+resetButton.addEventListener('click', function () {
     const clickedSeats = document.querySelectorAll('.clicked');
     clickedSeats.forEach(seat => {
         seat.classList.remove('clicked');
@@ -204,7 +201,7 @@ resetButton.addEventListener('click', function() {
 });
 
 const searchButton = document.querySelector('#search-btn');
-searchButton.addEventListener('click', function() {
+searchButton.addEventListener('click', function () {
     selectCompletedButton.disabled = false;
     const selectedSeatElement = document.querySelector('.selected-seat');
     selectedSeatElement.textContent = '선택좌석: ' + selectedSeats.join(', ');
