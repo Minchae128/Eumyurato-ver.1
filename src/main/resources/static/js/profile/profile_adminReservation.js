@@ -16,8 +16,7 @@ function getReservationList(searchColumn = null, searchKeyword = null, page = 1)
     }
 
     fetch(url, {
-        method: 'GET',
-        headers: {
+        method: 'GET', headers: {
             'Content-Type': 'application/json',
         },
     })
@@ -111,8 +110,7 @@ function deleteReservation(reservationId) {
     const url = `/profile/admin/reservation?id=${reservationId}`;
 
     fetch(url, {
-        method: 'DELETE',
-        headers: {
+        method: 'DELETE', headers: {
             'Content-Type': 'application/json'
         },
     })
@@ -135,7 +133,7 @@ function deleteReservation(reservationId) {
 const logoutBtn = document.getElementById("logoutBtn");
 logoutBtn.setAttribute("href", "/logout");
 logoutBtn.onclick = function () {
-    fetch('/logout', { method: 'POST', credentials: 'include' })
+    fetch('/logout', {method: 'POST', credentials: 'include'})
         .then(response => {
             if (response.ok) {
                 // 세션 스토리지에서 토큰 제거
