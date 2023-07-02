@@ -13,7 +13,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!--graph-->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
     <!--begin::Global Stylesheets Bundle(used by all pages)-->
     <link th:href="@{/css/profile/profile1.css}" rel="stylesheet" type="text/css"/>
     <link th:href="@{/css/profile/profile2.css}" rel="stylesheet" type="text/css"/>
@@ -149,15 +148,18 @@
                             <div id="common"
                                  style="margin-top: 15px; margin-bottom: 50px; display: flex; flex-direction: row;">
                             <span class="chart-container">
-                                <canvas style="width: 300px; height: 300px; margin-right: 30px;" id="commonGenderChart"></canvas>
+                                <canvas style="width: 300px; height: 300px; margin-right: 30px;"
+                                        id="commonGenderChart"></canvas>
                              <p style="font-size: 30px; font-weight: bold; margin-top: 20px; margin-right: 10px;">성별</p>
                              </span>
                                 <span class="chart-container">
-                                 <canvas style="width: 320px; height: 300px; margin-right: 30px;" id="commonRoadChart"></canvas>
+                                 <canvas style="width: 320px; height: 300px; margin-right: 30px;"
+                                         id="commonRoadChart"></canvas>
                                   <p style="font-size: 30px; font-weight: bold; margin-top: 20px;">유입 경로</p>
                                  </span>
                                     <span class="chart-container" style="margin-top: 10px;">
-                                    <canvas style="width: 300px; height: 300px; margin-top: 0;" id="commonGenreChart"></canvas>
+                                    <canvas style="width: 300px; height: 300px; margin-top: 0;"
+                                            id="commonGenreChart"></canvas>
                                      <p style="font-size: 30px; font-weight: bold; margin-top: 20px;">선호 장르</p>
                                      </span>
                                 </div>
@@ -166,7 +168,8 @@
 
                             <div id="artist" style="display: none; margin-top: 15px;">
                                 <div style="margin-bottom: 30px;">
-                                    <canvas id="artistPointChart" style="margin-top: 30px; width: 300px; height: 150px;"></canvas>
+                                    <canvas id="artistPointChart"
+                                            style="margin-top: 30px; width: 300px; height: 150px;"></canvas>
                                     <p style="font-size: 30px; font-weight: bold; margin-top: 20px; ">아티스트 포인트 현황</p>
                                 </div>
                                 <div style="margin-top: 100px; margin-bottom: 50px; display: flex; flex-direction: row;">
