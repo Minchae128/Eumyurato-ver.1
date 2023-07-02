@@ -1,10 +1,10 @@
 const jwtToken = sessionStorage.getItem("jwtToken");
 
-$(document).ready(function() {
+$(document).ready(function () {
     getEnterData(); //정보 불러옴
 
     //프로필 이미지 사용자가 업로드한 이미지로 변경
-    $('input[type="file"]').on('change', function(event) {
+    $('input[type="file"]').on('change', function (event) {
         var file = event.target.files[0];
         var imageUrl = URL.createObjectURL(file);
         $('#previewImage').attr('src', imageUrl);
@@ -33,23 +33,23 @@ $(document).ready(function() {
         }
     });
 
-        //비밀번호 재확인이 비밀번호와 같은지 검사
-        $('#cpassword').on('change', function() {
-            var cpassword = $("input[name='cpassword']").val();
-            var pwd = $("input[name='pwd']").val();
+    //비밀번호 재확인이 비밀번호와 같은지 검사
+    $('#cpassword').on('change', function () {
+        var cpassword = $("input[name='cpassword']").val();
+        var pwd = $("input[name='pwd']").val();
 
-            if (cpassword !== pwd) {
-                alert("비밀번호가 다릅니다.");
-                cpassword = '';
-            }
-        });
+        if (cpassword !== pwd) {
+            alert("비밀번호가 다릅니다.");
+            cpassword = '';
+        }
+    });
 
     //수정 버튼
-    $('#modify').on('click', function(event) {
+    $('#modify').on('click', function (event) {
         event.preventDefault(); // 기본 동작(페이지 이동) 방지
-        if ($("input[name='cpassword']").val() === ""){
+        if ($("input[name='cpassword']").val() === "") {
             alert("비밀번호를 다시 입력해주세요.");
-        }else{
+        } else {
             enterModify();
         }
     });
@@ -92,10 +92,10 @@ function displayEnterData(enter) {
     if (imageUrl !== null && imageUrl.startsWith("https://")) {
         $('#previewImage').attr('src', imageUrl);
 
-    } else if(imageUrl !== null && !imageUrl.startsWith("https://")) {
+    } else if (imageUrl !== null && !imageUrl.startsWith("https://")) {
         var replacedImageUrl = 'https://storage.googleapis.com/eumyurato/' + imageUrl;
         $('#previewImage').attr('src', replacedImageUrl);
-    }else{
+    } else {
         var defaultImage = '/img/memberDefaultImg.jpg';
         $('#previewImage').attr('src', defaultImage);
     }
@@ -114,7 +114,7 @@ function enterModify() {
         phone: $("input[name='phone']").val()
     };
 
-    formData.append('enterDTO', new Blob([JSON.stringify(data)], { type: 'application/json' }));
+    formData.append('enterDTO', new Blob([JSON.stringify(data)], {type: 'application/json'}));
     console.log(formData);
     $.ajax({
         type: 'POST',
@@ -122,11 +122,11 @@ function enterModify() {
         data: formData,
         processData: false,
         contentType: false,
-        success: function() {
+        success: function () {
             alert('회원정보가 수정되었습니다.');
             location.reload();
         },
-        error: function(jqXHR, textStatus, errorThrown) {
+        error: function (jqXHR, textStatus, errorThrown) {
             console.log(textStatus + ': ' + errorThrown);
         }
     });
@@ -136,11 +136,11 @@ function enterModify() {
 function openEmailPopup() {
     var _width = '500';
     var _height = '200';
-    var _left = Math.ceil(( window.screen.width - _width )/2);
-    var _top = Math.ceil(( window.screen.height - _height )/2);
+    var _left = Math.ceil((window.screen.width - _width) / 2);
+    var _top = Math.ceil((window.screen.height - _height) / 2);
 
     // 팝업창 생성
-    const popup = window.open('', '이메일 변경하기', 'width='+ _width +', height='+ _height +', left=' + _left + ', top='+ _top );
+    const popup = window.open('', '이메일 변경하기', 'width=' + _width + ', height=' + _height + ', left=' + _left + ', top=' + _top);
 
 // HTML 코드 조합
     const htmlCode = `
@@ -179,11 +179,11 @@ document.getElementById("submit-btn").addEventListener("click", function() {
 function openPhonePopup() {
     var _width = '500';
     var _height = '200';
-    var _left = Math.ceil(( window.screen.width - _width )/2);
-    var _top = Math.ceil(( window.screen.height - _height )/2);
+    var _left = Math.ceil((window.screen.width - _width) / 2);
+    var _top = Math.ceil((window.screen.height - _height) / 2);
 
     // 팝업창 생성
-    const popup = window.open('', '전화번호 변경하기', 'width='+ _width +', height='+ _height +', left=' + _left + ', top='+ _top );
+    const popup = window.open('', '전화번호 변경하기', 'width=' + _width + ', height=' + _height + ', left=' + _left + ', top=' + _top);
 
 // HTML 코드 조합
     const htmlCode = `
@@ -234,7 +234,7 @@ function openPhonePopup() {
 const logoutBtn = document.getElementById("logoutBtn");
 logoutBtn.setAttribute("href", "/logout");
 logoutBtn.onclick = function () {
-    fetch('/logout', { method: 'POST', credentials: 'include' })
+    fetch('/logout', {method: 'POST', credentials: 'include'})
         .then(response => {
             if (response.ok) {
                 // 세션 스토리지에서 토큰 제거
