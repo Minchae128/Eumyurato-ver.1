@@ -2345,8 +2345,9 @@ progress {
     .form-control {
         transition: none;
     }
-    .login-btn{
-        transition:none;
+
+    .login-btn {
+        transition: none;
     }
 }
 
@@ -49603,6 +49604,7 @@ body {
         z-index: 2;
         background-color: #007bff; /* 배경색 설정 */
     }
+
     #leftArea2 {
         display: none;
         position: static;
@@ -49624,7 +49626,8 @@ body {
     margin-top: 0;
 }
 
-@media (max-width: 768px) { /* 페이지 너비가 768px 이하인 경우 */
+@media (max-width: 768px) {
+    /* 페이지 너비가 768px 이하인 경우 */
     nav {
         position: static;
         display: none;
@@ -49637,7 +49640,8 @@ body {
     }
 }
 
-@media (min-width: 769px) { /* 페이지 너비가 769px 이상인 경우 */
+@media (min-width: 769px) {
+    /* 페이지 너비가 769px 이상인 경우 */
     nav {
         position: fixed; /* 기존의 position: fixed를 해제 */
     }
