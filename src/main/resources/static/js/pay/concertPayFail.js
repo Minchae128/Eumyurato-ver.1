@@ -11,7 +11,7 @@ const data = {
 const xhr = new XMLHttpRequest();
 xhr.open('POST', '/kakaopay/fail');
 xhr.setRequestHeader('Content-Type', 'application/json');
-xhr.onload = function() {
+xhr.onload = function () {
     if (xhr.status === 200) {
         console.log(xhr.response); // 응답 데이터
         const response = JSON.parse(xhr.response);
@@ -23,12 +23,12 @@ xhr.onload = function() {
         conNameElement.innerText = '공연명 : ' + conName;
 
         const priceElement = document.getElementById('price');
-        priceElement.innerText = '취소금액 : ' + parseInt(conPrice).toLocaleString() +'원';
+        priceElement.innerText = '취소금액 : ' + parseInt(conPrice).toLocaleString() + '원';
     } else {
         console.error(xhr.statusText);
     }
 };
-xhr.onerror = function() {
+xhr.onerror = function () {
     console.error(xhr.statusText);
 };
 xhr.send(JSON.stringify(data));
