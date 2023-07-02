@@ -3,7 +3,7 @@ var id = url.match(/\d+/)[0];
 var detailList = $('#detailList');
 var price = $('#price');
 
-window.onload = function() {
+window.onload = function () {
     const jwtToken = window.sessionStorage.getItem("jwtToken");
     if (jwtToken !== null) {
         // 로그인 상태인 경우
@@ -19,18 +19,15 @@ window.onload = function() {
         userNameElem.innerText = decodedName;
 
         const mypageBtn = document.getElementById("mypageBtn");
-        mypageBtn.onclick = function (){
+        mypageBtn.onclick = function () {
 
 
             const token = sessionStorage.getItem("jwtToken");
             const headers = {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
+                'Content-Type': 'application/json', 'Authorization': `Bearer ${token}`
             };
             const options = {
-                method: 'POST',
-                headers,
-                body: JSON.stringify(payload)
+                method: 'POST', headers, body: JSON.stringify(payload)
             };
 
             fetch('/profile', options)
@@ -52,7 +49,7 @@ window.onload = function() {
         // 로그아웃
         const logoutBtn = document.createElement("a");
         logoutBtn.setAttribute("href", "/map");
-        logoutBtn.onclick = function() {
+        logoutBtn.onclick = function () {
             window.sessionStorage.removeItem("jwtToken");
         };
 
@@ -77,12 +74,10 @@ window.onload = function() {
 };
 
 $.ajax({
-    url: '/busking/detail/'+id+'/json',
-    dataType: 'json',
-    success: function(data) {
+    url: '/busking/detail/' + id + '/json', dataType: 'json', success: function (data) {
         var li = $('<li>');
 
-        li.append($('<p>').html('<strong>'+ data.name+ '</strong>'));
+        li.append($('<p>').html('<strong>' + data.name + '</strong>'));
         li.append($('<p>').html('<strong>장소: </strong>' + data.location));
         li.append($('<p>').html('<strong>공연 일자: </strong>' + data.date));
         li.append($('<p>').html('<strong>공연자: </strong>' + data.nid));
@@ -92,7 +87,7 @@ $.ajax({
         // 이미지 URL을 가져온다.
         var imageUrl = data.image;
 
-        if(imageUrl !== null && imageUrl.startsWith("https://")){
+        if (imageUrl !== null && imageUrl.startsWith("https://")) {
             // 이미지 요소를 생성한다.
             var img = document.createElement("img");
             img.src = imageUrl;
@@ -105,7 +100,7 @@ $.ajax({
 
             // div에 이미지 요소를 추가한다.
             posterContainer.appendChild(img);
-        }else if(imageUrl !== null && !imageUrl.startsWith("https://")){
+        } else if (imageUrl !== null && !imageUrl.startsWith("https://")) {
             var replacedImageUrl = 'https://storage.googleapis.com/eumyurato/' + imageUrl;
             console.log(replacedImageUrl);
             // 이미지 요소를 생성한다.
@@ -120,7 +115,7 @@ $.ajax({
 
             // div에 이미지 요소를 추가한다.
             posterContainer.appendChild(img);
-        }else{
+        } else {
             var img = document.createElement("img");
             img.src = "/img/buskingDefaultImg.jpg";
             img.style.objectFit = "contain";
@@ -133,8 +128,7 @@ $.ajax({
             // div에 이미지 요소를 추가한다.
             posterContainer.appendChild(img);
         }
-    },
-    error: function(xhr, status, error) {
+    }, error: function (xhr, status, error) {
         console.log('AJAX Error: ' + status + error);
     }
 });
@@ -145,7 +139,7 @@ donation.addEventListener('click', () => {
     const token = sessionStorage.getItem("jwtToken");
     if (token !== null) {
         window.location.href = `/busking/detail/${id}/donation`;
-    }else {
+    } else {
         alert("로그인 후 이용해주세요.");
     }
 });
