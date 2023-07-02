@@ -39,7 +39,7 @@ function displayAdminData(admin) {
 
         // div에 이미지 요소를 추가한다.
         profileImg.appendChild(img);
-    } else if(imageUrl !== null && !imageUrl.startsWith("https://")) {
+    } else if (imageUrl !== null && !imageUrl.startsWith("https://")) {
         var replacedImageUrl = 'https://storage.googleapis.com/eumyurato/' + imageUrl;
         console.log(replacedImageUrl);
         // 이미지 요소를 생성한다.
@@ -54,7 +54,7 @@ function displayAdminData(admin) {
 
         // div에 이미지 요소를 추가한다.
         profileImg.appendChild(img);
-    }else{
+    } else {
         // 이미지 요소를 생성한다.
         var img = document.createElement("img");
         img.src = "/img/memberDefaultImg.jpg";
@@ -74,7 +74,7 @@ function displayAdminData(admin) {
 const logoutBtn = document.getElementById("logoutBtn");
 logoutBtn.setAttribute("href", "/logout");
 logoutBtn.onclick = function () {
-    fetch('/logout', { method: 'POST', credentials: 'include' })
+    fetch('/logout', {method: 'POST', credentials: 'include'})
         .then(response => {
             if (response.ok) {
                 // 세션 스토리지에서 토큰 제거
