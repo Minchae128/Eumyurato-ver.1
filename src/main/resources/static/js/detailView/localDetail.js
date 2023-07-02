@@ -3,7 +3,7 @@ var id = url.match(/\d+/)[0];
 var detailList = $('#detailList');
 var price = $('#price');
 
-window.onload = function() {
+window.onload = function () {
     const jwtToken = window.sessionStorage.getItem("jwtToken");
     if (jwtToken !== null) {
         // 로그인 상태인 경우
@@ -19,18 +19,15 @@ window.onload = function() {
         userNameElem.innerText = decodedName;
 
         const mypageBtn = document.getElementById("mypageBtn");
-        mypageBtn.onclick = function (){
+        mypageBtn.onclick = function () {
 
 
             const token = sessionStorage.getItem("jwtToken");
             const headers = {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
+                'Content-Type': 'application/json', 'Authorization': `Bearer ${token}`
             };
             const options = {
-                method: 'POST',
-                headers,
-                body: JSON.stringify(payload)
+                method: 'POST', headers, body: JSON.stringify(payload)
             };
 
             fetch('/profile', options)
@@ -52,7 +49,7 @@ window.onload = function() {
         // 로그아웃
         const logoutBtn = document.createElement("a");
         logoutBtn.setAttribute("href", "/map");
-        logoutBtn.onclick = function() {
+        logoutBtn.onclick = function () {
             window.sessionStorage.removeItem("jwtToken");
         };
 
@@ -77,12 +74,10 @@ window.onload = function() {
 };
 
 $.ajax({
-    url: '/local_festival/detail/'+id+'/json',
-    dataType: 'json',
-    success: function(data) {
+    url: '/local_festival/detail/' + id + '/json', dataType: 'json', success: function (data) {
         var li = $('<li>');
 
-        li.append($('<p>').html('<strong>'+ data.name+ '</strong>'));
+        li.append($('<p>').html('<strong>' + data.name + '</strong>'));
         li.append($('<p>').html('<strong>개최 장소: </strong>' + data.location));
         li.append($('<p>').html('<strong>개최 일자: </strong>' + data.startDate + ' ~ ' + data.lastDate));
         li.append($('<p>').html('<strong>주최측: </strong>' + data.org));
@@ -105,8 +100,7 @@ $.ajax({
         // div에 이미지 요소를 추가한다.
         posterContainer.appendChild(img);
 
-    },
-    error: function(xhr, status, error) {
+    }, error: function (xhr, status, error) {
         console.log('AJAX Error: ' + status + error);
     }
 });
