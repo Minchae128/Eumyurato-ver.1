@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Questrial&display=swap');
+
 td {
     width: 50px;
     height: 50px;
@@ -6,7 +7,7 @@ td {
 
 
 .center {
-    background-color:rgb(217,217,217);
+    background-color: rgb(217, 217, 217);
     padding: 20px;
     display: flex;
     flex-direction: row;
@@ -16,21 +17,21 @@ td {
 
 .Calendar {
     text-align: center;
-    background-color: rgb(255,255,255);
+    background-color: rgb(255, 255, 255);
 }
 
-.Calendar>thead>tr:first-child>td {
+.Calendar > thead > tr:first-child > td {
     font-family: 'Questrial', sans-serif;
     font-size: 1.1em;
     font-weight: bold;
 }
 
-.Calendar>thead>tr:last-child>td {
+.Calendar > thead > tr:last-child > td {
     font-family: 'Questrial', sans-serif;
     font-weight: 600;
 }
 
-.Calendar>tbody>tr>td>p {
+.Calendar > tbody > tr > td > p {
     font-family: 'Montserrat', sans-serif;
     height: 45px;
     width: 45px;
@@ -57,8 +58,9 @@ td {
     background-color: #FFFFFF;
     cursor: pointer;
 }
-.futureDay:hover{
-    background:#eee;
+
+.futureDay:hover {
+    background: #eee;
 }
 
 .futureDay.choiceDay,
@@ -80,12 +82,16 @@ td {
 }
 
 /*datepicer 버튼 롤오버 시 손가락 모양 표시*/
-.ui-datepicker-trigger{
+.ui-datepicker-trigger {
     height: 30px;
     width: 35px;
-    cursor: pointer;}
+    cursor: pointer;
+}
+
 /*datepicer input 롤오버 시 손가락 모양 표시*/
-.hasDatepicker{cursor: pointer;}
+.hasDatepicker {
+    cursor: pointer;
+}
 
 #star {
     font-size: 40px;
@@ -126,18 +132,20 @@ td {
     color: #ffffff;
     border: 2px solid #062d92;
 }
+
 .seat-wrapper {
     position: relative;
 }
+
 .screen {
 
     width: 300px;
     height: 50px;
-    border-radius : 50% / 25%;
+    border-radius: 50% / 25%;
     background-color: #333;
     color: #fff;
     text-align: center;
     font-weight: bold;
     line-height: 50px;
-    margin-bottom : 10px;
+    margin-bottom: 10px;
 }
