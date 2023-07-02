@@ -22,7 +22,8 @@
         FROM busking AS b
                  INNER JOIN artist_member AS a
                             ON b.artId = a.id
-        WHERE b.date >= NOW() AND b.date <= DATE_ADD(NOW(), INTERVAL 1 MONTH);
+        WHERE b.date >= NOW()
+          AND b.date <= DATE_ADD(NOW(), INTERVAL 1 MONTH);
         ]]>
     </select>
     <select id="viewLocalFestival" resultType="com.e114.e114_eumyuratodemo1.dto.LocalFestivalDTO">
@@ -51,7 +52,9 @@
         FROM busking AS b
                  INNER JOIN artist_member AS a
                             ON b.artId = a.id
-        WHERE b.date >= NOW() AND b.date <= DATE_ADD(NOW(), INTERVAL 1 MONTH) AND b.id = #{param1};
+        WHERE b.date >= NOW()
+          AND b.date <= DATE_ADD(NOW(), INTERVAL 1 MONTH)
+          AND b.id = #{param1};
         ]]>
 
     </select>
@@ -59,7 +62,8 @@
     <select id="selectConcertTime" resultType="com.e114.e114_eumyuratodemo1.dto.SchedulesDTO">
         SELECT *
         FROM schedules
-        WHERE conId = #{param1} AND DATE_FORMAT(conDate, '%Y-%m-%d') = #{param2}
+        WHERE conId = #{param1}
+          AND DATE_FORMAT(conDate, '%Y-%m-%d') = #{param2}
 
     </select>
 
@@ -68,7 +72,8 @@
         FROM schedules
                  INNER JOIN booked
                             ON schedules.id = booked.sId
-        WHERE schedules.conId = #{param1} AND DATE_FORMAT(schedules.conDate, '%Y-%m-%d') = #{param2}
+        WHERE schedules.conId = #{param1}
+          AND DATE_FORMAT(schedules.conDate, '%Y-%m-%d') = #{param2}
     </select>
 
     <select id="selectBookedTemp" resultType="String">
@@ -76,7 +81,8 @@
         FROM schedules
                  INNER JOIN temp_booked
                             ON schedules.id = temp_booked.sId
-        WHERE schedules.conId = #{param1} AND DATE_FORMAT(schedules.conDate, '%Y-%m-%d') = #{param2}
+        WHERE schedules.conId = #{param1}
+          AND DATE_FORMAT(schedules.conDate, '%Y-%m-%d') = #{param2}
     </select>
 
     <insert id="insertSeat" parameterType="java.util.Map">
@@ -136,8 +142,9 @@
     <update id="saveDonation">
         UPDATE artist_member
         SET point = point + #{param1}
-        WHERE id = (
-            SELECT artId FROM busking WHERE id = #{param2})
+        WHERE id = (SELECT artId
+                    FROM busking
+                    WHERE id = #{param2})
     </update>
 
     <insert id="saveDonationNum">
@@ -151,15 +158,23 @@
     </insert>
 
     <select id="findReservId" resultType="com.e114.e114_eumyuratodemo1.dto.ReservationDTO">
-        SELECT * FROM reservation WHERE sId = #{param1} AND cId = #{param2} AND used = false
+        SELECT *
+        FROM reservation
+        WHERE sId = #{param1}
+          AND cId = #{param2}
+          AND used = false
     </select>
 
     <update id="usedReserv">
-        UPDATE reservation SET used = true WHERE sId = #{param1} AND cId = #{param2}
+        UPDATE reservation
+        SET used = true
+        WHERE sId = #{param1}
+          AND cId = #{param2}
     </update>
 
     <insert id="saveTicket">
-        INSERT INTO ticket (rId, seatNum) VALUES (#{param1}, #{param2})
+        INSERT INTO ticket (rId, seatNum)
+        VALUES (#{param1}, #{param2})
     </insert>
 
 
