@@ -11,10 +11,10 @@
     <!-- Popper JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
     <!--begin::Global Stylesheets Bundle(used by all pages)-->
-    <link type="text/css" th:href="@{https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css}" rel="stylesheet" />
-    <link rel="stylesheet" th:href="@{//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css}" />
+    <link type="text/css" th:href="@{https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css}"
+          rel="stylesheet"/>
+    <link rel="stylesheet" th:href="@{//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css}"/>
     <link th:href="@{/css/profile/profile1.css}" rel="stylesheet" type="text/css"/>
     <link th:href="@{/css/profile/profile2.css}" rel="stylesheet" type="text/css"/>
     <link th:href="@{/css/profile/profile3.css}" rel="stylesheet" type="text/css"/>
@@ -100,13 +100,15 @@
                     <hr style="width: 320px"/>
                 </div>
 
-             <form class="form w-450px  needs-validation text-center" id="kt_login_signin_form" style="margin-top: 20%" novalidate>
+             <form class="form w-450px  needs-validation text-center" id="kt_login_signin_form" style="margin-top: 20%"
+                   novalidate>
                  <!--begin::Image input-->
                 <div class="image-input image-input-outline" data-kt-image-input="true"
                      style="display: flex; justify-content: center; align-items: center">
                     <!--begin::Image preview wrapper-->
                     <div style=" margin-bottom: 20px; width:350px; height:400px; overflow: hidden; display: flex; justify-content: center; align-items: center; position: relative;">
-                        <img id="previewImage" src="#" alt="프로필사진" style="max-width: 100%; max-height: 100%; object-fit: cover;"/>
+                        <img id="previewImage" src="#" alt="프로필사진"
+                             style="max-width: 100%; max-height: 100%; object-fit: cover;"/>
                         <!--end::Image preview wrapper-->
 
                         <!--begin::Edit button-->
@@ -133,7 +135,8 @@
                     <input class="form-control form-control-lg form-control-solid" type="text"
                            placeholder=""
                            name="name" autocomplete="off" style="border-color: #0099FF;"/>
-                    <label class="form-label fs-6 fw-bolder text-dark pt-5" style="float: left; margin-right:5px;">공연자</label>
+                    <label class="form-label fs-6 fw-bolder text-dark pt-5"
+                           style="float: left; margin-right:5px;">공연자</label>
                     <label class="form-label fs-8 fw-bolder pt-4" style="float: left; color: #ff0000">*</label>
                     <input class="form-control form-control-lg form-control-solid" type="text"
                            placeholder="" readonly
@@ -145,13 +148,18 @@
                         <label class="form-label fs-8 fw-bolder pt-4" style="float: left; color: #ff0000">*</label>
                     </div>
                     <div style="display: flex; align-items: center;">
-                        <input type="text" id="sample4_postcode" class="form-control form-control-lg form-control-solid" placeholder="우편번호"
-                               autocomplete="off" style="border-color: #0099FF; width: 250px; margin-right: 50px;" readonly>
-                        <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기" class="btn btn-primary fw-bolder fs-4 px-8 py-4 my-3 me-4">
+                        <input type="text" id="sample4_postcode" class="form-control form-control-lg form-control-solid"
+                               placeholder="우편번호"
+                               autocomplete="off" style="border-color: #0099FF; width: 250px; margin-right: 50px;"
+                               readonly>
+                        <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"
+                               class="btn btn-primary fw-bolder fs-4 px-8 py-4 my-3 me-4">
                     </div>
-                    <input type="text" id="sample4_roadAddress" name="sample4_roadAddress" class="form-control form-control-lg form-control-solid" placeholder="주소"
+                    <input type="text" id="sample4_roadAddress" name="sample4_roadAddress"
+                           class="form-control form-control-lg form-control-solid" placeholder="주소"
                            autocomplete="off" style="border-color: #0099FF;" readonly><br>
-                    <input type="text" id="sample4_detailAddress" class="form-control form-control-lg form-control-solid" placeholder="상세주소"
+                    <input type="text" id="sample4_detailAddress"
+                           class="form-control form-control-lg form-control-solid" placeholder="상세주소"
                            autocomplete="off" style="border-color: #0099FF;">
                 </div>
 
@@ -159,7 +167,8 @@
                     <div>
 
                         <div class=" fv-row mb-5">
-                            <label class="form-label fs-6 fw-bolder text-dark pt-5" style="float: left; margin-right:5px;">버스킹 일자</label>
+                            <label class="form-label fs-6 fw-bolder text-dark pt-5"
+                                   style="float: left; margin-right:5px;">버스킹 일자</label>
                             <label class="form-label fs-8 fw-bolder pt-4" style="float: left; color: #ff0000">*</label>
                             <input autocomplete="off" class="form-control form-control-lg form-control-solid datepicker"
                                    id="buskingDate" name="buskingDate" placeholder="" required
@@ -246,7 +255,8 @@
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <!--datepicker용-->
 <script type="text/javascript" th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/1.12.1/jquery.min.js}"></script>
-<script type="text/javascript" th:src="@{https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js}"></script>
+<script type="text/javascript"
+        th:src="@{https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js}"></script>
 <script th:src="@{//code.jquery.com/ui/1.11.4/jquery-ui.js}"></script>
 <script type="text/javascript" th:src="@{/js/profile/timepicker.js}"></script>
 <!--js-->
@@ -255,17 +265,17 @@
 <script>
     $("#buskingDate").datetimepicker({
 
-        dateFormat:'yy-mm-dd',
-        monthNamesShort:[ '1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월' ],
-        dayNamesMin:[ '일', '월', '화', '수', '목', '금', '토' ],
-        changeMonth:true,
-        changeYear:true,
-        showMonthAfterYear:true,
+        dateFormat: 'yy-mm-dd',
+        monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+        dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+        changeMonth: true,
+        changeYear: true,
+        showMonthAfterYear: true,
 
         // timepicker 설정
-        timeFormat:'HH:mm',
-        controlType:'select',
-        oneLine:true,
+        timeFormat: 'HH:mm',
+        controlType: 'select',
+        oneLine: true,
 
         minDate: new Date()
     });
