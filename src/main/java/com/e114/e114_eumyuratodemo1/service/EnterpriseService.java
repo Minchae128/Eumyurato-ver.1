@@ -1,10 +1,9 @@
 package com.e114.e114_eumyuratodemo1.service;
 
-import com.e114.e114_eumyuratodemo1.dto.*;
 import com.e114.e114_eumyuratodemo1.dao.EnterpriseMemberDAO;
+import com.e114.e114_eumyuratodemo1.dto.*;
 import com.google.cloud.storage.BlobInfo;
 import com.google.cloud.storage.Storage;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -90,38 +89,38 @@ public class EnterpriseService {
         return result == 1;
     }
 
-    public List<CommonMemberDTO> viewAllCommons(){
+    public List<CommonMemberDTO> viewAllCommons() {
         return enterpriseMemberDAO.getCommonMembers();
-    };
+    }
 
-    public List<ArtistMemberDTO> viewAllArtists(){
+    public List<ArtistMemberDTO> viewAllArtists() {
         return enterpriseMemberDAO.getArtistMembers();
-    };
+    }
 
-    public List<EnterpriseMemberDTO> viewAllEnters(){
+    public List<EnterpriseMemberDTO> viewAllEnters() {
         return enterpriseMemberDAO.getEntMembers();
-    };
+    }
 
-    public List<CommonMemberDTO> searchCommons(String column, String keyword){
+    public List<CommonMemberDTO> searchCommons(String column, String keyword) {
         Map<String, String> params = new HashMap<>();
         params.put("column", column);
         params.put("keyword", keyword);
         return enterpriseMemberDAO.searchCommonMembers(params);
-    };
+    }
 
-    public List<ArtistMemberDTO> searchArtists(String column, String keyword){
+    public List<ArtistMemberDTO> searchArtists(String column, String keyword) {
         Map<String, String> params = new HashMap<>();
         params.put("column", column);
         params.put("keyword", keyword);
         return enterpriseMemberDAO.searchArtistMembers(params);
-    };
+    }
 
-    public List<EnterpriseMemberDTO> searchEnters(String column, String keyword){
+    public List<EnterpriseMemberDTO> searchEnters(String column, String keyword) {
         Map<String, String> params = new HashMap<>();
         params.put("column", column);
         params.put("keyword", keyword);
         return enterpriseMemberDAO.searchEntMembers(params);
-    };
+    }
 
     public List<SmallConcertDTO> viewEntSmallConcert(String smallConcertId) {
 
@@ -134,7 +133,7 @@ public class EnterpriseService {
     }
 
     //회원정보 수정
-    public void modifyEnterWithoutImage(EnterpriseMemberDTO enterpriseMemberDTO){
+    public void modifyEnterWithoutImage(EnterpriseMemberDTO enterpriseMemberDTO) {
         enterpriseMemberDAO.modifyEnterWithoutImage(enterpriseMemberDTO);
     }
 
@@ -162,15 +161,15 @@ public class EnterpriseService {
         return enterpriseMemberDAO.getReservationsByEnterId(enterId);
     }
 
-    public SmallConcertDTO getSmallConcertByAll(String name,int price,String startDate,String lastDate){
-        return enterpriseMemberDAO.getSmallConcertByAll(name,price,startDate,lastDate);
-    };
+    public SmallConcertDTO getSmallConcertByAll(String name, int price, String startDate, String lastDate) {
+        return enterpriseMemberDAO.getSmallConcertByAll(name, price, startDate, lastDate);
+    }
 
-    public void saveSchedules(int conId,String conDate){
-        enterpriseMemberDAO.saveSchedules(conId,conDate);
-    };
+    public void saveSchedules(int conId, String conDate) {
+        enterpriseMemberDAO.saveSchedules(conId, conDate);
+    }
 
-    public void saveConcertWithoutImage(SmallConcertDTO smallConcertDTO){
+    public void saveConcertWithoutImage(SmallConcertDTO smallConcertDTO) {
         enterpriseMemberDAO.saveConcertWithoutImage(smallConcertDTO);
     }
 
@@ -189,13 +188,13 @@ public class EnterpriseService {
         enterpriseMemberDAO.saveConcert(smallConcertDTO);
     }
 
-    public int deleteSmallConcertByEnt(int conId){
+    public int deleteSmallConcertByEnt(int conId) {
 
         List<String> sId = enterpriseMemberDAO.getScheduleId(conId);
 
         List<String> rId = enterpriseMemberDAO.getReservationId(sId);
 
-        if(rId.toArray().length != 0){
+        if (rId.toArray().length != 0) {
 
             enterpriseMemberDAO.deleteTickets(rId);
 
@@ -204,7 +203,7 @@ public class EnterpriseService {
             enterpriseMemberDAO.deleteSchedules(conId);
 
             enterpriseMemberDAO.deleteSmallConcert(conId);
-        }else{
+        } else {
             enterpriseMemberDAO.deleteSchedules(conId);
 
             enterpriseMemberDAO.deleteSmallConcert(conId);
@@ -214,25 +213,26 @@ public class EnterpriseService {
         return 1;
     }
 
-    public EnterpriseMemberDTO getEntInfoById(String entId){
+    public EnterpriseMemberDTO getEntInfoById(String entId) {
         return enterpriseMemberDAO.getEntInfoById(entId);
-    };
+    }
 
-    public List<InfoDTO> getInfo(){
+    public List<InfoDTO> getInfo() {
         return enterpriseMemberDAO.getInfo();
-    };
+    }
 
-    public EnterpriseMemberDTO findById(String id){
+    public EnterpriseMemberDTO findById(String id) {
         return enterpriseMemberDAO.findById(id);
-    };
+    }
 
-    public void updatePassword(String id, String password){
+    public void updatePassword(String id, String password) {
         enterpriseMemberDAO.updatePassword(id, password);
-    };
+    }
 
-    public boolean isIdDuplicated(String id){
+    public boolean isIdDuplicated(String id) {
         return enterpriseMemberDAO.isIdDuplicated(id);
-    };
+    }
+
 }
 
 

@@ -1,20 +1,18 @@
 package com.e114.e114_eumyuratodemo1.service;
 
+import com.e114.e114_eumyuratodemo1.dao.ArtistMemberDAO;
+import com.e114.e114_eumyuratodemo1.dao.CommonMemberDAO;
+import com.e114.e114_eumyuratodemo1.dao.EnterpriseMemberDAO;
 import com.e114.e114_eumyuratodemo1.dto.CommonMemberDTO;
 import com.e114.e114_eumyuratodemo1.dto.InfoDTO;
 import com.e114.e114_eumyuratodemo1.dto.ReservationDTO;
 import com.e114.e114_eumyuratodemo1.dto.TicketDTO;
-import com.e114.e114_eumyuratodemo1.dao.ArtistMemberDAO;
-import com.e114.e114_eumyuratodemo1.dao.CommonMemberDAO;
-import com.e114.e114_eumyuratodemo1.dao.EnterpriseMemberDAO;
 import com.google.cloud.storage.BlobInfo;
 import com.google.cloud.storage.Storage;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -43,6 +41,14 @@ public class CommonService {
     @Value("${spring.cloud.gcp.storage.bucket}")
     private String bucketName;
 
+
+    // 아이디 찾기
+    @Autowired
+    public CommonService(CommonMemberDAO commonMemberDAO, ArtistMemberDAO artistMemberDAO, EnterpriseMemberDAO enterpriseMemberDAO) {
+        this.commonMemberDAO = commonMemberDAO;
+        this.artistMemberDAO = artistMemberDAO;
+        this.enterpriseMemberDAO = enterpriseMemberDAO;
+    }
 
     // 로그인 요청 처리, 사용자 아이디와 비밀번호를 받아 DB에서 일치하는 사용자 정보를 찾습니다.
     // 찾은 경우 사용자 정보를 반환하고, 일치하는 정보가 없는 경우 null을 반환합니다.
@@ -119,14 +125,6 @@ public class CommonService {
         return result == 1;
     }
 
-    // 아이디 찾기
-    @Autowired
-    public CommonService(CommonMemberDAO commonMemberDAO, ArtistMemberDAO artistMemberDAO, EnterpriseMemberDAO enterpriseMemberDAO) {
-        this.commonMemberDAO = commonMemberDAO;
-        this.artistMemberDAO = artistMemberDAO;
-        this.enterpriseMemberDAO = enterpriseMemberDAO;
-    }
-
     public List<String> findUserIdsByNameAndEmail(String name, String email) {
         List<String> userIds = new ArrayList<>();
         userIds.addAll(commonMemberDAO.findUserIdsByNameAndEmail(name, email));
@@ -149,25 +147,25 @@ public class CommonService {
         return commonMemberDAO.deleteCommonReservation(id);
     }
 
-    public int deleteTicket(int rid){
+    public int deleteTicket(int rid) {
         return commonMemberDAO.deleteCommonTicket(rid);
     }
 
-    public TicketDTO findTicketByRid(int rid){
+    public TicketDTO findTicketByRid(int rid) {
         return commonMemberDAO.findTicketByRid(rid);
-    };
+    }
 
-    public ReservationDTO findReservationById(int id){
+    public ReservationDTO findReservationById(int id) {
         return commonMemberDAO.findReservationById(id);
-    };
+    }
 
-    public int deleteBooked(int sId, List<String> seatNumList){
-        return commonMemberDAO.deleteBooked(sId,seatNumList);
-    };
+    public int deleteBooked(int sId, List<String> seatNumList) {
+        return commonMemberDAO.deleteBooked(sId, seatNumList);
+    }
 
 
     //회원정보 수정
-    public void modifyCommonWithoutImage(CommonMemberDTO commonMemberDTO){
+    public void modifyCommonWithoutImage(CommonMemberDTO commonMemberDTO) {
         commonMemberDAO.modifyCommonWithoutImage(commonMemberDTO);
     }
 
@@ -188,30 +186,31 @@ public class CommonService {
     }
 
     //회원 닉네임 중복 체크
-    public int commonNid(String nid){
+    public int commonNid(String nid) {
         int nidNum = commonMemberDAO.commonNid(nid);
         return nidNum;
     }
 
-    public CommonMemberDTO getCommonInfoById(String commonId){
+    public CommonMemberDTO getCommonInfoById(String commonId) {
         return commonMemberDAO.getCommonInfoById(commonId);
-    };
+    }
 
-    public List<InfoDTO> getInfo(){
+    public List<InfoDTO> getInfo() {
         return commonMemberDAO.getInfo();
-    };
+    }
 
-    public CommonMemberDTO findById(String id){
+    public CommonMemberDTO findById(String id) {
         return commonMemberDAO.findById(id);
     }
 
-    public void updatePassword(String id, String password){
-        commonMemberDAO.updatePassword(id,password);
-    };
+    public void updatePassword(String id, String password) {
+        commonMemberDAO.updatePassword(id, password);
+    }
 
-    public boolean isIdDuplicated(String id){
+    public boolean isIdDuplicated(String id) {
         return commonMemberDAO.isIdDuplicated(id);
-    };
+    }
+
 }
 
 

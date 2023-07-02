@@ -1,9 +1,9 @@
 package com.e114.e114_eumyuratodemo1.service;
 
-import com.e114.e114_eumyuratodemo1.dto.*;
 import com.e114.e114_eumyuratodemo1.dao.ArtistMemberDAO;
 import com.e114.e114_eumyuratodemo1.dao.CommonMemberDAO;
 import com.e114.e114_eumyuratodemo1.dao.EnterpriseMemberDAO;
+import com.e114.e114_eumyuratodemo1.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -58,7 +58,6 @@ public class MemberService {
         EnterpriseMemberDTO enterpriseMember = enterpriseMemberDAO.findById(id);
         if (enterpriseMember != null) {
             enterpriseMemberDAO.updatePassword(id, password);
-            return;
         }
     }
 

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @AllArgsConstructor
 @NoArgsConstructor
 @Component
-public class EnterpriseMemberDTO{
+public class EnterpriseMemberDTO {
     private String id;
     private String pwd;
     private String name;

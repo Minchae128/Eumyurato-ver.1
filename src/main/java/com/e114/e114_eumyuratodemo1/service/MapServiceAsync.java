@@ -20,6 +20,6 @@ public class MapServiceAsync {
     public void deleteSeatTemp(Map<String, Object> map) throws InterruptedException {
         Thread.sleep(600000); //10분
         int result = dao.deleteSeatTemp(map);
-        System.out.println("result: "+ result);
+        System.out.println("result: " + result);
     }
 }

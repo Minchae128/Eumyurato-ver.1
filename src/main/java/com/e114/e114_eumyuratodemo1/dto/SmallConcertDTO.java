@@ -1,7 +1,6 @@
 package com.e114.e114_eumyuratodemo1.dto;
 
 import lombok.Data;
-import org.springframework.web.multipart.MultipartFile;
 
 @Data
 public class SmallConcertDTO {

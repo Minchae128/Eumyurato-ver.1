@@ -1,6 +1,8 @@
 package com.e114.e114_eumyuratodemo1.controller;
 
-import com.e114.e114_eumyuratodemo1.dto.*;
+import com.e114.e114_eumyuratodemo1.dto.EnterpriseMemberDTO;
+import com.e114.e114_eumyuratodemo1.dto.InfoDTO;
+import com.e114.e114_eumyuratodemo1.dto.ReservationDTO;
 import com.e114.e114_eumyuratodemo1.jwt.JwtUtils;
 import com.e114.e114_eumyuratodemo1.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +10,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
@@ -67,7 +72,7 @@ public class AdminController {
 
     @GetMapping("/profile/admin/info/view")
     public String admimInfoview(Model model) {
-        List<InfoDTO> infos =  adminService.getInfo();
+        List<InfoDTO> infos = adminService.getInfo();
 
         model.addAttribute("infos", infos);
 
@@ -81,9 +86,7 @@ public class AdminController {
     }
 
     @GetMapping("/profile/admin/total")
-    public ResponseEntity<?> getMemberList(@RequestParam("category") String category,
-                                           @RequestParam(value = "column", required = false) String column,
-                                           @RequestParam(value = "keyword", required = false) String keyword) {
+    public ResponseEntity<?> getMemberList(@RequestParam("category") String category, @RequestParam(value = "column", required = false) String column, @RequestParam(value = "keyword", required = false) String keyword) {
         List<?> memberList;
 
         if (column != null && keyword != null) {
@@ -178,8 +181,7 @@ public class AdminController {
     }
 
     @GetMapping("/profile/admin/reservation")
-    public ResponseEntity<?> getCommonReservationList(@RequestParam(value = "column", required = false) String column,
-                                                      @RequestParam(value = "keyword", required = false) String keyword) {
+    public ResponseEntity<?> getCommonReservationList(@RequestParam(value = "column", required = false) String column, @RequestParam(value = "keyword", required = false) String keyword) {
 
         List<ReservationDTO> reservationList;
 
@@ -198,7 +200,7 @@ public class AdminController {
     public ResponseEntity<String> deleteReservation(@RequestParam("id") int id) {
 
         String seatNum = adminService.findTicketByRid(id).getSeatNum();  //추가
-        System.out.println("seatNum: " +seatNum);
+        System.out.println("seatNum: " + seatNum);
         List<String> seatNumList = Arrays.asList(seatNum.split(","));
         System.out.println(seatNumList);
         System.out.println("---------------");
@@ -206,8 +208,8 @@ public class AdminController {
         int ticketResult = adminService.deleteTicket(id);
 
         int reservationResult = adminService.deleteReservation(id);
-        int result = adminService.deleteBooked(schedulesId,seatNumList);
-        System.out.println("result: "+ result);
+        int result = adminService.deleteBooked(schedulesId, seatNumList);
+        System.out.println("result: " + result);
         if (ticketResult > 0 && reservationResult > 0) { // 삭제 성공
             return ResponseEntity.ok("success");
         } else { // 삭제 실패
@@ -222,9 +224,7 @@ public class AdminController {
     }
 
     @GetMapping("/profile/admin/management")
-    public ResponseEntity<?> getEventList(@RequestParam("category") String category,
-                                          @RequestParam(value = "column", required = false) String column,
-                                          @RequestParam(value = "keyword", required = false) String keyword) {
+    public ResponseEntity<?> getEventList(@RequestParam("category") String category, @RequestParam(value = "column", required = false) String column, @RequestParam(value = "keyword", required = false) String keyword) {
         List<?> eventList;
 
         if (column != null && keyword != null) {

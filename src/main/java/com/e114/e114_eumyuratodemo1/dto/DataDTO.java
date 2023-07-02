@@ -9,5 +9,5 @@ import java.util.Map;
 @Component
 public class DataDTO {
 
-    private Map<String,Object> myData;
+    private Map<String, Object> myData;
 }

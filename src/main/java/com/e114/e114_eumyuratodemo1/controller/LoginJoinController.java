@@ -119,12 +119,10 @@ public class LoginJoinController {
 
     @PostMapping("/loginjoin/artist/login-token")
     @ResponseBody
-    public Map<String, String> loginArt(@RequestParam("id") String id,
-                                        @RequestParam("pwd") String pwd, HttpServletResponse response) throws IOException {
+    public Map<String, String> loginArt(@RequestParam("id") String id, @RequestParam("pwd") String pwd, HttpServletResponse response) throws IOException {
         ArtistMemberDTO artistMemberDTO = artistService.login(id, pwd);
         if (artistMemberDTO != null) {
-            String jwtToken =
-                    jwtUtils.createAccessToken(artistMemberDTO.getAdminNum(), artistMemberDTO.getId(), artistMemberDTO.getName());
+            String jwtToken = jwtUtils.createAccessToken(artistMemberDTO.getAdminNum(), artistMemberDTO.getId(), artistMemberDTO.getName());
             response.setHeader("Authorization", "Bearer " + jwtToken);
 
 
@@ -146,12 +144,10 @@ public class LoginJoinController {
 
     @PostMapping("/loginjoin/enterprise/login-token")
     @ResponseBody
-    public Map<String, String> loginenter(@RequestParam("id") String id,
-                                          @RequestParam("pwd") String pwd, HttpServletResponse response) throws IOException {
+    public Map<String, String> loginenter(@RequestParam("id") String id, @RequestParam("pwd") String pwd, HttpServletResponse response) throws IOException {
         EnterpriseMemberDTO enterpriseMemberDTO = enterpriseService.login(id, pwd);
         if (enterpriseMemberDTO != null) {
-            String jwtToken =
-                    jwtUtils.createAccessToken(enterpriseMemberDTO.getAdminNum(), enterpriseMemberDTO.getId(), enterpriseMemberDTO.getName());
+            String jwtToken = jwtUtils.createAccessToken(enterpriseMemberDTO.getAdminNum(), enterpriseMemberDTO.getId(), enterpriseMemberDTO.getName());
             response.setHeader("Authorization", "Bearer " + jwtToken);
 
 
@@ -178,17 +174,7 @@ public class LoginJoinController {
 
     @PostMapping("/loginjoin/common/join")
     @ResponseBody
-    public ResponseEntity<Void> commonJoinRegister(
-            @RequestParam("id") String id,
-            @RequestParam("pwd") String pwd,
-            @RequestParam("name") String name,
-            @RequestParam("nid") String nid,
-            @RequestParam("sex") String sex,
-            @RequestParam("birth") String birth,
-            @RequestParam("email") String email,
-            @RequestParam("phone") String phone,
-            @RequestParam("road") String road,
-            @RequestParam("genre") String genre) {
+    public ResponseEntity<Void> commonJoinRegister(@RequestParam("id") String id, @RequestParam("pwd") String pwd, @RequestParam("name") String name, @RequestParam("nid") String nid, @RequestParam("sex") String sex, @RequestParam("birth") String birth, @RequestParam("email") String email, @RequestParam("phone") String phone, @RequestParam("road") String road, @RequestParam("genre") String genre) {
 
         boolean result = commonService.register(id, pwd, name, nid, sex, birth, email, phone, road, genre);
         if (result) {
@@ -206,19 +192,10 @@ public class LoginJoinController {
 
     @PostMapping("/loginjoin/artist/join")
     @ResponseBody
-    public ResponseEntity<Void> artistregister(
-            @RequestParam("id") String id,
-            @RequestParam("pwd") String pwd,
-            @RequestParam("name") String name,
-            @RequestParam("nid") String nid,
-            @RequestParam("sex") String sex,
-            @RequestParam("birth") String birth,
-            @RequestParam("email") String email,
-            @RequestParam("phone") String phone,
-            @RequestParam("genre") String genre) {
+    public ResponseEntity<Void> artistregister(@RequestParam("id") String id, @RequestParam("pwd") String pwd, @RequestParam("name") String name, @RequestParam("nid") String nid, @RequestParam("sex") String sex, @RequestParam("birth") String birth, @RequestParam("email") String email, @RequestParam("phone") String phone, @RequestParam("genre") String genre) {
 
         boolean result = artistService.register(id, pwd, name, nid, sex, birth, email, phone, genre);
-        System.out.println("result="+result);
+        System.out.println("result=" + result);
         if (result) {
             return ResponseEntity.ok().build();
         } else {
@@ -233,16 +210,10 @@ public class LoginJoinController {
     }
 
     @PostMapping("/loginjoin/enterprise/join")
-    public ResponseEntity<Void> enterregister(
-            @RequestParam("id") String id,
-            @RequestParam("pwd") String pwd,
-            @RequestParam("name") String name,
-            @RequestParam("num") String num,
-            @RequestParam("email") String email,
-            @RequestParam("phone") String phone) {
+    public ResponseEntity<Void> enterregister(@RequestParam("id") String id, @RequestParam("pwd") String pwd, @RequestParam("name") String name, @RequestParam("num") String num, @RequestParam("email") String email, @RequestParam("phone") String phone) {
 
         boolean result = enterpriseService.register(id, pwd, name, num, email, phone);
-        System.out.println("result="+result);
+        System.out.println("result=" + result);
         if (result) {
             return ResponseEntity.ok().build();
         } else {

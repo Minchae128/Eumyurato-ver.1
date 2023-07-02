@@ -1,14 +1,12 @@
 package com.e114.e114_eumyuratodemo1.service;
 
+import com.e114.e114_eumyuratodemo1.dao.ArtistMemberDAO;
 import com.e114.e114_eumyuratodemo1.dto.ArtistMemberDTO;
 import com.e114.e114_eumyuratodemo1.dto.BuskingDTO;
 import com.e114.e114_eumyuratodemo1.dto.CommonMemberDTO;
-import com.e114.e114_eumyuratodemo1.dao.ArtistMemberDAO;
 import com.e114.e114_eumyuratodemo1.dto.InfoDTO;
-import com.e114.e114_eumyuratodemo1.jwt.JwtUtils;
 import com.google.cloud.storage.BlobInfo;
 import com.google.cloud.storage.Storage;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -94,7 +92,7 @@ public class ArtistService {
         }
 
         // CommonMemberDTO 객체 생성 및 정보 설정
-        ArtistMemberDTO artistMemberDTO= new ArtistMemberDTO();
+        ArtistMemberDTO artistMemberDTO = new ArtistMemberDTO();
         artistMemberDTO.setId(id);
         artistMemberDTO.setPwd(pwd);
         artistMemberDTO.setName(name);
@@ -112,21 +110,17 @@ public class ArtistService {
     }
 
 
-
-
-
-
     public List<ArtistMemberDTO> selectTop5Artists() {
         return artistMemberDAO.selectTop5Artists();
     }
 
-    public List<CommonMemberDTO> viewAllCommons(){
+    public List<CommonMemberDTO> viewAllCommons() {
         return artistMemberDAO.getCommonMembers();
-    };
+    }
 
-    public List<ArtistMemberDTO> viewAllArtists(){
+    public List<ArtistMemberDTO> viewAllArtists() {
         return artistMemberDAO.getArtistMembers();
-    };
+    }
 
     public List<BuskingDTO> viewArtistBusking(String artId) {
 
@@ -138,26 +132,26 @@ public class ArtistService {
         return artistMemberDAO.searchArtistBuskings(artistId, column, keyword);
     }
 
-    public List<CommonMemberDTO> searchCommons(String column, String keyword){
+    public List<CommonMemberDTO> searchCommons(String column, String keyword) {
         Map<String, String> params = new HashMap<>();
         params.put("column", column);
         params.put("keyword", keyword);
         return artistMemberDAO.searchCommonMembers(params);
-    };
+    }
 
-    public List<ArtistMemberDTO> searchArtists(String column, String keyword){
+    public List<ArtistMemberDTO> searchArtists(String column, String keyword) {
         Map<String, String> params = new HashMap<>();
         params.put("column", column);
         params.put("keyword", keyword);
         return artistMemberDAO.searchArtistMembers(params);
-    };
+    }
 
     public int deleteBusking(int id) {
         return artistMemberDAO.deleteArtistBusking(id);
     }
 
     //버스킹 저장
-    public void saveBuskingWithoutImage(BuskingDTO buskingDTO){
+    public void saveBuskingWithoutImage(BuskingDTO buskingDTO) {
         artistMemberDAO.saveBuskingWithoutImage(buskingDTO);
     }
 
@@ -178,7 +172,7 @@ public class ArtistService {
     }
 
     //회원정보 수정
-    public void modifyArtistWithoutImage(ArtistMemberDTO artistMemberDTO){
+    public void modifyArtistWithoutImage(ArtistMemberDTO artistMemberDTO) {
         artistMemberDAO.modifyArtistWithoutImage(artistMemberDTO);
     }
 
@@ -199,27 +193,28 @@ public class ArtistService {
     }
 
     //회원 닉네임 중복 체크
-    public List<Map<String, Object>> artistNid(String nid){
+    public List<Map<String, Object>> artistNid(String nid) {
         return artistMemberDAO.artistNid(nid);
     }
 
-    public ArtistMemberDTO getArtistInfoById(String artistId){
+    public ArtistMemberDTO getArtistInfoById(String artistId) {
         return artistMemberDAO.getArtistInfoById(artistId);
-    };
+    }
 
-    public List<InfoDTO> getInfo(){
+    public List<InfoDTO> getInfo() {
         return artistMemberDAO.getInfo();
-    };
+    }
 
-    public ArtistMemberDTO  findById(String id){
+    public ArtistMemberDTO findById(String id) {
         return artistMemberDAO.findById(id);
-    };
+    }
 
-    public void updatePassword(String id, String password){
+    public void updatePassword(String id, String password) {
         artistMemberDAO.updatePassword(id, password);
-    };
+    }
 
-    public boolean isIdDuplicated(String id){
+    public boolean isIdDuplicated(String id) {
         return artistMemberDAO.isIdDuplicated(id);
-    };
+    }
+
 }

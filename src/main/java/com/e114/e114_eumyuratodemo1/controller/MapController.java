@@ -9,7 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.*;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -30,27 +30,28 @@ public class MapController {
     private JwtUtils jwtUtils;
 
     @GetMapping("/map")
-    public String smallConcert(){
+    public String smallConcert() {
 
         return "/map/map";
     }
 
     @GetMapping("/all")
     @ResponseBody
-    public Map<String,List<?>> all() {
+    public Map<String, List<?>> all() {
 
-        Map<String,List<?>> map = new HashMap<>();
+        Map<String, List<?>> map = new HashMap<>();
 
         List<SmallConcertDTO> smallConcert = mapService.viewSmallConcert();
         List<BuskingDTO> busking = mapService.viewBusking();
         List<LocalFestivalDTO> localFestival = mapService.viewLocalFestival();
 
-        map.put("smallConcert",smallConcert);
-        map.put("busking",busking);
-        map.put("localFestival",localFestival);
+        map.put("smallConcert", smallConcert);
+        map.put("busking", busking);
+        map.put("localFestival", localFestival);
 
         return map;
     }
+
     @GetMapping("/smallconcert/detail/{id}")
     public String smallConcertDetail(@PathVariable("id") int id) {
 
@@ -101,13 +102,13 @@ public class MapController {
     }
 
     @GetMapping("/smallconcert/detail/{id}/calendar")
-    public String calendarPage(){
+    public String calendarPage() {
         return "/pay/pay1";
     }
 
     @PostMapping("/smallconcert/detail/{id}/calendar/all")
     @ResponseBody
-    public ResponseEntity<Map<String, List<SchedulesDTO>>> calendarAll(@PathVariable("id") int id){
+    public ResponseEntity<Map<String, List<SchedulesDTO>>> calendarAll(@PathVariable("id") int id) {
 
         System.out.println("체크");
         Map<String, List<SchedulesDTO>> response = new HashMap<>();
@@ -119,37 +120,38 @@ public class MapController {
 
     @PostMapping("/smallconcert/detail/{id}/calendar")
     @ResponseBody
-    public ResponseEntity<Map<String, SchedulesDTO>> calendarJson(@PathVariable("id") int id, @RequestBody Map<String, String> data){
+    public ResponseEntity<Map<String, SchedulesDTO>> calendarJson(@PathVariable("id") int id, @RequestBody Map<String, String> data) {
         String selectedDate = data.get("selectedDate");
         System.out.println(selectedDate);
 
         Map<String, SchedulesDTO> response = new HashMap<>();
-        response.put("message", mapService.selectConcertTime(id,selectedDate));
+        response.put("message", mapService.selectConcertTime(id, selectedDate));
         return ResponseEntity.ok().body(response);
     }
 
     @GetMapping("/smallconcert/detail/{id}/calendar/{day}")
-    public String seatPage(){
+    public String seatPage() {
         return "/pay/pay2";
     }
 
     @GetMapping("/smallconcert/detail/{id}/calendar/{day}/json")
     @ResponseBody
-    public Map<String, List<String>> seat(@PathVariable("id")int id,@PathVariable("day")String day){
+    public Map<String, List<String>> seat(@PathVariable("id") int id, @PathVariable("day") String day) {
 
-        System.out.println(mapService.selectBooked(id,day));
+        System.out.println(mapService.selectBooked(id, day));
 
         Map<String, List<String>> map = new HashMap<>();
 
-        map.put("temp",mapService.selectBookedTemp(id,day));
-        map.put("booked",mapService.selectBooked(id,day));
+        map.put("temp", mapService.selectBookedTemp(id, day));
+        map.put("booked", mapService.selectBooked(id, day));
 
         return map;
     }
+
     //seated.js에서 좌석정보 넘겨줌
-    @PostMapping ("/smallconcert/detail/{id}/calendar/{day}/pay")
+    @PostMapping("/smallconcert/detail/{id}/calendar/{day}/pay")
     @ResponseBody
-    public ResponseEntity<Map<String, Object>> pay(@PathVariable("id")int id,@PathVariable("day")String day,@RequestBody Map<String, List<String>> data){
+    public ResponseEntity<Map<String, Object>> pay(@PathVariable("id") int id, @PathVariable("day") String day, @RequestBody Map<String, List<String>> data) {
         List<String> selectedSeats = data.get("selectedSeats");
         int length = selectedSeats.size();
 
@@ -157,7 +159,7 @@ public class MapController {
         response.put("seat", selectedSeats);
         response.put("count", length);
         response.put("concert", mapService.selectConcert(id));
-        response.put("schedule", mapService.selectConcertTime(id,day));
+        response.put("schedule", mapService.selectConcertTime(id, day));
 
         dto.setMyData(response);
 
@@ -175,7 +177,7 @@ public class MapController {
     }
 
     @GetMapping("/smallconcert/detail/{id}/calendar/{day}/pay")
-    public String payPage(){
+    public String payPage() {
 
 
         return "/pay/pay3";
@@ -183,20 +185,20 @@ public class MapController {
 
     @GetMapping("/smallconcert/detail/{id}/calendar/{day}/pay/json")
     @ResponseBody
-    public DataDTO payPageData(){
+    public DataDTO payPageData() {
 
 
         return dto;
     }
 
     @GetMapping("/busking/detail/{id}/donation")
-    public String donation(){
+    public String donation() {
         return "/pay/buskingDonation";
     }
 
     @GetMapping("/busking/detail/{id}/donation/json")
     @ResponseBody
-    public BuskingDTO donationData(@PathVariable("id") int id){
+    public BuskingDTO donationData(@PathVariable("id") int id) {
 
         BuskingDTO dto = mapService.selectBusking(id);
 
@@ -206,7 +208,7 @@ public class MapController {
     //small_cocnert 결제
     @GetMapping("/pay/kakao")
     @ResponseBody
-    public String kakaoPay(){
+    public String kakaoPay() {
         try {
             return mapService.payService();
         } catch (MalformedURLException e) {
@@ -218,13 +220,13 @@ public class MapController {
     }
 
     @GetMapping("/kakaopay/success")
-    public String success(){
+    public String success() {
         return "/pay/concertPaySuccess";
     }
 
     @PostMapping("/kakaopay/success")
     @ResponseBody
-    public ResponseEntity<Map<String, SmallConcertDTO>> saveConcert(@RequestBody Map<String, String> data,HttpServletRequest request) {
+    public ResponseEntity<Map<String, SmallConcertDTO>> saveConcert(@RequestBody Map<String, String> data, HttpServletRequest request) {
 
         String conDate = data.get("conDate");
 
@@ -270,14 +272,14 @@ public class MapController {
     }
 
     @GetMapping("/kakaopay/fail")
-    public String fail(){
+    public String fail() {
 
         return "/pay/concertPayFail";
     }
 
     @PostMapping("/kakaopay/fail")
     @ResponseBody
-    public ResponseEntity<Map<String, SmallConcertDTO>> failJson(@RequestBody Map<String, String> data){
+    public ResponseEntity<Map<String, SmallConcertDTO>> failJson(@RequestBody Map<String, String> data) {
         String conIdStr = data.get("conId");
         int conId = Integer.parseInt(conIdStr);
 
@@ -290,7 +292,7 @@ public class MapController {
     //도네이션 결제
     @GetMapping("/pay/kakao/donation")
     @ResponseBody
-    public String kakaoDonation(){
+    public String kakaoDonation() {
         try {
             return mapService.payDonation();
         } catch (MalformedURLException e) {
@@ -302,13 +304,13 @@ public class MapController {
     }
 
     @GetMapping("/kakaopay/success/donation")
-    public String donationSuccess(){
+    public String donationSuccess() {
         return "/pay/paySuccess";
     }
 
     @PostMapping("/kakaopay/success/donation")
     @ResponseBody
-    public ResponseEntity<Map<String, BuskingDTO>> saveDonation(@RequestBody Map<String, String> data,HttpServletRequest request) {
+    public ResponseEntity<Map<String, BuskingDTO>> saveDonation(@RequestBody Map<String, String> data, HttpServletRequest request) {
 
         System.out.println("시작");
 
@@ -336,14 +338,14 @@ public class MapController {
     }
 
     @GetMapping("/kakaopay/fail/donation")
-    public String donationFail(){
+    public String donationFail() {
 
         return "/pay/payFail";
     }
 
     @PostMapping("/kakaopay/fail/donation")
     @ResponseBody
-    public ResponseEntity<Map<String, BuskingDTO>> donationFailData(@RequestBody Map<String, String> data,HttpServletRequest request){
+    public ResponseEntity<Map<String, BuskingDTO>> donationFailData(@RequestBody Map<String, String> data, HttpServletRequest request) {
 
         String idStr = data.get("id");
         int id = Integer.parseInt(idStr);
@@ -354,7 +356,4 @@ public class MapController {
 
         return ResponseEntity.ok().body(response);
     }
-
-
-
 }

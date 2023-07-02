@@ -25,8 +25,6 @@ public class AdminService {
         return dao.getArtistMembers();
     }
 
-    ;
-
     public List<EnterpriseMemberDTO> viewAllEnters() {
         return dao.getEntMembers();
     }

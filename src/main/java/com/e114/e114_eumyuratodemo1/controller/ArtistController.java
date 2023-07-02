@@ -1,6 +1,8 @@
 package com.e114.e114_eumyuratodemo1.controller;
 
-import com.e114.e114_eumyuratodemo1.dto.*;
+import com.e114.e114_eumyuratodemo1.dto.ArtistMemberDTO;
+import com.e114.e114_eumyuratodemo1.dto.BuskingDTO;
+import com.e114.e114_eumyuratodemo1.dto.InfoDTO;
 import com.e114.e114_eumyuratodemo1.jwt.JwtUtils;
 import com.e114.e114_eumyuratodemo1.service.ArtistService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +31,7 @@ public class ArtistController {
     private JwtUtils jwtUtils;
 
     @GetMapping("/profile/artist/account")
-    public String artistAccount(){
+    public String artistAccount() {
 
         return "/profile/account/profile_artist_account";
     }
@@ -55,18 +57,18 @@ public class ArtistController {
     }
 
     @GetMapping("/profile/artist/modify")
-    public String artistAccountModify(){
+    public String artistAccountModify() {
         return "/profile/accountModify/profile_artist_accountModify";
     }
 
     //아티스트회원 정보 수정 처리
     @PostMapping("/profile/artist/modify")
-    public ResponseEntity<?> updateCommonMember(@RequestPart("artistDTO") ArtistMemberDTO artistMemberDTO,  @RequestPart(value = "imgFile", required = false) MultipartFile imgFile) throws IOException {
+    public ResponseEntity<?> updateCommonMember(@RequestPart("artistDTO") ArtistMemberDTO artistMemberDTO, @RequestPart(value = "imgFile", required = false) MultipartFile imgFile) throws IOException {
 
-        if(imgFile == null){
+        if (imgFile == null) {
             System.out.println(artistMemberDTO);
             artistService.modifyArtistWithoutImage(artistMemberDTO);
-        }else{
+        } else {
             System.out.println(artistMemberDTO);
             artistService.artistModify(artistMemberDTO, imgFile);
         }
@@ -86,9 +88,7 @@ public class ArtistController {
     }
 
     @GetMapping("/profile/artist/management")
-    public ResponseEntity<?> getBuskingList(HttpServletRequest request,
-                                            @RequestParam(value = "column", required = false) String column,
-                                            @RequestParam(value = "keyword", required = false) String keyword) {
+    public ResponseEntity<?> getBuskingList(HttpServletRequest request, @RequestParam(value = "column", required = false) String column, @RequestParam(value = "keyword", required = false) String keyword) {
 
         String token = jwtUtils.getAccessToken(request);
         String artId = jwtUtils.getId(token);
@@ -120,20 +120,20 @@ public class ArtistController {
 
     @GetMapping("/profile/artist/info/view")
     public String artistInfoview(Model model) {
-        List<InfoDTO> infos =  artistService.getInfo();
+        List<InfoDTO> infos = artistService.getInfo();
 
         model.addAttribute("infos", infos);
         return "/profile/board/profile_artist_board";
     }
 
     @GetMapping("/profile/artist/register")
-    public String artistAccountRegister(){
+    public String artistAccountRegister() {
 
         return "/profile/concertRegister/profile_artist_concertRegister";
     }
 
     @PostMapping("/profile/artist/register")
-    public ResponseEntity<?> buskingRegister(@RequestPart("registerDTO") BuskingDTO buskingDTO, @RequestPart(value = "imgFile", required = false) MultipartFile imgFile) throws IOException{
+    public ResponseEntity<?> buskingRegister(@RequestPart("registerDTO") BuskingDTO buskingDTO, @RequestPart(value = "imgFile", required = false) MultipartFile imgFile) throws IOException {
 
         if (imgFile == null) {
             artistService.saveBuskingWithoutImage(buskingDTO);
@@ -145,12 +145,10 @@ public class ArtistController {
     }
 
     @PostMapping("/profile/artist/nidcheck")
-    public Map<String,Object> artistNidCheck(@RequestParam("nid") String nid){
+    public Map<String, Object> artistNidCheck(@RequestParam("nid") String nid) {
         System.out.println(nid);
         Map<String, Object> nidResult = new HashMap<>();
         nidResult.put("nid", artistService.artistNid(nid));
         return nidResult;
     }
-
-
 }

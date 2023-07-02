@@ -15,5 +15,4 @@ public class MemberDTO {
     private String pwd;
     private String name;
     private String email;
-
 }

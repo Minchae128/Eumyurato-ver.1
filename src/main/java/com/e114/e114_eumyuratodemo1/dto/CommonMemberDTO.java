@@ -11,7 +11,7 @@ import java.util.Map;
 @AllArgsConstructor
 @NoArgsConstructor
 @Component
-public class CommonMemberDTO{
+public class CommonMemberDTO {
     private String id;
     private String pwd;
     private String name;
@@ -23,6 +23,6 @@ public class CommonMemberDTO{
     private String road;
     private String genre;
     private int adminNum;
-    private Map<String,String> favorite;
+    private Map<String, String> favorite;
     private String image;
 }

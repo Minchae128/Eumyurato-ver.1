@@ -1,6 +1,9 @@
 package com.e114.e114_eumyuratodemo1.jwt;
 
-import io.jsonwebtoken.*;
+import io.jsonwebtoken.ExpiredJwtException;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.MalformedJwtException;
+import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,14 +16,11 @@ import java.util.Date;
 
 @Component
 public class JwtUtils {
-    private static final Logger logger = LoggerFactory.getLogger(JwtUtils.class);
-
-    private static final Key secretKey = Keys.secretKeyFor(SignatureAlgorithm.HS256);
-
     //accessToken 만료시간 설정
     public final static long ACCESS_TOKEN_VALIDATION_SECOND = 1000L * 60 * 60 * 12; //12시간
-
     public static final String AUTHORIZATION_HEADER = "Authorization";
+    private static final Logger logger = LoggerFactory.getLogger(JwtUtils.class);
+    private static final Key secretKey = Keys.secretKeyFor(SignatureAlgorithm.HS256);
 
     public String createAccessToken(int roles, String userid, String name) {
 
@@ -34,7 +34,7 @@ public class JwtUtils {
         String accessToken = Jwts.builder()
                 .setSubject(userid)
                 .claim("roles", roles)
-                .claim("name",name)
+                .claim("name", name)
                 .setIssuedAt(now) //토큰발행일자
                 .setExpiration(expiration)
                 .signWith(secretKey)
@@ -54,17 +54,17 @@ public class JwtUtils {
         try {
             Jwts.parserBuilder().setSigningKey(secretKey).build().parseClaimsJws(token);
             return true;
-        }
-        catch(io.jsonwebtoken.security.SignatureException e) {
-            System.out.printf("잘못된 토큰 서명입니다.");
+        } catch (io.jsonwebtoken.security.SignatureException e) {
+            System.out.print("잘못된 토큰 서명입니다.");
             //logger.info("잘못된 토큰 서명입니다.");
-        }catch(ExpiredJwtException e) {
-            System.out.printf("만료된 토큰입니다.");
+        } catch (ExpiredJwtException e) {
+            System.out.print("만료된 토큰입니다.");
             //logger.info("만료된 토큰입니다.");
-        }catch(IllegalArgumentException | MalformedJwtException e) {
+        } catch (IllegalArgumentException | MalformedJwtException e) {
             System.out.println("잘못된 토큰입니다.");
             //logger.info("잘못된 토큰입니다.");
-        }return false;
+        }
+        return false;
     }
 
     public String getRole(String token) {
@@ -89,7 +89,7 @@ public class JwtUtils {
     public String getAccessToken(HttpServletRequest httpServletRequest) {
         String bearerToken = httpServletRequest.getHeader(AUTHORIZATION_HEADER);
         System.out.println("JwtUtils getAccessToken : " + bearerToken);
-        if(StringUtils.hasText(bearerToken) && bearerToken.startsWith("Bearer ")) {
+        if (StringUtils.hasText(bearerToken) && bearerToken.startsWith("Bearer ")) {
             return bearerToken.substring(7);
         }
         return null;
@@ -97,17 +97,17 @@ public class JwtUtils {
 
 
     // role에 따라서 페이지 이동을 다르게 하는 메서드 - 비회원, comnon, artist, enter, admin
-    public String authByRole(HttpServletRequest httpServletRequest ,String commonURI, String artistURI, String enterURI, String adminURI){
+    public String authByRole(HttpServletRequest httpServletRequest, String commonURI, String artistURI, String enterURI, String adminURI) {
         String token = getAccessToken(httpServletRequest);
-        if (token == null){
+        if (token == null) {
             return null;
-        }else if(getRole(token).equals("1")){
+        } else if (getRole(token).equals("1")) {
             return commonURI;
-        }else if(getRole(token).equals("2")){
+        } else if (getRole(token).equals("2")) {
             return artistURI;
-        }else if(getRole(token).equals("3")){
+        } else if (getRole(token).equals("3")) {
             return enterURI;
-        }else if(getRole(token).equals("0")){
+        } else if (getRole(token).equals("0")) {
             return adminURI;
         }
         return null;

@@ -8,13 +8,19 @@ import java.util.List;
 import java.util.Map;
 
 @Mapper
-public interface ArtistMemberDAO{
-    ArtistMemberDTO  findById(@Param("id") String id);
+public interface ArtistMemberDAO {
+    ArtistMemberDTO findById(@Param("id") String id);
+
     ArtistMemberDTO findNid(String nid);
+
     ArtistMemberDTO findSex(String sex);
+
     ArtistMemberDTO findBrith(String brith);
+
     ArtistMemberDTO findByEmail(String email);
+
     ArtistMemberDTO findGenre(String genre);
+
     ArtistMemberDTO findRegistCon(String registCon);
 
     //회원 가입
@@ -22,6 +28,7 @@ public interface ArtistMemberDAO{
 
     // 아이디 중복 확인
     ArtistMemberDTO useById(String id);
+
     boolean isIdDuplicated(String id);
 
     //닉네임 중복 확인
@@ -39,22 +46,27 @@ public interface ArtistMemberDAO{
 
     // 아티스트 버스킹 가져오기
     List<BuskingDTO> getArtistBuskings(String artId);     // 버스킹 목록 불러오기
+
     List<BuskingDTO> searchArtistBuskings(String artId, String column, String keyword);
 
     int deleteArtistBusking(int id);
 
     List<ArtistMemberDTO> getArtistMembers();   // 아시트스 회원 목록 불러오기
+
     List<CommonMemberDTO> getCommonMembers();   // 일반 회원 목록 불러오기
 
     List<ArtistMemberDTO> searchArtistMembers(Map<String, String> params);  // 아티스트 회원 검색
+
     List<CommonMemberDTO> searchCommonMembers(Map<String, String> params);  // 일반 회원 검색
 
     //아티스트 버스킹 저장
     void saveBuskingWithoutImage(BuskingDTO buskingDTO);
+
     void saveBusking(BuskingDTO buskingDTO);
 
     //정보 수정
     void modifyArtistWithoutImage(ArtistMemberDTO artistMemberDTO);
+
     void artistModify(ArtistMemberDTO artistMemberDTO);
 
     //닉네임 반환

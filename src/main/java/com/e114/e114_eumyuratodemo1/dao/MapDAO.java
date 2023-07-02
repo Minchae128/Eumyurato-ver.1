@@ -8,37 +8,50 @@ import java.util.Map;
 
 @Mapper
 public interface MapDAO {
-    public List<SmallConcertDTO> viewSmallConcert();
-    public List<BuskingDTO> viewBusking();
-    public List<LocalFestivalDTO> viewLocalFestival();
+    List<SmallConcertDTO> viewSmallConcert();
 
-    public SchedulesDTO selectConcertTime(int id, String conDate);
+    List<BuskingDTO> viewBusking();
 
-    public List<String> selectBooked(int conId,String conDate);
-    public List<String> selectBookedTemp(int conId,String conDate);
+    List<LocalFestivalDTO> viewLocalFestival();
 
-    public int insertSeat(Map<String, Object> map);
-    public int insertSeatTemp(Map<String, Object> map);
+    SchedulesDTO selectConcertTime(int id, String conDate);
 
-    public int deleteSeat(Map<String, Object> map);
-    public int deleteSeatTemp(Map<String, Object> map);
+    List<String> selectBooked(int conId, String conDate);
 
-    public LocalFestivalDTO selectLocal(int id);
-    public SmallConcertDTO selectConcert(int id);
-    public BuskingDTO selectBusking(int id);
+    List<String> selectBookedTemp(int conId, String conDate);
 
-    public int upViewCountSmallConcert(int id);
-    public int upViewCountBusking(int id);
-    public int upViewCountLocalFestival(int id);
+    int insertSeat(Map<String, Object> map);
 
-    public int saveDonation(int price, int id);
-    public int saveDonationNum(int price, int id, String userId);
+    int insertSeatTemp(Map<String, Object> map);
 
-    public int saveReservation(int sId, String cId, String conDate, int memberNum, int conPrice);
-    public ReservationDTO findReservId(int sId, String cId);
-    public int usedReserv (int sId, String cId);
-    public int saveTicket(int rId, String seatNum);
+    int deleteSeat(Map<String, Object> map);
 
-    public List<SchedulesDTO> selectConcertTimeAll(int id);
+    int deleteSeatTemp(Map<String, Object> map);
+
+    LocalFestivalDTO selectLocal(int id);
+
+    SmallConcertDTO selectConcert(int id);
+
+    BuskingDTO selectBusking(int id);
+
+    int upViewCountSmallConcert(int id);
+
+    int upViewCountBusking(int id);
+
+    int upViewCountLocalFestival(int id);
+
+    int saveDonation(int price, int id);
+
+    int saveDonationNum(int price, int id, String userId);
+
+    int saveReservation(int sId, String cId, String conDate, int memberNum, int conPrice);
+
+    ReservationDTO findReservId(int sId, String cId);
+
+    int usedReserv(int sId, String cId);
+
+    int saveTicket(int rId, String seatNum);
+
+    List<SchedulesDTO> selectConcertTimeAll(int id);
 
 }

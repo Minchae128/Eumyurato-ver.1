@@ -1,6 +1,8 @@
 package com.e114.e114_eumyuratodemo1.controller;
 
-import com.e114.e114_eumyuratodemo1.dto.*;
+import com.e114.e114_eumyuratodemo1.dto.CommonMemberDTO;
+import com.e114.e114_eumyuratodemo1.dto.InfoDTO;
+import com.e114.e114_eumyuratodemo1.dto.ReservationDTO;
 import com.e114.e114_eumyuratodemo1.jwt.JwtUtils;
 import com.e114.e114_eumyuratodemo1.service.CommonService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +30,7 @@ public class CommonController {
 
 
     @GetMapping("/profile/common/account")
-    public String commontAccount(){
+    public String commontAccount() {
         return "/profile/account/profile_common_account";
     }
 
@@ -60,12 +62,12 @@ public class CommonController {
 
     // 회원 정보 수정 처리
     @PostMapping("/profile/common/modify")
-    public ResponseEntity<?> updateCommonMember(@RequestPart("commonDTO") CommonMemberDTO commonMemberDTO,  @RequestPart(value = "imgFile", required = false) MultipartFile imgFile) throws IOException {
+    public ResponseEntity<?> updateCommonMember(@RequestPart("commonDTO") CommonMemberDTO commonMemberDTO, @RequestPart(value = "imgFile", required = false) MultipartFile imgFile) throws IOException {
 
-        if(imgFile == null){
+        if (imgFile == null) {
             System.out.println(commonMemberDTO);
             commonService.modifyCommonWithoutImage(commonMemberDTO);
-        }else{
+        } else {
             System.out.println(commonMemberDTO);
             commonService.modifyCommon(commonMemberDTO, imgFile);
         }
@@ -81,7 +83,7 @@ public class CommonController {
 
     @GetMapping("/profile/common/info/view")
     public String commonInfoview(Model model) {
-        List<InfoDTO> infos =  commonService.getInfo();
+        List<InfoDTO> infos = commonService.getInfo();
 
         model.addAttribute("infos", infos);
         return "/profile/board/profile_common_board";
@@ -113,7 +115,7 @@ public class CommonController {
 
 
         String seatNum = commonService.findTicketByRid(id).getSeatNum();  //추가
-        System.out.println("seatNum: " +seatNum);
+        System.out.println("seatNum: " + seatNum);
         List<String> seatNumList = Arrays.asList(seatNum.split(","));
         System.out.println(seatNumList);
         System.out.println("---------------");
@@ -122,8 +124,8 @@ public class CommonController {
         int ticketResult = commonService.deleteTicket(id);
         int reservationResult = commonService.deleteReservation(id);
 
-        int result = commonService.deleteBooked(schedulesId,seatNumList);
-        System.out.println("result: "+ result);
+        int result = commonService.deleteBooked(schedulesId, seatNumList);
+        System.out.println("result: " + result);
 
         if (ticketResult > 0 && reservationResult > 0) { // 삭제 성공
             return ResponseEntity.ok("success");
@@ -133,12 +135,12 @@ public class CommonController {
     }
 
     @PostMapping("/profile/common/nidcheck")
-    public ResponseEntity<String> commonNidCheck(@RequestParam("nid") String nid){
+    public ResponseEntity<String> commonNidCheck(@RequestParam("nid") String nid) {
         System.out.println(nid);
         System.out.println(commonService.commonNid(nid));
-        if(commonService.commonNid(nid) == 0) { //닉네임이 없는 경우
+        if (commonService.commonNid(nid) == 0) { //닉네임이 없는 경우
             return ResponseEntity.ok("success");
-        }else{
+        } else {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("duplicate");
         }
     }

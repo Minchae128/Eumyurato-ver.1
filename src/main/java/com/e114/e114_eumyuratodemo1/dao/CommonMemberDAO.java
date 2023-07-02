@@ -12,6 +12,7 @@ import java.util.List;
 @Mapper
 public interface CommonMemberDAO {
     CommonMemberDTO findById(String id);
+
     CommonMemberDTO findByEmail(String email);
 
     // 회원 가입
@@ -19,6 +20,7 @@ public interface CommonMemberDAO {
 
     // 아이디 중복 확인
     CommonMemberDTO useById(String id);
+
     boolean isIdDuplicated(String id);
 
     // 닉네임 중복 확인
@@ -34,6 +36,7 @@ public interface CommonMemberDAO {
 
     // 일반회원 예약 목록 불러오기
     List<ReservationDTO> getCommonReservations(String cId);
+
     // 일반회원 예약 목록 검색
     List<ReservationDTO> searchCommonReservations(String cId, String column, String keyword);
 
@@ -51,7 +54,9 @@ public interface CommonMemberDAO {
 
     //회원정보 수정
     void modifyCommonWithoutImage(CommonMemberDTO commonMemberDTO);
+
     void commonModify(CommonMemberDTO commonMemberDTO);
+
     //닉네임 반환
     int commonNid(String nid);
 
@@ -59,5 +64,4 @@ public interface CommonMemberDAO {
 
 
     CommonMemberDTO selectCommonMemberById(String id);
-
 }
