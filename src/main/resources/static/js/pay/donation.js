@@ -2,7 +2,7 @@ var buskerInfo = $('#buskerInfo');
 var url = location.pathname;
 var id = url.match(/\d+/)[0];
 
-window.onload = function() {
+window.onload = function () {
     const jwtToken = window.sessionStorage.getItem("jwtToken");
     if (jwtToken !== null) {
         // 로그인 상태인 경우
@@ -18,18 +18,15 @@ window.onload = function() {
         userNameElem.innerText = decodedName;
 
         const mypageBtn = document.getElementById("mypageBtn");
-        mypageBtn.onclick = function (){
+        mypageBtn.onclick = function () {
 
 
             const token = sessionStorage.getItem("jwtToken");
             const headers = {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
+                'Content-Type': 'application/json', 'Authorization': `Bearer ${token}`
             };
             const options = {
-                method: 'POST',
-                headers,
-                body: JSON.stringify(payload)
+                method: 'POST', headers, body: JSON.stringify(payload)
             };
 
             fetch('/profile', options)
@@ -51,7 +48,7 @@ window.onload = function() {
         // 로그아웃
         const logoutBtn = document.createElement("a");
         logoutBtn.setAttribute("href", "/map");
-        logoutBtn.onclick = function() {
+        logoutBtn.onclick = function () {
             window.sessionStorage.removeItem("jwtToken");
         };
 
@@ -77,9 +74,7 @@ window.onload = function() {
 
 
 $.ajax({
-    url: '/busking/detail/'+id+'/donation/json',
-    dataType: 'json',
-    success: function(data) {
+    url: '/busking/detail/' + id + '/donation/json', dataType: 'json', success: function (data) {
         var li = $('<li>');
         console.log(data.name);
 
@@ -91,7 +86,7 @@ $.ajax({
         // 이미지 URL을 가져온다.
         var imageUrl = data.artImg;
 
-        if(imageUrl !== null && imageUrl.startsWith("https://")){
+        if (imageUrl !== null && imageUrl.startsWith("https://")) {
             // 이미지 요소를 생성한다.
             var img = document.createElement("img");
             img.src = imageUrl;
@@ -104,7 +99,7 @@ $.ajax({
 
             // div에 이미지 요소를 추가한다.
             posterContainer.appendChild(img);
-        }else if(imageUrl !== null && !imageUrl.startsWith("https://")){
+        } else if (imageUrl !== null && !imageUrl.startsWith("https://")) {
             var replacedImageUrl = 'https://storage.googleapis.com/eumyurato/' + imageUrl;
             console.log(replacedImageUrl);
             // 이미지 요소를 생성한다.
@@ -119,7 +114,7 @@ $.ajax({
 
             // div에 이미지 요소를 추가한다.
             posterContainer.appendChild(img);
-        }else{
+        } else {
             var img = document.createElement("img");
             img.src = "/img/memberDefaultImg.jpg";
             img.style.objectFit = "contain";
@@ -134,33 +129,29 @@ $.ajax({
         }
 
         // 첫 번째 Ajax 호출이 완료된 후에 두 번째 Ajax 호출을 실행
-        $('#pay').click(function (){
-            if(price.value !== '' && outputValue !== null){
-                localStorage.setItem('price',priceValue);
-                localStorage.setItem('id',id);
+        $('#pay').click(function () {
+            if (price.value !== '' && outputValue !== null) {
+                localStorage.setItem('price', priceValue);
+                localStorage.setItem('id', id);
                 const token = sessionStorage.getItem("jwtToken");
-                if(token !==null){
+                if (token !== null) {
                     $.ajax({
-                        url:'/pay/kakao/donation',
-                        dataType: 'json',
-                        success:function (data){
+                        url: '/pay/kakao/donation', dataType: 'json', success: function (data) {
                             var box = data.next_redirect_pc_url;
                             window.location.href = box;
 
-                        },
-                        error:function (error){
+                        }, error: function (error) {
                             alert(error);
                         }
                     });
-                }else{
+                } else {
                     alert("로그인 후 이용해주세요.");
                 }
-            }else{
+            } else {
                 alert("후원금액을 입력해 주세요.");
             }
         });
-    },
-    error: function(xhr, status, error) {
+    }, error: function (xhr, status, error) {
         console.log('AJAX Error: ' + status + error);
     }
 });
@@ -170,48 +161,48 @@ const output = document.querySelector('.output');
 const outputValue = document.querySelector('#priceValue');
 let priceValue;
 const resetButton = document.querySelector("#reset");
-resetButton.addEventListener('click',function (){
+resetButton.addEventListener('click', function () {
     price.value = '';
     outputValue.textContent = '';
 });
 
 const searchButton = document.querySelector("#search-btn");
-searchButton.addEventListener('click', function (){
+searchButton.addEventListener('click', function () {
     priceValue = price.value;
-    if(priceValue !== null){
+    if (priceValue !== null) {
         outputValue.textContent = priceValue + '원';
     }
 });
 
-document.querySelector('#plus1000').addEventListener('click',function(){
+document.querySelector('#plus1000').addEventListener('click', function () {
     const currentValue = parseInt(price.value);
-    if(isNaN(currentValue)){
-        price.value=1000
-    }else{
+    if (isNaN(currentValue)) {
+        price.value = 1000
+    } else {
         price.value = currentValue + 1000;
     }
 });
-document.querySelector('#plus3000').addEventListener('click',function(){
+document.querySelector('#plus3000').addEventListener('click', function () {
     const currentValue = parseInt(price.value);
-    if(isNaN(currentValue)){
-        price.value=3000
-    }else{
+    if (isNaN(currentValue)) {
+        price.value = 3000
+    } else {
         price.value = currentValue + 3000;
     }
 });
-document.querySelector('#plus5000').addEventListener('click',function(){
+document.querySelector('#plus5000').addEventListener('click', function () {
     const currentValue = parseInt(price.value);
-    if(isNaN(currentValue)){
-        price.value=5000
-    }else{
+    if (isNaN(currentValue)) {
+        price.value = 5000
+    } else {
         price.value = currentValue + 5000;
     }
 });
-document.querySelector('#plus10000').addEventListener('click',function(){
+document.querySelector('#plus10000').addEventListener('click', function () {
     const currentValue = parseInt(price.value);
-    if(isNaN(currentValue)){
-        price.value=10000
-    }else{
+    if (isNaN(currentValue)) {
+        price.value = 10000
+    } else {
         price.value = currentValue + 10000;
     }
 });

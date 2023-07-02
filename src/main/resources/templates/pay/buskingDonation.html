@@ -17,10 +17,9 @@
     <meta property="og:url"
           content="https://themes.getbootstrap.com/product/start-multipurpose-admin-dashboard-theme/"/>
     <meta property="og:site_name" content="Keenthemes | Start"/>
-
-    <link th:href="@{/css/pay/pay1.css}" rel="stylesheet" type="text/css" />
-    <link th:href="@{/css/pay/pay2.css}" rel="stylesheet" type="text/css" />
-    <link th:href="@{/css/pay/calenderPay.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/pay/pay1.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/pay/pay2.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/pay/calenderPay.css}" rel="stylesheet" type="text/css"/>
     <!--    jQuery UI CSS파일-->
     <link rel="stylesheet" th:href="@{http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css}" type="text/css"/>
     <!--end::Global Stylesheets Bundle-->
@@ -35,9 +34,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"/>
     <!--end::Fonts-->
     <!--begin::Global Stylesheets Bundle(used by all pages)-->
-    <link th:href="@{/css/pay/pay1.css}" rel="stylesheet" type="text/css" />
-    <link th:href="@{/css/pay/pay2.css}" rel="stylesheet" type="text/css" />
-    <link th:href="@{/css/pay/calenderPay.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/pay/pay1.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/pay/pay2.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/pay/calenderPay.css}" rel="stylesheet" type="text/css"/>
 </head>
 
 
@@ -54,7 +53,7 @@
                 <!-- begin::Aside Logo -->
                 <a th:href="@{/map}" class="mb-6">
                     <div style="height: 100%; width: 100%;">
-                        <img alt="로고" th:src="@{/img/logo_name.png}" />
+                        <img alt="로고" th:src="@{/img/logo_name.png}"/>
                     </div>
                 </a>
                 <!-- end::Aside Logo -->
@@ -69,14 +68,18 @@
                     <strong>아티스트 후원하기</strong>
                 </div>
 
-                <div style="width: 400px;  height: 60px; margin-top: 20px;"id="navLogin">
-                    <button type="button" style="margin-left:300px" class="btn btn-primary fw-bolder fs-5 px-5 py-2 my-3 me-5" id="loginBtn"
-                            th:onclick="|location.href='@{/loginjoin/common/login}'|">로그인</button>
+                <div style="width: 400px;  height: 60px; margin-top: 20px;" id="navLogin">
+                    <button type="button" style="margin-left:300px"
+                            class="btn btn-primary fw-bolder fs-5 px-5 py-2 my-3 me-5" id="loginBtn"
+                            th:onclick="|location.href='@{/loginjoin/common/login}'|">로그인
+                    </button>
                 </div>
                 <div style="margin-left:200px;margin-right: 20px;" id="navLogout">
                     <div style="margin-top:50px;">
-                        <a id="mypageBtn" style="width: 200px; height: 30px;font-size: large;"><img th:src="@{/img/person.png}" style="width: 30px; height: 30px; cursor:pointer;"/>
-                            <span id="userName" style="display: inline-block; margin-left: 10px; font-weight: bold; font-size: large; cursor:pointer;"></span>님</a>
+                        <a id="mypageBtn" style="width: 200px; height: 30px;font-size: large;"><img
+                                th:src="@{/img/person.png}" style="width: 30px; height: 30px; cursor:pointer;"/>
+                            <span id="userName"
+                                  style="display: inline-block; margin-left: 10px; font-weight: bold; font-size: large; cursor:pointer;"></span>님</a>
 
                         <a id="logoutBtn" href="/map" style="margin-left: 20px;"></a>
                     </div>
@@ -99,11 +102,14 @@
                     <div class="d-flex align-items-center" style="margin-top: 30px;">
                         <input autocomplete="off" class="form-control form-control-lg form-control-solid me-2"
                                id="price" placeholder="후원금액" readonly
-                               style="border-color: #0099FF; width: 250px; height: 40px; margin-right: 10px;" type="text"/>
-                        <button type="button" id="reset" class="btn btn-secondary fw-bolder px-2 py-3 text-center" style="width: 80px; height: 40px; font-size: 13px; margin-right: 10px;">
+                               style="border-color: #0099FF; width: 250px; height: 40px; margin-right: 10px;"
+                               type="text"/>
+                        <button type="button" id="reset" class="btn btn-secondary fw-bolder px-2 py-3 text-center"
+                                style="width: 80px; height: 40px; font-size: 13px; margin-right: 10px;">
                             <span>초기화</span>
                         </button>
-                        <button type="button" id="search-btn" class="btn btn-primary fw-bolder px-2 py-3 text-center" style="width: 80px; height: 40px; font-size: 13px;">
+                        <button type="button" id="search-btn" class="btn btn-primary fw-bolder px-2 py-3 text-center"
+                                style="width: 80px; height: 40px; font-size: 13px;">
                             <span>선택</span>
                         </button>
                     </div>
@@ -116,11 +122,14 @@
 
                     </div>
 
-                    <div class="d-flex justify-content-end align-items-end" style="width: 100%; height: 80px; margin-top: 100px;">
+                    <div class="d-flex justify-content-end align-items-end"
+                         style="width: 100%; height: 80px; margin-top: 100px;">
                         <div class="d-inline-flex align-items-center" style="color:#000000; height: 50px;">
-                            <span class="output" style="font-size: 18px; font-weight: bold;">후원금액 : <span id="priceValue" style="font-size: 18px; font-weight: bold;"></span></span>
+                            <span class="output" style="font-size: 18px; font-weight: bold;">후원금액 : <span
+                                    id="priceValue" style="font-size: 18px; font-weight: bold;"></span></span>
                         </div>
-                        <div class="d-inline-flex align-items-center" style="color:#000000; background-color:#ffffff; height: 50px; margin-left: 20px;">
+                        <div class="d-inline-flex align-items-center"
+                             style="color:#000000; background-color:#ffffff; height: 50px; margin-left: 20px;">
                             <button type="button" id="pay"
                                     class="btn btn-primary fw-bolder fs-1 px-2 py-3 my-3 text-center"
                                     style=" width: 200px; height: 50px;">결제하기
@@ -130,7 +139,6 @@
 
                 </div>
             </div>
-
 
 
         </div>
