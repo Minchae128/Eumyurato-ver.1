@@ -82,11 +82,9 @@ async function findUserId(event) {
 
     try {
         const response = await fetch("/findUserId", {
-            method: "POST",
-            headers: {
+            method: "POST", headers: {
                 "Content-Type": "application/json",
-            },
-            body: JSON.stringify({name, email}),
+            }, body: JSON.stringify({name, email}),
         });
 
         if (response.ok) {

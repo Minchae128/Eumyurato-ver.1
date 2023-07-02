@@ -27,7 +27,7 @@
             <!--begin::Aside Top-->
             <div class="d-flex flex-row-fluid flex-center flex-column-auto flex-column text-center mb-5 align-items-center">
                 <!--begin::Aside Logo-->
-<!--end::Head-->
+                <!--end::Head-->
                 <a th:href="@{/map}" class="mb-6">
                     <div class="d-flex justify-content-center align-items-center" style="height: 100%; width: 100%;">
                         <img alt="로고" th:src="@{/img/E114_logo.png}" class="h-450px h-lg-450px"/>
@@ -46,7 +46,8 @@
             </div>
         </div>
         <!--사이드-->
-        <div class="modal fade" id="result_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="margin-left: 220px;">
+        <div class="modal fade" id="result_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             style="margin-left: 220px;">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -62,7 +63,8 @@
             </div>
         </div>
 
-        <div class="modal fade" id="error_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="margin-left: 220px;">
+        <div class="modal fade" id="error_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             style="margin-left: 220px;">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -91,7 +93,8 @@
                 <!--begin::Form group-->
                 <div class="fv-row mb-5">
                     <label class="form-label fs-6 fw-bolder text-dark pt-5">이름</label>
-                    <input class="form-control form-control-lg form-control-solid" type="text" required placeholder="" name="name" autocomplete="off" style="border-color: #0099FF;" maxLength="20" />
+                    <input class="form-control form-control-lg form-control-solid" type="text" required placeholder=""
+                           name="name" autocomplete="off" style="border-color: #0099FF;" maxLength="20"/>
                     <div class="invalid-feedback">
                         이름을 입력해주세요.
                     </div>
@@ -101,7 +104,9 @@
                 </div>
                 <div class="fv-row mb-5">
                     <label class="form-label fs-6 fw-bolder text-dark pt-5">이메일</label>
-                    <input class="form-control form-control-lg form-control-solid" type="email" required placeholder="you@example.com" name="email" autocomplete="off" style="border-color: #0099FF;" maxLength="30" />
+                    <input class="form-control form-control-lg form-control-solid" type="email" required
+                           placeholder="you@example.com" name="email" autocomplete="off" style="border-color: #0099FF;"
+                           maxLength="30"/>
                     <div class="invalid-feedback">
                         이메일을 입력해주세요.
                     </div>
@@ -115,7 +120,9 @@
                 <div class="d-flex flex-wrap justify-content-center pb-lg-0 pb-5">
                     <!-- justify-content-end 클래스를 추가하여 오른쪽으로 정렬 -->
                     <button type="submit" class="btn btn-primary fw-bolder fs-5 px-8 py-3 my-2 me-5">아이디 찾기</button>
-                    <button type="button" class="btn btn-light-primary fw-bolder fs-5 px-10 py-3 my-2" th:onclick="|location.href='@{/loginjoin/common/login}'|">취소</button>
+                    <button type="button" class="btn btn-light-primary fw-bolder fs-5 px-10 py-3 my-2"
+                            th:onclick="|location.href='@{/loginjoin/common/login}'|">취소
+                    </button>
                 </div>
             </form>
         </div>
