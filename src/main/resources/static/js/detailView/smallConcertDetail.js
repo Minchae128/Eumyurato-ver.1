@@ -3,7 +3,7 @@ var id = url.match(/\d+/)[0];
 var detailList = $('#detailList');
 var price = $('#price');
 
-window.onload = function() {
+window.onload = function () {
     const jwtToken = window.sessionStorage.getItem("jwtToken");
     if (jwtToken !== null) {
         // 로그인 상태인 경우
@@ -19,18 +19,15 @@ window.onload = function() {
         userNameElem.innerText = decodedName;
 
         const mypageBtn = document.getElementById("mypageBtn");
-        mypageBtn.onclick = function (){
+        mypageBtn.onclick = function () {
 
 
             const token = sessionStorage.getItem("jwtToken");
             const headers = {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
+                'Content-Type': 'application/json', 'Authorization': `Bearer ${token}`
             };
             const options = {
-                method: 'POST',
-                headers,
-                body: JSON.stringify(payload)
+                method: 'POST', headers, body: JSON.stringify(payload)
             };
 
             fetch('/profile', options)
@@ -52,7 +49,7 @@ window.onload = function() {
         // 로그아웃
         const logoutBtn = document.createElement("a");
         logoutBtn.setAttribute("href", "/map");
-        logoutBtn.onclick = function() {
+        logoutBtn.onclick = function () {
             window.sessionStorage.removeItem("jwtToken");
         };
 
@@ -77,13 +74,11 @@ window.onload = function() {
 };
 
 $.ajax({
-    url: '/smallconcert/detail/'+id+'/json',
-    dataType: 'json',
-    success: function(data) {
+    url: '/smallconcert/detail/' + id + '/json', dataType: 'json', success: function (data) {
         console.log(data);
         var li = $('<li>');
 
-        li.append($('<p>').html('<strong>'+ data.name+ '</strong>'));
+        li.append($('<p>').html('<strong>' + data.name + '</strong>'));
         li.append($('<p>').html('<strong>장소: </strong>' + data.location));
         li.append($('<p>').html('<strong>공연 일자: </strong>' + data.startDate + ' ~ ' + data.lastDate));
         li.append($('<p>').html('<strong>공연자: </strong>' + data.pname));
@@ -93,7 +88,7 @@ $.ajax({
         // 이미지 URL을 가져온다.
         var imageUrl = data.image;
 
-        if(imageUrl !== null && imageUrl.startsWith("https://")){
+        if (imageUrl !== null && imageUrl.startsWith("https://")) {
             // 이미지 요소를 생성한다.
             var img = document.createElement("img");
             img.src = imageUrl;
@@ -106,7 +101,7 @@ $.ajax({
 
             // div에 이미지 요소를 추가한다.
             posterContainer.appendChild(img);
-        }else if(imageUrl !== null && !imageUrl.startsWith("https://")){
+        } else if (imageUrl !== null && !imageUrl.startsWith("https://")) {
             var replacedImageUrl = 'https://storage.googleapis.com/eumyurato/' + imageUrl;
             console.log(replacedImageUrl);
             // 이미지 요소를 생성한다.
@@ -121,7 +116,7 @@ $.ajax({
 
             // div에 이미지 요소를 추가한다.
             posterContainer.appendChild(img);
-        }else{
+        } else {
             var img = document.createElement("img");
             img.src = "/img/concertDefaultImg.jpg";
             img.style.objectFit = "contain";
@@ -136,8 +131,7 @@ $.ajax({
         }
 
         price.append($('<p>').html('<strong>티켓가격: </strong><span style="color:red">' + data.price.toLocaleString() + '</span>원'));
-    },
-    error: function(xhr, status, error) {
+    }, error: function (xhr, status, error) {
         console.log('AJAX Error: ' + status + error);
     }
 });
@@ -148,7 +142,7 @@ reservation.addEventListener('click', () => {
     const jwtToken = window.sessionStorage.getItem("jwtToken");
     if (jwtToken !== null) {
         window.location.href = `/smallconcert/detail/${id}/calendar`;
-    }else {
+    } else {
         alert("로그인 후 이용해주세요.");
     }
 });
