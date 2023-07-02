@@ -1,11 +1,13 @@
-$(function() {
-    $( "#datepicker" ).datepicker({dateFormat: 'yy-mm-dd',showOn: "both",
+$(function () {
+    $("#datepicker").datepicker({
+        dateFormat: 'yy-mm-dd',
+        showOn: "both",
         buttonImage: "http://jqueryui.com/resources/demos/datepicker/images/calendar.gif",
         buttonImageOnly: true,
         buttonText: "선택",
         yearSuffix: "년",
-        monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-        dayNamesMin: ['일','월','화','수','목','금','토'],
+        monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+        dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
         minDate: 0,
         maxDate: "+1M",
         showMonthAfterYear: true
@@ -13,7 +15,7 @@ $(function() {
     $('#datepicker').datepicker('setDate', 'today');
 });
 
-window.onload = function() {
+window.onload = function () {
     const jwtToken = window.sessionStorage.getItem("jwtToken");
     if (jwtToken !== null) {
         // 로그인 상태인 경우
@@ -29,18 +31,15 @@ window.onload = function() {
         userNameElem.innerText = decodedName;
 
         const mypageBtn = document.getElementById("mypageBtn");
-        mypageBtn.onclick = function (){
+        mypageBtn.onclick = function () {
 
 
             const token = sessionStorage.getItem("jwtToken");
             const headers = {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
+                'Content-Type': 'application/json', 'Authorization': `Bearer ${token}`
             };
             const options = {
-                method: 'POST',
-                headers,
-                body: JSON.stringify(payload)
+                method: 'POST', headers, body: JSON.stringify(payload)
             };
 
             fetch('/profile', options)
@@ -62,7 +61,7 @@ window.onload = function() {
         // 로그아웃
         const logoutBtn = document.createElement("a");
         logoutBtn.setAttribute("href", "/map");
-        logoutBtn.onclick = function() {
+        logoutBtn.onclick = function () {
             window.sessionStorage.removeItem("jwtToken");
         };
 
@@ -88,8 +87,7 @@ window.onload = function() {
 
     // Send AJAX request
     fetch('/smallconcert/detail/' + id + '/calendar/all', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        method: 'POST', headers: {'Content-Type': 'application/json'},
     })
         .then(response => response.json())
         .then(schedules => {
@@ -129,7 +127,7 @@ window.onload = function() {
 const selectSeat = document.querySelector('#selectSeat');
 selectSeat.disabled = true;
 const searchBtn = document.querySelector('#search-btn');
-const datePicker  = document.querySelector('#datepicker');
+const datePicker = document.querySelector('#datepicker');
 const schedulesUl = document.querySelector('#schedules');
 var url = location.pathname;
 var id = url.match(/\d+/)[0];
@@ -138,13 +136,11 @@ searchBtn.addEventListener('click', () => {
     const selectedDate = datePicker.value;
 
     // Create JSON data
-    const data = { selectedDate };
+    const data = {selectedDate};
 
     // Send AJAX request
     fetch('/smallconcert/detail/' + id + '/calendar', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+        method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(data),
     })
         .then(response => response.json())
         .then(schedules => {
@@ -187,7 +183,7 @@ selectSeat.addEventListener('click', () => {
     const jwtToken = window.sessionStorage.getItem("jwtToken");
     if (jwtToken !== null) {
         window.location.href = `/smallconcert/detail/${id}/calendar/${selectedDate}`;
-    }else {
+    } else {
         alert("로그인 후 이용해주세요.");
     }
 });
