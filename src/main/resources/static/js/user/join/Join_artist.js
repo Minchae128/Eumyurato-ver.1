@@ -295,8 +295,7 @@ joinButton.addEventListener('click', async function (e) {
 
     try {
         const response = await fetch('/loginjoin/artist/join', {
-            method: 'POST',
-            body: formData
+            method: 'POST', body: formData
         });
 
         if (response.ok) {
