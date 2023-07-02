@@ -227,8 +227,7 @@ joinButton.addEventListener('click', async function (e) {
 
     try {
         const response = await fetch('/loginjoin/enterprise/join', {
-            method: 'POST',
-            body: formData
+            method: 'POST', body: formData
         });
 
         if (response.ok) {
