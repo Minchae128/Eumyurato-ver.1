@@ -146,9 +146,8 @@
 
     <update id="modifyArtistWithoutImage" parameterType="com.e114.e114_eumyuratodemo1.dto.ArtistMemberDTO">
         UPDATE artist_member
-        SET
-            pwd = #{pwd},
-            nid = #{nid},
+        SET pwd   = #{pwd},
+            nid   = #{nid},
             phone = #{phone},
             email = #{email},
             genre = #{genre}
@@ -157,9 +156,8 @@
 
     <update id="artistModify" parameterType="com.e114.e114_eumyuratodemo1.dto.ArtistMemberDTO">
         UPDATE artist_member
-        SET
-            pwd = #{pwd},
-            nid = #{nid},
+        SET pwd   = #{pwd},
+            nid   = #{nid},
             phone = #{phone},
             email = #{email},
             genre = #{genre},
@@ -169,11 +167,11 @@
 
     <select id="artistNid" parameterType="String" resultType="map">
         SELECT COUNT(*) AS cnt
-        FROM (
-                 SELECT nid FROM common_member
-                 UNION
-                 SELECT nid FROM artist_member
-             ) AS combined_tables
+        FROM (SELECT nid
+              FROM common_member
+              UNION
+              SELECT nid
+              FROM artist_member) AS combined_tables
         WHERE nid = #{param1}
     </select>
 
