@@ -3,13 +3,15 @@
 <!-- CommonMemberMapper.xml -->
 <mapper namespace="com.e114.e114_eumyuratodemo1.dao.CommonMemberDAO">
 
-    <select id="findById" parameterType="java.lang.String" resultType="com.e114.e114_eumyuratodemo1.dto.CommonMemberDTO">
+    <select id="findById" parameterType="java.lang.String"
+            resultType="com.e114.e114_eumyuratodemo1.dto.CommonMemberDTO">
         SELECT *
         FROM common_member
         WHERE id = #{id}
     </select>
 
-    <select id="findByPwd" parameterType="java.lang.String" resultType="com.e114.e114_eumyuratodemo1.dto.CommonMemberDTO">
+    <select id="findByPwd" parameterType="java.lang.String"
+            resultType="com.e114.e114_eumyuratodemo1.dto.CommonMemberDTO">
         SELECT *
         FROM common_member
         WHERE pwd = #{pwd}
@@ -52,7 +54,8 @@
           AND email = #{email}
     </select>
 
-    <select id="useByNid" parameterType="java.lang.String" resultType="com.e114.e114_eumyuratodemo1.dto.CommonMemberDTO">
+    <select id="useByNid" parameterType="java.lang.String"
+            resultType="com.e114.e114_eumyuratodemo1.dto.CommonMemberDTO">
         SELECT *
         FROM common_member
         WHERE nid = #{nid}
@@ -68,7 +71,8 @@
     <select id="getCommonInfoById" resultType="com.e114.e114_eumyuratodemo1.dto.CommonMemberDTO">
         SELECT *
         FROM common_member
-        WHERE id = #{id} AND adminNum = 1
+        WHERE id = #{id}
+          AND adminNum = 1
     </select>
 
     <select id="getCommonReservations" resultType="com.e114.e114_eumyuratodemo1.dto.ReservationDTO">
@@ -76,7 +80,8 @@
         FROM reservation AS r
                  INNER JOIN schedules AS s ON r.sId = s.id
                  INNER JOIN small_concert AS sc ON s.conId = sc.id
-        WHERE r.cId = #{cId} ORDER BY payTime DESC
+        WHERE r.cId = #{cId}
+        ORDER BY payTime DESC
     </select>
 
     <select id="searchCommonReservations" resultType="com.e114.e114_eumyuratodemo1.dto.ReservationDTO">
@@ -84,16 +89,21 @@
         FROM reservation AS r
                  INNER JOIN schedules AS s ON r.sId = s.id
                  INNER JOIN small_concert AS sc ON s.conId = sc.id
-        WHERE cId = #{cId} and ${column} LIKE CONCAT('%', #{keyword}, '%')
+        WHERE cId = #{cId}
+          and ${column} LIKE CONCAT('%', #{keyword}, '%')
         ORDER BY payTime DESC
     </select>
 
     <delete id="deleteCommonReservation">
-        DELETE FROM reservation WHERE id = #{param1}
+        DELETE
+        FROM reservation
+        WHERE id = #{param1}
     </delete>
 
     <delete id="deleteCommonTicket">
-        DELETE FROM ticket WHERE rid = #{param1}
+        DELETE
+        FROM ticket
+        WHERE rid = #{param1}
     </delete>
 
     <!--회원정보 수정-->
@@ -105,9 +115,8 @@
 
     <update id="modifyCommonWithoutImage" parameterType="com.e114.e114_eumyuratodemo1.dto.CommonMemberDTO">
         UPDATE common_member
-        SET
-            pwd = #{pwd},
-            nid = #{nid},
+        SET pwd   = #{pwd},
+            nid   = #{nid},
             phone = #{phone},
             email = #{email},
             genre = #{genre}
@@ -116,9 +125,8 @@
 
     <update id="commonModify" parameterType="com.e114.e114_eumyuratodemo1.dto.CommonMemberDTO">
         UPDATE common_member
-        SET
-            pwd = #{pwd},
-            nid = #{nid},
+        SET pwd   = #{pwd},
+            nid   = #{nid},
             phone = #{phone},
             email = #{email},
             image = #{image},
@@ -128,11 +136,11 @@
 
     <select id="commonNid" resultType="int">
         SELECT COUNT(*) AS cnt
-        FROM (
-                 SELECT nid FROM common_member
-                 UNION
-                 SELECT nid FROM artist_member
-             ) AS combined_tables
+        FROM (SELECT nid
+              FROM common_member
+              UNION
+              SELECT nid
+              FROM artist_member) AS combined_tables
         WHERE nid = #{param1}
     </select>
 
