@@ -38,7 +38,7 @@ window.onload = function () {
         const logoutBtn = document.createElement("a");
         logoutBtn.setAttribute("href", "/logout");
         logoutBtn.onclick = function () {
-            fetch('/logout', { method: 'POST', credentials: 'include' })
+            fetch('/logout', {method: 'POST', credentials: 'include'})
                 .then(response => {
                     if (response.ok) {
                         // 세션 스토리지에서 토큰 제거
@@ -78,8 +78,7 @@ window.onload = function () {
 };
 
 fetch('/top5artists', {
-    method: 'POST',
-    headers: {
+    method: 'POST', headers: {
         'Content-Type': 'application/json'
     }
 })
@@ -111,11 +110,11 @@ fetch('/top5artists', {
             const imgUrl = artist.image;
             const replacedImgUrl = 'https://storage.googleapis.com/eumyurato/' + imgUrl;
 
-            if(imgUrl !== null && imgUrl.startsWith("https://")){
+            if (imgUrl !== null && imgUrl.startsWith("https://")) {
                 img.src = imgUrl;
-            }else if(imgUrl !== null && !imgUrl.startsWith("https://")){
+            } else if (imgUrl !== null && !imgUrl.startsWith("https://")) {
                 img.src = replacedImgUrl;
-            }else{
+            } else {
                 img.src = "/img/memberDefaultImg.jpg";
             }
 
@@ -131,11 +130,8 @@ fetch('/top5artists', {
     .catch(error => console.error(error)); // 에러 처리하기
 
 
-
-
 fetch('/top5concert', {
-    method: 'POST',
-    headers: {
+    method: 'POST', headers: {
         'Content-Type': 'application/json'
     }
 })
@@ -165,11 +161,11 @@ fetch('/top5concert', {
             const imgUrl = concert.image;
             const replacedImgUrl = 'https://storage.googleapis.com/eumyurato/' + imgUrl;
 
-            if(imgUrl !== null && imgUrl.startsWith("https://")){
+            if (imgUrl !== null && imgUrl.startsWith("https://")) {
                 img.src = imgUrl;
-            }else if(imgUrl !== null && !imgUrl.startsWith("https://")){
+            } else if (imgUrl !== null && !imgUrl.startsWith("https://")) {
                 img.src = replacedImgUrl;
-            }else{
+            } else {
                 img.src = "/img/concertDefaultImg.jpg";
             }
 
@@ -188,7 +184,7 @@ fetch('/top5concert', {
 const rows = document.querySelectorAll('#artistTableBody tr');
 
 rows.forEach(row => {
-    row.addEventListener('click', function() {
+    row.addEventListener('click', function () {
         // 기존에 확대된 행이 있을 경우, 확대를 원래 크기로 되돌립니다.
         const activeRow = document.querySelector('#artistTableBody .active');
         if (activeRow) {
