@@ -93,8 +93,8 @@
 })();
 
 
-$(function() {
-    $('#kt_login_signin_form').submit(function(e) {
+$(function () {
+    $('#kt_login_signin_form').submit(function (e) {
         e.preventDefault(); // 기본 동작 중단
 
         var id = $('[name="id"]').val();
@@ -102,23 +102,17 @@ $(function() {
         var email = $('[name="email"]').val();
 
         $.ajax({
-            type: "POST",
-            url: "/loginjoin/Pwfind",
-            data: {
-                id: id,
-                name: name,
-                email: email
-            },
-            success: function(response) {
+            type: "POST", url: "/loginjoin/Pwfind", data: {
+                id: id, name: name, email: email
+            }, success: function (response) {
                 // 비밀번호 찾기 성공 시 처리
                 var resultMessage = response.message;
                 $('#result_message').text(resultMessage);
                 $('#result_modal').modal('show');
-                setTimeout(function() {
+                setTimeout(function () {
                     window.location.href = "/loginjoin/common/login";
                 }, 3000); // 3초 후 로그인 페이지로 이동
-            },
-            error: function(xhr) {
+            }, error: function (xhr) {
                 // 비밀번호 찾기 실패 시 처리
                 var errorMessage = xhr.responseJSON.errorMessage;
                 $('#error_message').text(errorMessage);
