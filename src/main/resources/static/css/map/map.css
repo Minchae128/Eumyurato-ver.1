@@ -35,6 +35,7 @@ li {
     flex-flow: column nowrap;
     font-size: 18px;
 }
+
 .Shadow {
     position: absolute;
     top: 0;
@@ -43,6 +44,7 @@ li {
     z-index: 20;
     height: 995px;
 }
+
 .Shadow .bar {
     overflow: hidden;
     position: absolute;
@@ -74,7 +76,7 @@ li {
 .nav_hd {
     justify-content: space-between;
     padding: 0% 5%;
-    margin-bottom : 20px;
+    margin-bottom: 20px;
 }
 
 .nav_srBox {
@@ -97,10 +99,12 @@ li {
     gap: 25px;
     border: 2px solid #CCCCCC;
 }
+
 #loginBtn {
     background-color: #062d92;
     color: #fff;
 }
+
 #loginBtn:hover {
     background-color: #062d92;
     color: #fff;
@@ -113,10 +117,10 @@ li {
     text-align: center;
     border-radius: 3px;
     color: #fff;
-    font : 14px/1.5 'Malgun Gothic','돋움',dotum,sans-serif;
-    letter-spacing : -1px;
+    font: 14px/1.5 'Malgun Gothic', '돋움', dotum, sans-serif;
+    letter-spacing: -1px;
     transition: background-color 0.3s ease-in-out;
-    margin : 6px 6px;
+    margin: 6px 6px;
 }
 
 /*.categoryWrap > a:hover {*/
@@ -125,7 +129,7 @@ li {
 /*}*/
 
 .categoryWrap a.active {
-    background: rgba(13,91,212,.8);
+    background: rgba(13, 91, 212, .8);
     transform: scale(1.15);
     font-weight: bold;
 }
@@ -193,21 +197,25 @@ src: url('/assets/NanumGothicLight.ttf'); /* IE9 Compat Modes */
     font-family: 'font-name';
 }
 
-li h3{
+li h3 {
     font-size: 16px;
     font-weight: bold;
 }
+
 li p {
     font-size: 13px;
     transition: color 0.3s ease-in-out;
 }
+
 li strong {
     font-weight: bold;
 }
+
 li:hover h3,
 li:hover p {
     color: #062d91;
 }
+
 .image-wrapper img {
     width: 100px;
     height: 100px;
