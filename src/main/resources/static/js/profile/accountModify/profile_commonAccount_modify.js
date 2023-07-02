@@ -1,21 +1,21 @@
 const jwtToken = sessionStorage.getItem("jwtToken");
 
-$(document).ready(function() {
+$(document).ready(function () {
     getCommonData(); //정보 불러옴
 
     //프로필 이미지 사용자가 업로드한 이미지로 변경
-    $('input[type="file"]').on('change', function(event) {
+    $('input[type="file"]').on('change', function (event) {
         var file = event.target.files[0];
         var imageUrl = URL.createObjectURL(file);
         $('#previewImage').attr('src', imageUrl);
     });
 
     //비밀번호 검사
-    $('#pwd').on('change', function (){
+    $('#pwd').on('change', function () {
         var password = $("input[name='pwd']").val();
 
         //비밀번호가 이전 것과 동일한 지
-        if(password === artPwd){
+        if (password === artPwd) {
             alert("최근 사용한 비밀번호입니다. 다른 비밀번호를 선택해 주세요.")
             $("input[name='pwd']").val("");
             $("input[name='pwd']").focus();
@@ -34,7 +34,7 @@ $(document).ready(function() {
     });
 
     //비밀번호 재확인이 비밀번호와 같은지 검사
-    $('#cpassword').on('change', function() {
+    $('#cpassword').on('change', function () {
         var cpassword = $("input[name='cpassword']").val();
         var pwd = $("input[name='pwd']").val();
 
@@ -45,11 +45,11 @@ $(document).ready(function() {
     });
 
     //수정 버튼
-    $('#modify').on('click', function(event) {
+    $('#modify').on('click', function (event) {
         event.preventDefault(); // 기본 동작(페이지 이동) 방지
-        if ($("input[name='cpassword']").val() === ""){
+        if ($("input[name='cpassword']").val() === "") {
             alert("비밀번호를 다시 입력해주세요.");
-        }else{
+        } else {
             commonModify();
         }
     });
@@ -95,10 +95,10 @@ function displayCommonData(common) {
     if (imageUrl !== null && imageUrl.startsWith("https://")) {
         $('#previewImage').attr('src', imageUrl);
 
-    } else if(imageUrl !== null && !imageUrl.startsWith("https://")) {
+    } else if (imageUrl !== null && !imageUrl.startsWith("https://")) {
         var replacedImageUrl = 'https://storage.googleapis.com/eumyurato/' + imageUrl;
         $('#previewImage').attr('src', replacedImageUrl);
-    }else{
+    } else {
         var defaultImage = '/img/memberDefaultImg.jpg';
         $('#previewImage').attr('src', defaultImage);
     }
@@ -119,7 +119,7 @@ function commonModify() {
         genre: $("select[name='genre']").val()
     };
 
-    formData.append('commonDTO', new Blob([JSON.stringify(data)], { type: 'application/json' }));
+    formData.append('commonDTO', new Blob([JSON.stringify(data)], {type: 'application/json'}));
     console.log(formData);
     $.ajax({
         type: 'POST',
@@ -127,11 +127,11 @@ function commonModify() {
         data: formData,
         processData: false,
         contentType: false,
-        success: function() {
+        success: function () {
             alert('회원정보가 수정되었습니다.');
             location.reload();
         },
-        error: function(jqXHR, textStatus, errorThrown) {
+        error: function (jqXHR, textStatus, errorThrown) {
             console.log(textStatus + ': ' + errorThrown);
         }
     });
@@ -141,11 +141,11 @@ function commonModify() {
 function openNidPopup() {
     var _width = '500';
     var _height = '200';
-    var _left = Math.ceil(( window.screen.width - _width )/2);
-    var _top = Math.ceil(( window.screen.height - _height )/2);
+    var _left = Math.ceil((window.screen.width - _width) / 2);
+    var _top = Math.ceil((window.screen.height - _height) / 2);
 
     // 팝업창 생성
-    const popup = window.open('', '닉네임 변경하기', 'width='+ _width +', height='+ _height +', left=' + _left + ', top='+ _top );
+    const popup = window.open('', '닉네임 변경하기', 'width=' + _width + ', height=' + _height + ', left=' + _left + ', top=' + _top);
 
     const html = `
     <html lang="en">
@@ -175,13 +175,10 @@ window.close();
 }
 
 //닉네임 중복 검사
-function nidCheck(){
+function nidCheck() {
     var nickname = $('input[name="nid"]').val();
     $.ajax({
-        type: 'POST',
-        url: '/profile/common/nidcheck',
-        data: { nid: nickname },
-        success: function(response) {
+        type: 'POST', url: '/profile/common/nidcheck', data: {nid: nickname}, success: function (response) {
             console.log(response);
             if (response === 'success') {
                 alert('사용 가능한 닉네임입니다.');
@@ -199,11 +196,11 @@ function nidCheck(){
 function openEmailPopup() {
     var _width = '500';
     var _height = '200';
-    var _left = Math.ceil(( window.screen.width - _width )/2);
-    var _top = Math.ceil(( window.screen.height - _height )/2);
+    var _left = Math.ceil((window.screen.width - _width) / 2);
+    var _top = Math.ceil((window.screen.height - _height) / 2);
 
     // 팝업창 생성
-    const popup = window.open('', '이메일 변경하기', 'width='+ _width +', height='+ _height +', left=' + _left + ', top='+ _top );
+    const popup = window.open('', '이메일 변경하기', 'width=' + _width + ', height=' + _height + ', left=' + _left + ', top=' + _top);
 
 // HTML 코드 조합
     const htmlCode = `
@@ -242,11 +239,11 @@ document.getElementById("submit-btn").addEventListener("click", function() {
 function openPhonePopup() {
     var _width = '500';
     var _height = '200';
-    var _left = Math.ceil(( window.screen.width - _width )/2);
-    var _top = Math.ceil(( window.screen.height - _height )/2);
+    var _left = Math.ceil((window.screen.width - _width) / 2);
+    var _top = Math.ceil((window.screen.height - _height) / 2);
 
     // 팝업창 생성
-    const popup = window.open('', '휴대번호 변경하기', 'width='+ _width +', height='+ _height +', left=' + _left + ', top='+ _top );
+    const popup = window.open('', '휴대번호 변경하기', 'width=' + _width + ', height=' + _height + ', left=' + _left + ', top=' + _top);
 
 // HTML 코드 조합
     const htmlCode = `
@@ -297,7 +294,7 @@ function openPhonePopup() {
 const logoutBtn = document.getElementById("logoutBtn");
 logoutBtn.setAttribute("href", "/logout");
 logoutBtn.onclick = function () {
-    fetch('/logout', { method: 'POST', credentials: 'include' })
+    fetch('/logout', {method: 'POST', credentials: 'include'})
         .then(response => {
             if (response.ok) {
                 // 세션 스토리지에서 토큰 제거

@@ -13,13 +13,11 @@
     <!-- Popper JS -->
     <script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js}"></script>
     <script th:src="@{https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js}"></script>
-
     <script th:src="@{https://cdn.jsdelivr.net/npm/popperjs/core2.9.3/dist/umd/popper.min.js}"
             crossorigin="anonymous"></script>
     <!-- Bootstrap JavaScript -->
     <script th:src="@{https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js}"
             crossorigin="anonymous"></script>
-
     <!--begin::Global Stylesheets Bundle(used by all pages)-->
     <link th:href="@{/css/profile/profile1.css}" rel="stylesheet" type="text/css"/>
     <link th:href="@{/css/profile/profile2.css}" rel="stylesheet" type="text/css"/>
@@ -153,7 +151,8 @@
                      <div>
                             <input autocomplete="off" class="form-control form-control-lg form-control-solid me-2"
                                    id="pwd" name="pwd" placeholder="대소문자, 숫자, 특수문자를 포함한 8자 이상 20자" required
-                                   style="border-color: #0099FF; width: 600px; height: 40px; font-size: 20px;" type="password" readonly/>
+                                   style="border-color: #0099FF; width: 600px; height: 40px; font-size: 20px;"
+                                   type="password" readonly/>
                     </div>
                     <div>
                         <div class="invalid-feedback" id="password-empty">필수 입력 정보입니다.</div>
@@ -172,7 +171,8 @@
                      <div>
                             <input autocomplete="off" class="form-control form-control-lg form-control-solid me-2"
                                    id="cpassword" name="cpassword" placeholder="대소문자, 숫자, 특수문자를 포함한 8자 이상 20자" required
-                                   style="border-color: #0099FF; width: 600px; height: 40px; font-size: 20px;" type="password"/>
+                                   style="border-color: #0099FF; width: 600px; height: 40px; font-size: 20px;"
+                                   type="password"/>
                     </div>
                     <div>
                         <div class="invalid-feedback" id="cpassword-mismatch">비밀번호가 일치하지 않습니다.</div>
@@ -187,7 +187,8 @@
                      <div>
                             <input autocomplete="off" class="form-control form-control-lg form-control-solid me-2"
                                    id="name" name="name" placeholder=" " required
-                                   style="border-color: #0099FF; width: 600px; height: 40px; font-size: 20px;" type="text"/>
+                                   style="border-color: #0099FF; width: 600px; height: 40px; font-size: 20px;"
+                                   type="text"/>
                     </div>
                 </div>
 
@@ -220,7 +221,8 @@
                         <div class="d-flex align-items-center">
                         <input autocomplete="off" class="form-control form-control-lg form-control-solid me-2"
                                id="email" name="email" placeholder="you@example.com" required readonly
-                               style="border-color: #0099FF; width: 450px; height: 40px; font-size: 20px;" type="email"/>
+                               style="border-color: #0099FF; width: 450px; height: 40px; font-size: 20px;"
+                               type="email"/>
                         <button class="btn btn-primary fw-bolder fs-4 px-2 py-1 my-3 text-center"
                                 id="emailBtn"
                                 style="width: 150px; height: 45px;" type="button" onclick="openEmailPopup()">변경하기
@@ -238,7 +240,8 @@
                         <div class="d-flex align-items-center">
                         <input autocomplete="off" class="form-control form-control-lg form-control-solid me-2"
                                id="phone" name="phone" placeholder="-제외 입력하시오" readonly
-                               required style="border-color: #0099FF; width: 450px; height: 40px; font-size: 20px;" type="tel"/>
+                               required style="border-color: #0099FF; width: 450px; height: 40px; font-size: 20px;"
+                               type="tel"/>
                         <button class="btn btn-primary fw-bolder fs-4 px-3 py-1 my-3 text-center"
                                 id="phoneBtn"
                                 style="width: 150px; height: 45px;" type="button" onclick="openPhonePopup()">변경하기
@@ -302,15 +305,18 @@
                             <!-- Footer Social Icons-->
                             <div class="col-lg-4 mb-1 mb-lg-0">
                                 <h4 class="text-uppercase mb-4">Our Github</h4>
-                                <a class="btn btn-outline-light btn-social mx-1" th:href="@{https://github.com/thdhksrb}">
+                                <a class="btn btn-outline-light btn-social mx-1"
+                                   th:href="@{https://github.com/thdhksrb}">
                                     <img th:src="@{/img/swk.jpg}" alt="GitHub Profile"
                                          style="width: 3.25rem; height: 3.25rem; border-radius: 50%;"/>
                                 </a>
-                                <a class="btn btn-outline-light btn-social mx-1" th:href="@{https://github.com/noeypark}">
+                                <a class="btn btn-outline-light btn-social mx-1"
+                                   th:href="@{https://github.com/noeypark}">
                                     <img th:src="@{/img/noey.jpg}" alt="GitHub Profile"
                                          style="width: 3.25rem; height: 3.25rem; border-radius: 50%;"/>
                                 </a>
-                                <a class="btn btn-outline-light btn-social mx-1" th:href="@{https://github.com/Minchae128}">
+                                <a class="btn btn-outline-light btn-social mx-1"
+                                   th:href="@{https://github.com/Minchae128}">
                                     <img th:src="@{/img/smc.jpg}" alt="GitHub Profile"
                                          style="width: 3.25rem; height: 3.25rem; border-radius: 50%;"/>
                                 </a>
