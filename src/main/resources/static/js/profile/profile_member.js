@@ -30,8 +30,7 @@ function getMembers(category, page = 1, searchColumn = null, searchKeyword = '')
     }
 
     fetch(url, {
-        method: 'GET',
-        headers: {
+        method: 'GET', headers: {
             'Content-Type': 'application/json',
         },
     })
@@ -50,101 +49,101 @@ function getMembers(category, page = 1, searchColumn = null, searchKeyword = '')
         });
 }
 
-    function displayMembers(members, category, currentPage) {
-        const memberTbody = document.getElementById('memberTbody');
-        memberTbody.innerHTML = '';
+function displayMembers(members, category, currentPage) {
+    const memberTbody = document.getElementById('memberTbody');
+    memberTbody.innerHTML = '';
 
-        const membersPerPage = 5;
-        const start = (currentPage - 1) * membersPerPage;
-        const end = start + membersPerPage;
+    const membersPerPage = 5;
+    const start = (currentPage - 1) * membersPerPage;
+    const end = start + membersPerPage;
 
-        members.slice(start, end).forEach((member) => {
-            const memberRow = memberTbody.insertRow();
+    members.slice(start, end).forEach((member) => {
+        const memberRow = memberTbody.insertRow();
 
-            // 기본 공통 컬럼
+        // 기본 공통 컬럼
 
-            switch (category) {
-                case 'common':
-                    // 일반 회원에 대한 데이터를 생성
-                    memberRow.insertCell().textContent = member.id;
-                    memberRow.insertCell().textContent = member.name;
-                    memberRow.insertCell().textContent = member.nid;
-                    memberRow.insertCell().textContent = member.sex;
-                    memberRow.insertCell().textContent = member.birth;
-                    memberRow.insertCell().textContent = member.email;
-                    memberRow.insertCell().textContent = member.phone;
-                    memberRow.insertCell().textContent = member.road;
-                    memberRow.insertCell().textContent = member.genre;
-                    break;
+        switch (category) {
+            case 'common':
+                // 일반 회원에 대한 데이터를 생성
+                memberRow.insertCell().textContent = member.id;
+                memberRow.insertCell().textContent = member.name;
+                memberRow.insertCell().textContent = member.nid;
+                memberRow.insertCell().textContent = member.sex;
+                memberRow.insertCell().textContent = member.birth;
+                memberRow.insertCell().textContent = member.email;
+                memberRow.insertCell().textContent = member.phone;
+                memberRow.insertCell().textContent = member.road;
+                memberRow.insertCell().textContent = member.genre;
+                break;
 
-                case 'artist':
-                    // 아티스트 회원에 대한 데이터를 생성
-                    memberRow.insertCell().textContent = member.id;
-                    memberRow.insertCell().textContent = member.name;
-                    memberRow.insertCell().textContent = member.nid;
-                    memberRow.insertCell().textContent = member.sex;
-                    memberRow.insertCell().textContent = member.birth;
-                    memberRow.insertCell().textContent = member.email;
-                    memberRow.insertCell().textContent = member.phone;
-                    memberRow.insertCell().textContent = member.genre;
-                    memberRow.insertCell().textContent = member.point;
-                    break;
+            case 'artist':
+                // 아티스트 회원에 대한 데이터를 생성
+                memberRow.insertCell().textContent = member.id;
+                memberRow.insertCell().textContent = member.name;
+                memberRow.insertCell().textContent = member.nid;
+                memberRow.insertCell().textContent = member.sex;
+                memberRow.insertCell().textContent = member.birth;
+                memberRow.insertCell().textContent = member.email;
+                memberRow.insertCell().textContent = member.phone;
+                memberRow.insertCell().textContent = member.genre;
+                memberRow.insertCell().textContent = member.point;
+                break;
 
-                case 'enterprise':
-                    // 기업 회원에 대한 데이터를 생성
-                    memberRow.insertCell().textContent = member.id;
-                    memberRow.insertCell().textContent = member.name;
-                    memberRow.insertCell().textContent = member.num;
-                    memberRow.insertCell().textContent = member.email;
-                    memberRow.insertCell().textContent = member.phone;
-                    break;
+            case 'enterprise':
+                // 기업 회원에 대한 데이터를 생성
+                memberRow.insertCell().textContent = member.id;
+                memberRow.insertCell().textContent = member.name;
+                memberRow.insertCell().textContent = member.num;
+                memberRow.insertCell().textContent = member.email;
+                memberRow.insertCell().textContent = member.phone;
+                break;
 
-                default:
-                    break;
-            }
+            default:
+                break;
+        }
+    });
+
+    createPagination(members.length, membersPerPage, currentPage, category);
+}
+
+function showColumns(category) {
+    const columns = document.querySelectorAll('th');
+    const categoryColumns = document.querySelectorAll(`th.${category}`);
+
+    // 모든 컬럼을 숨깁니다.
+    for (let i = 0; i < columns.length; i++) {
+        columns[i].style.display = 'none';
+    }
+
+    // 선택한 행사의 컬럼만 표시합니다.
+    for (let i = 0; i < categoryColumns.length; i++) {
+        categoryColumns[i].style.display = 'table-cell';
+    }
+}
+
+function createPagination(totalMembers, membersPerPage, currentPage, category) {
+    const totalPages = Math.ceil(totalMembers / membersPerPage);
+    const paginationEl = document.querySelector('.pagination');
+
+    paginationEl.innerHTML = '';
+
+    for (let i = 1; i <= totalPages; i++) {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = '#';
+        a.textContent = i;
+        if (i === currentPage) {
+            li.classList.add('active');
+        }
+        a.addEventListener('click', (event) => {
+            event.preventDefault();
+            getMembers(category, i);
+            scrollToTop();
         });
-
-        createPagination(members.length, membersPerPage, currentPage, category);
+        li.appendChild(a);
+        paginationEl.appendChild(li);
     }
-
-    function showColumns(category) {
-        const columns = document.querySelectorAll('th');
-        const categoryColumns = document.querySelectorAll(`th.${category}`);
-
-        // 모든 컬럼을 숨깁니다.
-        for (let i = 0; i < columns.length; i++) {
-            columns[i].style.display = 'none';
-        }
-
-        // 선택한 행사의 컬럼만 표시합니다.
-        for (let i = 0; i < categoryColumns.length; i++) {
-            categoryColumns[i].style.display = 'table-cell';
-        }
-    }
-
-    function createPagination(totalMembers, membersPerPage, currentPage, category) {
-        const totalPages = Math.ceil(totalMembers / membersPerPage);
-        const paginationEl = document.querySelector('.pagination');
-
-        paginationEl.innerHTML = '';
-
-        for (let i = 1; i <= totalPages; i++) {
-            const li = document.createElement('li');
-            const a = document.createElement('a');
-            a.href = '#';
-            a.textContent = i;
-            if (i === currentPage) {
-                li.classList.add('active');
-            }
-            a.addEventListener('click', (event) => {
-                event.preventDefault();
-                getMembers(category, i);
-                scrollToTop();
-            });
-            li.appendChild(a);
-            paginationEl.appendChild(li);
-        }
-    }
+}
 
 function showColumns(category) {
     const columns = document.querySelectorAll('th');
@@ -189,7 +188,7 @@ function updateDropdownOptions(category) {
 const logoutBtn = document.getElementById("logoutBtn");
 logoutBtn.setAttribute("href", "/logout");
 logoutBtn.onclick = function () {
-    fetch('/logout', { method: 'POST', credentials: 'include' })
+    fetch('/logout', {method: 'POST', credentials: 'include'})
         .then(response => {
             if (response.ok) {
                 // 세션 스토리지에서 토큰 제거
