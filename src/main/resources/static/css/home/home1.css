@@ -6399,7 +6399,8 @@ textarea.form-control-lg {
     backface-visibility: hidden;
     transition: transform 0.6s ease-in-out;
 }
-.animate-slide-in h1, .animate-slide-in p,.animate-slide-in div {
+
+.animate-slide-in h1, .animate-slide-in p, .animate-slide-in div {
     animation: slide-in 2.5s ease-in-out;
     animation-fill-mode: forwards;
     opacity: 0;
@@ -12545,6 +12546,7 @@ html {
     font-size: 2.25rem;
     line-height: 2rem;
 }
+
 #artistTable td {
     transition: transform 0.8s ease;
     cursor: pointer;
@@ -12571,17 +12573,39 @@ html {
 }
 
 @keyframes shake {
-    0% { transform: translate(1px, 1px) rotate(0deg); }
-    10% { transform: translate(-1px, -2px) rotate(-1deg); }
-    20% { transform: translate(-3px, 0px) rotate(1deg); }
-    30% { transform: translate(3px, 2px) rotate(0deg); }
-    40% { transform: translate(1px, -1px) rotate(1deg); }
-    50% { transform: translate(-1px, 2px) rotate(-1deg); }
-    60% { transform: translate(-3px, 1px) rotate(0deg); }
-    70% { transform: translate(3px, 1px) rotate(-1deg); }
-    80% { transform: translate(-1px, -1px) rotate(1deg); }
-    90% { transform: translate(1px, 2px) rotate(0deg); }
-    100% { transform: translate(1px, -2px) rotate(-1deg); }
+    0% {
+        transform: translate(1px, 1px) rotate(0deg);
+    }
+    10% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+    }
+    20% {
+        transform: translate(-3px, 0px) rotate(1deg);
+    }
+    30% {
+        transform: translate(3px, 2px) rotate(0deg);
+    }
+    40% {
+        transform: translate(1px, -1px) rotate(1deg);
+    }
+    50% {
+        transform: translate(-1px, 2px) rotate(-1deg);
+    }
+    60% {
+        transform: translate(-3px, 1px) rotate(0deg);
+    }
+    70% {
+        transform: translate(3px, 1px) rotate(-1deg);
+    }
+    80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+    }
+    90% {
+        transform: translate(1px, 2px) rotate(0deg);
+    }
+    100% {
+        transform: translate(1px, -2px) rotate(-1deg);
+    }
 }
 
 @media (min-width: 992px) {
@@ -12591,7 +12615,7 @@ html {
     }
 }
 
-#wrap{
+#wrap {
     min-height: calc(100vh - 10rem); /* footer 높이를 빼준다. */
 }
 
@@ -12607,7 +12631,7 @@ html {
     background-color: #2c3e50;
 }
 
-.section{
+.section {
     background-color: #F2F4F7;
 }
 
