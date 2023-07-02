@@ -17,14 +17,12 @@
     <meta property="og:url"
           content="https://themes.getbootstrap.com/product/start-multipurpose-admin-dashboard-theme/"/>
     <meta property="og:site_name" content="Keenthemes | Start"/>
-
     <link rel="canonical" href="https://preview.keenthemes.com/start"/>
     <link rel="shortcut icon" href="assets/media/logos/favicon.ico"/>
-
     <!--begin::Global Stylesheets Bundle(used by all pages)-->
-    <link th:href="@{/css/pay/pay1.css}" rel="stylesheet" type="text/css" />
-    <link th:href="@{/css/pay/pay2.css}" rel="stylesheet" type="text/css" />
-    <link th:href="@{/css/pay/calenderPay.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/pay/pay1.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/pay/pay2.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/pay/calenderPay.css}" rel="stylesheet" type="text/css"/>
     <!--    jQuery UI CSS파일-->
     <link rel="stylesheet" th:href="@{http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css}" type="text/css"/>
     <!--end::Global Stylesheets Bundle-->
@@ -40,13 +38,15 @@
     <p style="font-size: 30px"><strong>결제가 완료되었습니다.</strong></p>
     <br>
     <br>
-    <div style ="display:flex; flex-direction:column; align-items:flex-start">
-    <p id="payTime" style="font-size: 15px; font-weight: bold"></p>
-    <p id="conName" style="font-size: 15px; font-weight: bold"></p>
-    <p id="price" style="font-size: 15px; font-weight: bold"></p>
+    <div style="display:flex; flex-direction:column; align-items:flex-start">
+        <p id="payTime" style="font-size: 15px; font-weight: bold"></p>
+        <p id="conName" style="font-size: 15px; font-weight: bold"></p>
+        <p id="price" style="font-size: 15px; font-weight: bold"></p>
     </div>
-    <button type="button" class="btn btn-primary fw-bolder fs-1 px-2 py-3 my-3 text-center" style="width: 200px; height: 50px; margin-left: auto; margin-right: 50px;"
-            onclick="window.location.href='/map';">홈으로</button>
+    <button type="button" class="btn btn-primary fw-bolder fs-1 px-2 py-3 my-3 text-center"
+            style="width: 200px; height: 50px; margin-left: auto; margin-right: 50px;"
+            onclick="window.location.href='/map';">홈으로
+    </button>
 
 </div>
 <!--jQuery 기본 js파일-->
