@@ -11,7 +11,6 @@
     <!-- Popper JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
     <!--begin::Global Stylesheets Bundle(used by all pages)-->
     <link th:href="@{/css/profile/profile1.css}" rel="stylesheet" type="text/css"/>
     <link th:href="@{/css/profile/profile2.css}" rel="stylesheet" type="text/css"/>
@@ -96,17 +95,20 @@
                        style="font-size: 60px; margin-bottom: 15px;">버스킹 관리</p>
                     <hr style="width: 290px"/>
                 </div>
-  <div class="form needs-validation text-center" id="kt_login_signin_form" style="height: 700px; margin-top: 40px"novalidate>
+  <div class="form needs-validation text-center" id="kt_login_signin_form" style="height: 700px; margin-top: 40px"
+       novalidate>
                 <div style="color:#000000; padding:15px;  height: 550px;">
 <div class="search-container" style="margin-left:10%">
     <select id="searchColumn" style="width: 10%; height: 40px; border-radius: 5px;">
         <option value="name">버스킹 명</option>
         <option value="location">위치</option>
     </select>
-    <input type="text" id="searchKeyword" placeholder="검색어 입력" style="width: 30%; height: 40px; border-radius: 5px; border: 1px solid #cccad4">
+    <input type="text" id="searchKeyword" placeholder="검색어 입력"
+           style="width: 30%; height: 40px; border-radius: 5px; border: 1px solid #cccad4">
     <button class="btn btn-primary" id="searchBtn" style="width: 10%;">Search</button>
     <div style="float: right;">
-        <a th:href="@{/profile/artist/register}" class="text-gray-600 text-hover-primary" style="font-size: 20px; cursor:pointer; margin-left: -100%">버스킹 등록</a>
+        <a th:href="@{/profile/artist/register}" class="text-gray-600 text-hover-primary"
+           style="font-size: 20px; cursor:pointer; margin-left: -100%">버스킹 등록</a>
     </div>
 </div>
 
@@ -115,7 +117,8 @@
                         <div class="container mt-5">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <table class="table table-rounded table-striped border gy-5 gs-5" id="eventTable" style="width: 1100px;  background-color:#FFFFFF; ">
+                                    <table class="table table-rounded table-striped border gy-5 gs-5" id="eventTable"
+                                           style="width: 1100px;  background-color:#FFFFFF; ">
                                         <thead id="eventThead" style="position: sticky; top: 0">
                                         <tr class="fw-bold fs-6 text-gray-800 border-bottom border-gray-200">
                                             <th>버스킹 명</th>

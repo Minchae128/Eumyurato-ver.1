@@ -18,10 +18,8 @@ function getBuskingList(token, searchColumn = null, searchKeyword = null, page =
     }
 
     fetch(url, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`,
+        method: 'GET', headers: {
+            'Content-Type': 'application/json', 'Authorization': `Bearer ${token}`,
         },
     })
         .then((response) => {
@@ -50,7 +48,7 @@ function displayBuskingList(buskingList, currentPage) {
 
     buskingList.slice(start, end).forEach((busking) => {
         const buskingRow = buskingTbody.insertRow();
-        
+
         const startBuskingDate = new Date(busking.date);
 
         const deleteButton = document.createElement('button');
@@ -113,10 +111,8 @@ function deleteBusking(buskingId) {
     const url = `/profile/artist/management?id=${buskingId}`;
 
     fetch(url, {
-        method: 'DELETE',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`,
+        method: 'DELETE', headers: {
+            'Content-Type': 'application/json', 'Authorization': `Bearer ${token}`,
         },
     })
         .then((response) => {
@@ -139,7 +135,7 @@ function deleteBusking(buskingId) {
 const logoutBtn = document.getElementById("logoutBtn");
 logoutBtn.setAttribute("href", "/logout");
 logoutBtn.onclick = function () {
-    fetch('/logout', { method: 'POST', credentials: 'include' })
+    fetch('/logout', {method: 'POST', credentials: 'include'})
         .then(response => {
             if (response.ok) {
                 // 세션 스토리지에서 토큰 제거
