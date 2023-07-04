@@ -1,8 +1,13 @@
-# 🎶 음유라토(Eumyurato)
+# 🎼 음유라토(Eumyurato)
 <img src="https://github.com/Minchae128/Eumyurato/assets/122027566/933d6858-e8a0-434c-b618-edf2a9cf8fa3" width="250" height="250"/>
 
-🔗 서비스 URL : http://www.eumyurato.site/home <br/>
-🔗 시연 영상 : <br>
+> **<h2>지도를 통한 버스킹 및 소규모 공연 정보 제공 서비스 </h2>**
+
+- 멀티캠퍼스 백엔드 개발자 취업캠프 8회차 3조
+- 프로젝트 기간 : 2023.04.05 ~ 2023.05.11
+- 서비스 URL : http://www.eumyurato.site/home <br/>
+- 시연 영상 :
+  <br>
 
 ## ****🗂**** 개요
 
@@ -21,17 +26,9 @@
 ## ****👥**** 팀원 구성
 ![image](https://github.com/Minchae128/Eumyurato/assets/122027566/e3e5c1cd-d9c6-46f0-aa8e-2170305b2a6a)
 <br>
-<img src="https://github.com/Minchae128/Eumyurato/assets/122027566/a4e6c133-cd93-462a-be64-de1ebafbfe78" width = 90%/>
+<img src="https://github.com/Minchae128/Eumyurato/assets/122027566/a4e6c133-cd93-462a-be64-de1ebafbfe78" width = 80%/>
 
 <br>
-
----
-
-<br>
-
-## 🎼 음유라토(Eumyurato)
-![image](https://github.com/Minchae128/Eumyurato/assets/122027566/94f86a6a-b608-43e9-bc92-18d58c12a3a9)
-![image](https://github.com/Minchae128/Eumyurato/assets/122027566/ff014a10-58c1-4a21-be07-be4eacfa410f)
 
 ## ⚙️ 개발 환경
 
@@ -41,6 +38,8 @@
 #### [개발 환경]
 -   Intellij
 <img src="https://github.com/Minchae128/Eumyurato/assets/122027566/fc2e2f89-46e3-4bb9-ad3a-c7bb53699158" width= 80%/>
+
+<br>
 
 ## :pushpin: 주요기능
 - 버스킹, 소규모 공연, 지역축제에 대한 위치 서비스 제공
