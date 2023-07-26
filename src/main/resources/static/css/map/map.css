@@ -112,15 +112,15 @@ li {
 
 .categoryWrap > a {
     display: block;
-    width: 14%;
+    width: 16%;
     padding: 4px 0 7px;
     text-align: center;
     border-radius: 3px;
     color: #fff;
-    font: 14px/1.5 'Malgun Gothic', '돋움', dotum, sans-serif;
+    font: 15px/1.5 'Malgun Gothic', '돋움', dotum, sans-serif;
     letter-spacing: -1px;
     transition: background-color 0.3s ease-in-out;
-    margin: 6px 6px;
+    margin: 4px 4px;
 }
 
 /*.categoryWrap > a:hover {*/
