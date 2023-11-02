@@ -1,3 +1,39 @@
+function displayMembers(members, category, currentPage) {
+    const memberTbody = document.getElementById('memberTbody');
+    memberTbody.innerHTML = '';
+
+    const membersPerPage = 5;
+    const start = (currentPage - 1) * membersPerPage;
+    const end = start + membersPerPage;
+
+    members.slice(start, end).forEach((member) => {
+        const memberRow = memberTbody.insertRow();
+
+        // 기본 공통 컬럼
+
+        switch (category) {
+            case 'common':
+                // 일반 회원에 대한 데이터를 생성
+                memberRow.insertCell().textContent = member.id;
+                memberRow.insertCell().textContent = member.name;
+                memberRow.insertCell().textContent = member.nid;
+                memberRow.insertCell().textContent = member.sex;
+                memberRow.insertCell().textContent = member.birth;
+                memberRow.insertCell().textContent = member.email;
+                memberRow.insertCell().textContent = member.phone;
+                memberRow.insertCell().textContent = member.road;
+                memberRow.insertCell().textContent = member.genre;
+                break;
+
+            default:
+                break;
+        }
+    });
+
+    createPagination(members.length, membersPerPage, currentPage, category);
+}
+
+
 // 로그아웃
 const logoutBtn = document.getElementById("logoutBtn");
 logoutBtn.setAttribute("href", "/logout");
