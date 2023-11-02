@@ -60,8 +60,6 @@ function displayReservationList(reservationList, currentPage) {
         console.log(reservation);
         reservationRow.insertCell().textContent = reservation.id;
         reservationRow.insertCell().textContent = reservation.name;
-        reservationRow.insertCell().textContent = reservation.cid;
-        reservationRow.insertCell().textContent = reservation.payTime;
         reservationRow.insertCell().textContent = reservation.viewDate;
         reservationRow.insertCell().textContent = reservation.memberNum;
         reservationRow.insertCell().textContent = reservation.reservPay.toLocaleString() + '원';
